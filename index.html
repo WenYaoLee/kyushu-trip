@@ -360,7 +360,14 @@
                 font-size: 12px;
                 color: #2d4a2d;
             }
-
+            .details-body .info {
+                background: #eef5ff;
+                border-left: 3px solid #3b82f6;
+                padding: 6px 10px;
+                border-radius: 0 4px 4px 0;
+                font-size: 12px;
+                color: #1e3a5f;
+            }
             .details-body .warning {
                 background: #fef8e8;
                 border-left: 3px solid #d4a017;
@@ -421,6 +428,7 @@
             border-radius: 6px;
             padding: 14px;
             margin-top: 16px;
+            margin-bottom: 24px;
         }
 
             .meal-block h3 {
@@ -571,7 +579,16 @@
             border-top: 1px solid #c8d9c0;
             margin-top: 48px;
         }
-    </style>
+    
+        /* ── Day Tabs 3x2 ── */
+        .day-tab-wrapper{margin:0 0 24px;position:sticky;top:0;z-index:20;background:rgba(244,247,242,.96);padding:10px 0 12px}
+        .day-tab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+        .day-tab-btn{border:1px solid #c8d9c0;background:#fff;color:#2d6a2d;border-radius:6px;padding:10px 8px;font-size:13px;font-weight:800;cursor:pointer}
+        .day-tab-btn span{display:block;font-size:11px;margin-top:2px}
+        .day-tab-btn.active{background:#2d6a2d;color:#fff}
+        .day-tab-pane{display:none}.day-tab-pane.active{display:block}
+
+</style>
 </head>
 <body>
 
@@ -601,47 +618,42 @@
 
     <main>
 
+<div class="day-tab-wrapper">
+<div class="day-tab-grid">
+<button class="day-tab-btn active" data-day="1">Day 1</button>
+<button class="day-tab-btn" data-day="2">Day 2</button>
+<button class="day-tab-btn" data-day="3">Day 3</button>
+<button class="day-tab-btn" data-day="4">Day 4</button>
+<button class="day-tab-btn" data-day="5">Day 5</button>
+<button class="day-tab-btn" data-day="6">Day 6</button>
+</div></div>
+
+
         <!-- ═══════════════════════════════ DAY 1 ═══════════════════════════════ -->
-        <section class="day-section">
+        <div class="day-tab-pane active" id="day-tab-1"><section class="day-section">
             <div class="day-title">
                 <div class="day-num">01</div>
                 <div class="day-info">
                     <h2>台灣 → 福岡 → 熊本</h2>
-                    <div class="day-date">9月27日（日）· 抵達首日 / 取車移動日</div>
+                    <div class="day-date">9月27日（日）· 抵達首日</div>
                 </div>
             </div>
 
             <div class="activities-grid">
+
                 <article class="activity-card">
                     <div class="card-summary">
                         <span class="time">04:00 集合</span>
-                        <span class="name">桃園機場集合・出發準備</span>
+                        <span class="name">桃園機場集合</span>
                         <span class="tag">交通</span>
                     </div>
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p><span class="label">地點：</span>桃園國際機場</p>
-                            <p><span class="label">提醒：</span>虎航為早班機，建議務必預留報到、託運、安檢與出境時間。</p>
-                            <p class="tip">出門前確認護照、機票、國際駕照、台灣駕照正本、信用卡、eSIM / WiFi、行動電源。</p>
-                        </div>
-                    </details>
-                </article>
-
-                <article class="activity-card">
-                    <div class="card-summary">
-                        <span class="time">06:15–09:35</span>
-                        <span class="name">台灣虎航 IT240 桃園 → 福岡</span>
-                        <span class="tag">航班</span>
-                    </div>
-                    <details class="card-details">
-                        <summary>查看詳情</summary>
-                        <div class="details-body">
-                            <p><span class="label">航班：</span>IT 240</p>
-                            <p><span class="label">航空公司：</span>台灣虎航（Tigerair Taiwan）</p>
-                            <p><span class="label">起飛：</span>06:15 桃園國際機場</p>
-                            <p><span class="label">抵達：</span>09:35 福岡機場</p>
-                            <p class="tip">飛行時間約 2.5 小時。抵達後先入境、領行李，再前往租車店鋪。</p>
+                            <p class="hours">集合時間：04:00</p>
+                            <p><span class="label">航班：</span>IT 240 · 06:15 桃園起飛 → 09:35 福岡降落</p>
+                            <p><span class="label">航空公司：</span>台灣虎航 Tigerair Taiwan</p>
+                            <p class="tip">請確認護照、機票、國際駕照、台灣駕照正本、信用卡與網路設備。</p>
                         </div>
                     </details>
                 </article>
@@ -649,148 +661,219 @@
                 <article class="activity-card">
                     <div class="card-summary">
                         <span class="time">09:35–11:30</span>
-                        <span class="name">福岡機場入境・前往 ORIX 取車</span>
+                        <span class="name">福岡機場入境 + ORIX 取車</span>
                         <span class="tag drive">自駕</span>
                     </div>
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p><span class="label">流程：</span>入境審查 → 領行李 → 海關申報 → 前往 ORIX 租車店鋪辦理取車。</p>
+                            <p class="hours">停留時間：約 2 小時</p>
                             <p><span class="label">租車公司：</span>ORIX Rent a Car</p>
                             <p><span class="label">取車店鋪：</span>福岡機場航廈東店</p>
-                            <p><span class="label">電話：</span><a href="tel:0926924010">092-692-4010</a></p>
-                            <p><span class="label">預約取車時間：</span>2026/09/27（日）11:30</p>
-                            <p><span class="label">預約還車時間：</span>2026/10/02（五）16:00</p>
-                            <a class="booking-btn" href="https://www.google.com/maps/search/?api=1&query=ORIX%20Rent%20a%20Car%20福岡機場航廈東店" target="_blank">Google Maps</a>
-                            <p class="tip">取車時確認 ETC 卡、保險內容、車身刮傷、油量、導航設定與還車方式。</p>
-                            <p class="warning">日本為右駕，剛出發時先慢慢適應。請確認已備好國際駕照 + 台灣駕照正本。</p>
+                            <p><span class="label">電話：</span>092-692-4010</p>
+                            <p><span class="label">取車時間：</span>2026/09/27（日）11:30</p>
+                            <p><span class="label">還車時間：</span>2026/10/02（五）16:00</p>
+
+                            <a href="https://maps.google.com/?q=ORIX+Rent+A+Car+Fukuoka+Airport+Terminal+East" target="_blank" class="booking-btn">
+                                Google Maps
+                            </a>
+
+                            <p class="tip">入境、領行李後前往 ORIX 辦理取車。若時間充裕，可在機場 Lawson (A2出口) 簡單買午餐或飲料。</p>
+                            <p class="info">A2出口搭乘國際線→國內線巴士前往福岡機場航廈東店。</p>
+                            <p class="warning">取車時請確認 ETC 卡、保險內容、車身刮傷、油量與導航設定。</p>
                         </div>
                     </details>
                 </article>
 
                 <div class="drive-card">
                     <div class="drive-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="3" width="15" height="13" />
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                            <circle cx="5.5" cy="18.5" r="2.5" />
+                            <circle cx="18.5" cy="18.5" r="2.5" />
+                        </svg>
                     </div>
                     <div>
-                        <p style="font-weight:700">11:30 出發 福岡 → 廣川 SA → 熊本 約 2 小時</p>
-                        <p class="drive-time">走九州自動車道，中途於廣川 SA（下り）休息午餐，抵達熊本後先處理入住或停車。</p>
+                        <p style="font-weight:700">11:30–12:30｜福岡機場 → 廣川SA（下り）</p>
+                        <p class="drive-time">車程約 60 分鐘，取車後先往熊本方向前進</p>
                     </div>
                 </div>
 
                 <article class="activity-card">
                     <div class="card-summary">
                         <span class="time">12:30–13:15</span>
-                        <span class="name">廣川 SA（下り）休息站午餐</span>
+                        <span class="name">廣川SA（下り）休息站午餐</span>
                         <span class="tag food">午餐 / 休息</span>
                     </div>
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p><span class="label">位置：</span>九州自動車道 廣川 SA（下り）· 福岡県八女郡広川町</p>
-                            <p>高速公路服務區，適合第一天剛開始自駕時休息、用餐、補水與上廁所。</p>
-                            <p><span class="label">餐點候選：</span>拉麵、烏龍麵、定食、咖哩飯、炸雞、便利商店輕食。</p>
-                            <p class="tip">第一天以適應日本右駕為主，不建議把行程排太緊。</p>
-                            <a class="booking-btn" href="https://www.google.com/maps/search/?api=1&query=広川サービスエリア%20下り" target="_blank">Google Maps</a>
+                            <p class="hours">停留時間：約 45 分鐘</p>
+                            <p><span class="label">名稱：</span>Hirokawa Service Area (down)／広川SA（下り）</p>
+                            <p><span class="label">地點：</span>九州自動車道 下行方向</p>
+
+                            <a href="https://maps.google.com/?q=Hirokawa+Service+Area+Down" target="_blank" class="booking-btn">
+                                Google Maps
+                            </a>
+
+                            <p>租車後直接往熊本方向前進，中途在廣川SA（下り）稍作休息並吃午餐。</p>
+                            <p><span class="label">建議：</span>拉麵、烏龍麵、定食、炸雞、便利商店補給。</p>
+                            <p class="tip">第一天下飛機後不急著趕路，可以在這裡上廁所、補充飲料並稍微活動筋骨。</p>
+                            <p class="info">休息後繼續前往熊本城景觀舒適公寓飯店。</p>
                         </div>
                     </details>
                 </article>
 
+                <div class="drive-card">
+                    <div class="drive-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="3" width="15" height="13" />
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 8" />
+                            <circle cx="5.5" cy="18.5" r="2.5" />
+                            <circle cx="18.5" cy="18.5" r="2.5" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p style="font-weight:700">13:15–14:00｜廣川SA（下り） → 熊本住宿</p>
+                        <p class="drive-time">車程約 45 分鐘，抵達後視情況辦理提早 Check In</p>
+                    </div>
+                </div>
+
                 <article class="activity-card">
                     <div class="card-summary">
-                        <span class="time">14:00 前後</span>
-                        <span class="name">熊本城景觀舒適公寓飯店 Check In 嘗試</span>
+                        <span class="time">13:30–14:00</span>
+                        <span class="name">熊本城景觀舒適公寓飯店</span>
                         <span class="tag hotel">住宿</span>
                     </div>
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p><span class="label">住宿：</span>熊本城景觀舒適公寓飯店</p>
-                            <p><span class="label">住宿期間：</span>9/27、9/28、9/29，共 3 晚</p>
-                            <p>抵達熊本後先嘗試 Check In 或確認寄放行李方式。</p>
-                            <p class="tip">若可提早入住，先放行李再前往熊本城；若尚未開放入住，可先寄放行李或暫放車內。</p>
+                            <p class="hours">停留時間：約 30 分鐘</p>
+                            <p><span class="label">住宿期間：</span>9/27～9/30，共 3 晚</p>
+
+                            <a href="https://maps.google.com/?q=Comfort+Apartment+Hotel+Kumamoto+Castle+View" target="_blank" class="booking-btn">
+                                Google Maps
+                            </a>
+
+                            <p class="tip">如果可以提早 Check In，就先放行李；如果不行，行李先放車上，再前往熊本城。</p>
+                            <p class="warning">熊本城迎賓武將隊預計 14:30，若要觀看請注意抵達時間。</p>
                         </div>
                     </details>
                 </article>
 
                 <article class="activity-card">
                     <div class="card-summary">
-                        <span class="time">14:30–16:30</span>
-                        <span class="name">熊本城 + 迎賓武將隊</span>
+                        <span class="time">14:00–16:00</span>
+                        <span class="name">熊本城 + 城彩苑</span>
                         <span class="tag">景點</span>
                     </div>
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p class="hours">開放時間：09:00–17:00（最終入場 16:00）</p>
-                            <p><span class="label">門票：</span>成人 ¥800／中學生 ¥300／小學生 ¥200</p>
-                            <p><span class="label">地址：</span>熊本市中央区本丸1-1</p>
-                            <p><span class="label">官網：</span><a href="https://kumamoto-castle.jp" target="_blank">kumamoto-castle.jp</a></p>
-                            <p>日本三大名城之一。2016 年熊本地震後持續修復中，目前天守閣已重新開放。</p>
-                            <p><span class="label">參觀重點：</span>天守閣、本丸御殿周邊、熊本城修復展示、加藤神社、城郭景觀。</p>
-                            <p class="tip"><span class="label">迎賓武將隊：</span>若當日有熊本城おもてなし武将隊，可安排觀看、互動與合照。詳情：<a href="https://kumamoto-omotenashi.com/schedule/" target="_blank">kumamoto-omotenashi.com/schedule</a></p>
-                            <p class="warning">16:00 為最終入場，若取車或路程延誤，熊本城行程需優先確認入場時間。</p>
-                            <a class="booking-btn" href="https://www.google.com/maps/search/?api=1&query=熊本城" target="_blank">Google Maps</a>
+                            <p class="hours">停留時間：約 2 小時</p>
+                            <p><span class="label">熊本城地址：</span>熊本市中央区本丸1-1</p>
+                            <p><span class="label">開放時間：</span>09:00–17:00，最終入場 16:00</p>
+                            <p><span class="label">門票：</span>成人 ¥800</p>
+                            <p><span class="label">官方網站：</span><a href="https://kumamoto-castle.jp" target="_blank">kumamoto-castle.jp</a></p>
+
+                            <a href="https://maps.google.com/?q=Kumamoto+Castle" target="_blank" class="booking-btn">
+                                熊本城 Google Maps
+                            </a>
+
+                            <a href="https://maps.google.com/?q=Josaien+Kumamoto" target="_blank" class="booking-btn">
+                                城彩苑 Google Maps
+                            </a>
+
+                            <p>熊本城是日本三大名城之一，2016 年地震後持續修復，目前天守閣已重新開放。</p>
+
+                            <p class="tip">
+                                熊本城迎賓武將隊預計 14:30 演出，出發前請確認
+                                <a href="https://kumamoto-omotenashi.com/schedule/" target="_blank">
+                                    熊本城おもてなし武将隊時程
+                                </a>。
+                            </p>
+
+                            <p class="warning">熊本城 16:00 最終入場，請注意時間。</p>
                         </div>
                     </details>
                 </article>
 
                 <article class="activity-card">
                     <div class="card-summary">
-                        <span class="time">16:30–17:30</span>
-                        <span class="name">城彩苑散步・伴手禮補給</span>
-                        <span class="tag shop">購物</span>
+                        <span class="time">16:00–17:00</span>
+                        <span class="name">飯店 Check In + 休息</span>
+                        <span class="tag hotel">住宿</span>
                     </div>
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p>城彩苑位於熊本城旁，是結合餐飲、土產與歷史文化體驗的觀光設施。</p>
-                            <p><span class="label">推薦：</span>熊本熊周邊商品、熊本限定伴手禮、馬肉相關商品、地方特色點心。</p>
-                            <p class="tip">適合第一天先買少量伴手禮，也可以邊走邊休息。</p>
-                            <a class="booking-btn" href="https://www.google.com/maps/search/?api=1&query=桜の馬場%20城彩苑" target="_blank">Google Maps</a>
+                            <p class="hours">停留時間：約 1 小時</p>
+                            <p>回飯店正式辦理 Check In，整理行李並稍作休息。</p>
+                            <p class="tip">第一天移動時間較長，建議利用這段時間喘口氣，再出門逛商店街。</p>
                         </div>
                     </details>
                 </article>
 
                 <article class="activity-card">
                     <div class="card-summary">
-                        <span class="time">17:30–20:00</span>
+                        <span class="time">17:00 起</span>
                         <span class="name">上通・下通商店街 + 晚餐</span>
                         <span class="tag shop">購物 / 餐飲</span>
                     </div>
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p>熊本最熱鬧的拱廊商店街，全長超過 1 公里，適合晚餐、藥妝、便利商店補給與自由購物。</p>
-                            <p><span class="label">可安排：</span>上通、下通、藥妝店、唐吉訶德、甜點店巡禮。</p>
-                            <p class="tip">隔天 Day 2 需要 06:30 出發前往高千穗，建議不要太晚回飯店。</p>
-                            <a class="booking-btn" href="https://www.google.com/maps/search/?api=1&query=熊本%20下通商店街" target="_blank">Google Maps</a>
+                            <p class="hours">自由活動</p>
+
+                            <a href="https://maps.google.com/?q=Shimotori+Shopping+Street+Kumamoto" target="_blank" class="booking-btn">
+                                下通商店街 Google Maps
+                            </a>
+
+                            <a href="https://maps.google.com/?q=Kamitori+Shopping+Street+Kumamoto" target="_blank" class="booking-btn">
+                                上通商店街 Google Maps
+                            </a>
+
+                            <p>熊本最熱鬧的拱廊商店街，適合逛藥妝、買伴手禮、吃晚餐。</p>
+                            <p class="tip">隔天 06:30 出發前往高千穗，建議晚餐後早點回飯店休息。</p>
                         </div>
                     </details>
                 </article>
+
             </div>
 
             <div class="meal-block">
                 <h3>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" /></svg>
-                    晚餐推薦 — 熊本必吃
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                        <line x1="6" y1="1" x2="6" y2="4" />
+                        <line x1="10" y1="1" x2="10" y2="4" />
+                        <line x1="14" y1="1" x2="14" y2="4" />
+                    </svg>
+                    晚餐推薦 — 熊本市區
                 </h3>
+
                 <div class="restaurant-item">
                     <div class="r-name">濃厚鶏白湯 いわお</div>
                     <div class="r-meta">熊本 下通周邊 · 雞白湯拉麵 · 每人約 ¥1,000–1,500</div>
-                    <div class="r-tips">以濃郁雞骨熬製的白湯拉麵為招牌，湯底乳白香醇、雞香四溢，口感比豬骨拉麵更加溫潤。推薦：特製鶏白湯ラーメン、半熟煮玉子追加。</div>
-                    <div class="r-note">此為您指定的店家，詳細營業時間請出發前至 Google Maps 確認。</div>
-                    <a class="booking-btn" href="https://www.google.com/maps/search/?api=1&query=濃厚鶏白湯%20いわお%20熊本" target="_blank">Google Maps</a>
+                    <div class="r-tips">以濃郁雞骨熬製的白湯拉麵為招牌，湯底乳白香醇。推薦特製鶏白湯ラーメン、半熟煮玉子。</div>
+                    <a href="https://maps.google.com/?q=濃厚鶏白湯いわお熊本" target="_blank" class="booking-btn">
+                        Google Maps
+                    </a>
+                    <div class="r-note">出發前請再用 Google Maps 確認營業時間。</div>
                 </div>
+
                 <div class="restaurant-item">
                     <div class="r-name">新時代 熊本下通り 2号店</div>
                     <div class="r-meta">熊本 下通商店街 · 串燒居酒屋 · 每人約 ¥2,000–3,500</div>
-                    <div class="r-tips">「新時代」是人氣平價串燒居酒屋，適合逛完商店街後輕鬆吃飯喝一杯。推薦：伝串、雞皮串、つくね、ねぎま、生啤酒。</div>
-                    <div class="r-note">居酒屋通常從傍晚開始營業，詳細資訊請至官網或 Google Maps 確認。</div>
-                    <a class="booking-btn" href="https://www.google.com/maps/search/?api=1&query=新時代%20熊本下通り%202号店" target="_blank">Google Maps</a>
+                    <div class="r-tips">平價串燒居酒屋，適合第一天晚上輕鬆吃飯。推薦傳串、雞皮串、つくね、生啤酒。</div>
+                    <a href="https://maps.google.com/?q=新時代熊本下通り2号店" target="_blank" class="booking-btn">
+                        Google Maps
+                    </a>
+                    <div class="r-note">若大家太累，也可以改成拉麵或便利商店簡單解決。</div>
                 </div>
             </div>
-
             <div class="meal-block">
                 <h3>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" /></svg>
@@ -805,148 +888,352 @@
                     <div class="r-tips">Day 2 需 06:30 出發前往高千穗，今晚建議 20:00 後回飯店整理行李、充電、準備飲用水，早點休息。</div>
                 </div>
             </div>
-        </section>
+        </section></div>
 
 
         <!-- ═══════════════════════════════ DAY 2 ═══════════════════════════════ -->
-        <section class="day-section">
+        <div class="day-tab-pane" id="day-tab-2"><section class="day-section">
             <div class="day-title">
                 <div class="day-num">02</div>
                 <div class="day-info">
                     <h2>神話之鄉 高千穗</h2>
-                    <div class="day-date">9月28日（日）· 超早出發日</div>
+                    <div class="day-date">9月28日（一）· 高千穗峽划船日</div>
                 </div>
             </div>
 
             <div class="activities-grid">
+
                 <div class="drive-card">
                     <div class="drive-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="3" width="15" height="13" />
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                            <circle cx="5.5" cy="18.5" r="2.5" />
+                            <circle cx="18.5" cy="18.5" r="2.5" />
+                        </svg>
                     </div>
                     <div>
-                        <p style="font-weight:700">06:30 出發 熊本 → 高千穗 約 2 小時</p>
-                        <p class="drive-time">走宮崎自動車道方向，約 90km</p>
+                        <p style="font-weight:700">06:30 出發 熊本 → 高千穗</p>
+                        <p class="drive-time">車程約 2 小時</p>
                     </div>
                 </div>
 
                 <article class="activity-card">
                     <div class="card-summary">
-                        <span class="time">08:30–10:00</span>
+                        <span class="time">08:30–13:00</span>
+                        <span class="name">高千穗峽划船 + 散步 + 午餐</span>
+                        <span class="tag">景點</span>
+                    </div>
+
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+
+                        <div class="details-body">
+
+                            <p class="hours">建議停留時間：約 4.5 小時</p>
+
+                            <p>
+                                <span class="label">地址：</span>
+                                宮崎県西臼杵郡高千穂町向山
+                            </p>
+
+                            <p>
+                                <span class="label">官方網站：</span>
+                                <a href="https://takachiho-kanko.info/" target="_blank">
+                                    takachiho-kanko.info
+                                </a>
+                            </p>
+
+                            <a href="https://maps.google.com/?q=Takachiho+Gorge" target="_blank" class="booking-btn">
+                                Google Maps
+                            </a>
+
+                            <p>
+                                高千穗峽是九州最著名的自然景觀之一，
+                                可以從河面近距離欣賞真名井瀑布與壯觀峽谷。
+                            </p>
+
+                            <p>
+                                <span class="label">重點安排：</span>
+                                划船、散步、拍照、午餐
+                            </p>
+
+                            <p class="warning">
+                                划船預約：
+                                <a href="https://takachiho-kanko.info/boat/" target="_blank">
+                                    9/14 上午 08:00 開放預約，請準時搶票
+                                </a>
+                            </p>
+
+                            <p class="tip">
+                                建議提早抵達停車場，
+                                上午光線較適合拍攝真名井瀑布。
+                            </p>
+
+                        </div>
+                    </details>
+                </article>
+
+                <div class="drive-card">
+                    <div class="drive-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="3" width="15" height="13" />
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                            <circle cx="5.5" cy="18.5" r="2.5" />
+                            <circle cx="18.5" cy="18.5" r="2.5" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p style="font-weight:700">高千穗峽 → 高千穗神社</p>
+                        <p class="drive-time">車程約 5 分鐘</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">13:00–13:45</span>
                         <span class="name">高千穗神社</span>
                         <span class="tag">神社</span>
                     </div>
-                    <details class="card-details">
-                        <summary>查看詳情</summary>
-                        <div class="details-body">
-                            <p class="hours">開放時間：全年無休 · 參拜自由</p>
-                            <p><span class="label">門票：</span>免費（夜神樂表演 ¥1,000）</p>
-                            <p>建立約1,900年前的古社，高千穗八十八社總社。境內有樹齢800年的「秩父杉」和帶來良緣的「夫婦杉」。每晚神樂殿都有高千穗神樂表演</p>
-                            <p class="tip">「夫婦杉」據說兩人牽手繞樹一圈可祈求良緣，別忘了繞！</p>
-                        </div>
-                    </details>
-                </article>
 
-                <article class="activity-card">
-                    <div class="card-summary">
-                        <span class="time">10:00–12:00</span>
-                        <span class="name">天岩戸神社 + 天安河原</span>
-                        <span class="tag">能量聖地</span>
-                    </div>
                     <details class="card-details">
                         <summary>查看詳情</summary>
-                        <div class="details-body">
-                            <p class="hours">開放時間：08:30–17:30 · 全年無休</p>
-                            <p><span class="label">門票：</span>免費</p>
-                            <p><span class="label">地址：</span>宮崎県西臼杵郡高千穗町岩戸1073-1</p>
-                            <p><span class="label">電話：</span>0982-74-8239</p>
-                            <p><span class="label">官網：</span><a href="http://amanoiwato-jinja.jp" target="_blank">amanoiwato-jinja.jp</a></p>
-                            <p>供奉天照大神的古社，分西本宮與東本宮。西本宮的洞窟為天照大神藏身之處（御神體）。附近的天安河原是八百萬神明聚集商議的大洞窟</p>
-                            <p class="tip">在天安河原堆積石塔許願是傳統習俗，充滿神秘氣息；9月底有秋祭，可能碰上「天岩戸神樂」表演</p>
-                            <div class="venue-notice" style="background:#f0f7ee;border-left:3px solid #2d6a2d;padding:8px 10px;border-radius:0 4px 4px 0;margin-top:6px;">
-                                <p style="font-size:12px;font-weight:700;color:#1a2e1a;margin-bottom:4px;">參拜注意事項</p>
-                                <p style="font-size:12px;color:#2d4a2d;">・洞窟內禁止拍照<br>・請保持肅靜，勿大聲喧嘩<br>・天安河原步行約10分鐘，請穿防滑鞋</p>
-                            </div>
-                        </div>
-                    </details>
-                </article>
 
-                <article class="activity-card">
-                    <div class="card-summary">
-                        <span class="time">12:00–13:45</span>
-                        <span class="name">高千穗峽 + 午餐</span>
-                        <span class="tag food">午餐 / 景點</span>
-                    </div>
-                    <details class="card-details">
-                        <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p>高千穗峽可乘小船欣賞真名井瀑布，是九州著名峽谷景觀</p>
-                            <p class="tip">若時間允許建議划船遊覽（約30分鐘，請提前排隊租船）</p>
-                            <p>峽谷附近有多家食堂，可品嘗在地定食料理</p>
-                        </div>
-                    </details>
-                </article>
 
-                <article class="activity-card">
-                    <div class="card-summary">
-                        <span class="time">13:45–14:35</span>
-                        <span class="name">白川水源</span>
-                        <span class="tag">自然景觀</span>
-                    </div>
-                    <details class="card-details">
-                        <summary>查看詳情</summary>
-                        <div class="details-body">
-                            <p class="hours">開放時間：約 08:30–17:00</p>
-                            <p><span class="label">地點：</span>阿蘇郡南阿蘇村白川</p>
-                            <p>每分鐘湧出60噸以上的清澈湧泉，是日本名水百選之一。泉水清澈見底，藍色砂石隨水波搖曳，絕景！</p>
-                            <p class="tip">可購買白川水源的礦泉水（附近販賣）帶回品嘗，也可用容器現場取水</p>
-                            <p class="warning">停留約45分鐘，注意返回行程時間</p>
+                            <p class="hours">停留時間：約 45 分鐘</p>
+
+                            <p>
+                                <span class="label">地址：</span>
+                                宮崎県西臼杵郡高千穂町三田井1037
+                            </p>
+
+                            <p>
+                                <span class="label">電話：</span>
+                                0982-72-2413
+                            </p>
+
+                            <p>
+                                <span class="label">官方網站：</span>
+                                <a href="https://takachiho-jinja.jp/" target="_blank">
+                                    takachiho-jinja.jp
+                                </a>
+                            </p>
+
+                            <a href="https://maps.google.com/?q=Takachiho+Shrine" target="_blank" class="booking-btn">
+                                Google Maps
+                            </a>
+
+                            <p>
+                                高千穗地區最具代表性的神社，
+                                擁有悠久歷史與濃厚神話色彩。
+                            </p>
+
+                            <p class="tip">
+                                可參觀夫婦杉，
+                                傳說牽手繞行三圈可祈求良緣與家庭幸福。
+                            </p>
+
                         </div>
                     </details>
                 </article>
 
                 <div class="drive-card">
                     <div class="drive-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="3" width="15" height="13" />
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                            <circle cx="5.5" cy="18.5" r="2.5" />
+                            <circle cx="18.5" cy="18.5" r="2.5" />
+                        </svg>
                     </div>
                     <div>
-                        <p style="font-weight:700">白川水源 → 熊本城景觀舒適公寓飯店 約 70 分鐘</p>
-                        <p class="drive-time">返回住宿，隔天 08:00 出發</p>
+                        <p style="font-weight:700">高千穗神社 → 白川水源</p>
+                        <p class="drive-time">車程約 50 分鐘</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">14:35–15:20</span>
+                        <span class="name">白川水源</span>
+                        <span class="tag">自然景觀</span>
+                    </div>
+
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+
+                        <div class="details-body">
+
+                            <p class="hours">停留時間：約 45 分鐘</p>
+
+                            <p>
+                                <span class="label">地址：</span>
+                                熊本県阿蘇郡南阿蘇村白川2040
+                            </p>
+
+                            <p>
+                                <span class="label">官方網站：</span>
+                                <a href="https://www.minamiasokanko.jp/" target="_blank">
+                                    minamiasokanko.jp
+                                </a>
+                            </p>
+
+                            <a href="https://maps.google.com/?q=Shirakawa+Suigen" target="_blank" class="booking-btn">
+                                Google Maps
+                            </a>
+
+                            <p>
+                                日本名水百選之一，
+                                每分鐘湧出超過 60 噸天然泉水。
+                            </p>
+
+                            <p class="tip">
+                                建議攜帶空瓶裝取天然湧泉，
+                                現場泉水清澈見底，非常適合拍照。
+                            </p>
+
+                        </div>
+                    </details>
+                </article>
+
+                <div class="drive-card">
+                    <div class="drive-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="3" width="15" height="13" />
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                            <circle cx="5.5" cy="18.5" r="2.5" />
+                            <circle cx="18.5" cy="18.5" r="2.5" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p style="font-weight:700">白川水源 → 熊本住宿</p>
+                        <p class="drive-time">車程約 70 分鐘</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">16:30 起</span>
+                        <span class="name">上通・下通商店街 + 晚餐</span>
+                        <span class="tag shop">自由活動</span>
+                    </div>
+
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+
+                        <div class="details-body">
+
+                            <p>
+                                返回熊本市區後自由活動，
+                                可安排商店街散步與晚餐。
+                            </p>
+
+                            <p class="tip">
+                                隔天 Day3 預計 08:00 出發前往阿蘇，
+                                建議早點休息。
+                            </p>
+
+                        </div>
+                    </details>
+                </article>
+            </div>
+            <div class="meal-block">
+                <h3>
+                    🍽️ 晚餐推薦 — 熊本市區自由選擇
+                </h3>
+
+                <div class="restaurant-item">
+                    <div class="r-name">
+                        上通・下通商店街周邊餐廳
+                    </div>
+
+                    <div class="r-meta">
+                        熊本市中心 · 晚餐自由選擇 · 每人約 ¥1,000～3,500
+                    </div>
+
+                    <a href="https://maps.google.com/?q=Shimotori+Shopping+Street+Kumamoto"
+                       target="_blank"
+                       class="booking-btn">
+                        Google Maps
+                    </a>
+
+                    <div class="r-tips">
+                        可依當天體力與心情選擇：
+                        拉麵、燒肉、居酒屋、定食、咖哩飯。
+                    </div>
+
+                    <div class="r-note">
+                        Day 2 車程較長，
+                        建議不要安排太正式的餐廳，
+                        保留彈性會比較舒服。
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="r-name">
+                        明日補給採買
+                    </div>
+
+                    <div class="r-meta">
+                        Day 3 阿蘇行程準備
+                    </div>
+
+                    <div class="r-tips">
+                        建議補充：
+                        飲用水、早餐、咖啡、車上零食。
+                    </div>
+
+                    <div class="r-note">
+                        阿蘇山區便利商店較少，
+                        建議今晚先準備完成。
                     </div>
                 </div>
             </div>
-
             <div class="meal-block">
                 <h3>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" /></svg>
-                    晚餐推薦 — 商店街美食
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" /></svg>
+                    Day 2 備註
                 </h3>
                 <div class="restaurant-item">
-                    <div class="r-name">熊本牛 / 阿蘇高原牛焼肉</div>
-                    <div class="r-meta">上通商店街周邊 · 每人約 ¥3,000–5,000</div>
-                    <div class="r-tips">推薦：熊本産和牛，配阿蘇大蒜醬，CP值高</div>
-                    <div class="r-note">請於出發前確認營業狀態 (Please verify before visiting)</div>
+                    <div class="r-name">今日重點</div>
+                    <div class="r-tips">
+                        高千穗峽划船為本次九州行的重要行程之一，
+                        建議依預約時間提早抵達。
+                        上午以高千穗峽划船、散步及午餐為主，
+                        下午依序前往高千穗神社與白川水源，
+                        整體行程較為悠閒，適合慢慢拍照與欣賞自然景觀。
+                    </div>
+                </div>
+                <div class="restaurant-item">
+                    <div class="r-name">隔日提醒</div>
+                    <div class="r-tips">
+                        Day 3 預計 08:00 出發前往阿蘇地區。
+                        今晚建議先補充飲用水、整理相機及行動電源，
+                        並確認隔日天氣與阿蘇火山開放狀況，
+                        以便隔天順利進行阿蘇行程。
+                    </div>
                 </div>
             </div>
-        </section>
+        </section></div>
 
         <!-- ═══════════════════════════════ DAY 3 ═══════════════════════════════ -->
-        <section class="day-section">
+        <div class="day-tab-pane" id="day-tab-3"><section class="day-section">
             <div class="day-title">
                 <div class="day-num">03</div>
                 <div class="day-info">
-                    <h2>火山大地 阿蘇</h2>
-                    <div class="day-date">9月29日（一）· 火山巡禮日</div>
+                    <h2>阿蘇火山與秘境神社巡禮</h2>
+                    <div class="day-date">9月29日（二）· 阿蘇絕景日</div>
                 </div>
             </div>
 
             <div class="activities-grid">
+
                 <div class="drive-card">
-                    <div class="drive-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
-                    </div>
+                    <div class="drive-icon">🚗</div>
                     <div>
-                        <p style="font-weight:700">08:00 出發 → 米塚 約 70 分鐘</p>
-                        <p class="drive-time">沿阿蘇パノラマライン北行</p>
+                        <p style="font-weight:700">08:00–09:10｜熊本住宿 → 米塚</p>
+                        <p class="drive-time">車程約 70 分鐘</p>
                     </div>
                 </div>
 
@@ -954,34 +1241,51 @@
                     <div class="card-summary">
                         <span class="time">09:10–09:20</span>
                         <span class="name">米塚</span>
-                        <span class="tag">打卡</span>
+                        <span class="tag">拍照</span>
                     </div>
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p>圓錐形的休火山，形如一堆白米，傳說為建磐龍命供奉神明的米堆化成。路邊停車眺望拍照即可</p>
-                            <p class="tip">9月底草原轉黃，景色特別迷人，是少見的壯觀地形</p>
-                            <p class="warning">禁止入內攀登</p>
+                            <p class="hours">停留時間：約 10 分鐘</p>
+                            <a href="https://maps.google.com/?q=米塚" target="_blank" class="booking-btn">Google Maps</a>
+                            <p>阿蘇地區代表性的火山錐地形，外型像倒扣的飯糰。</p>
+                            <p class="tip">此點以拍照為主，不建議停留太久。</p>
                         </div>
                     </details>
                 </article>
 
+                <div class="drive-card">
+                    <div class="drive-icon">🚗</div>
+                    <div>
+                        <p style="font-weight:700">09:20–09:35｜米塚 → 草千里</p>
+                        <p class="drive-time">車程約 15 分鐘</p>
+                    </div>
+                </div>
+
                 <article class="activity-card">
                     <div class="card-summary">
                         <span class="time">09:35–10:35</span>
-                        <span class="name">草千里ヶ浜</span>
+                        <span class="name">草千里</span>
                         <span class="tag">自然景觀</span>
                     </div>
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p class="hours">全天開放 · 停車場收費</p>
-                            <p><span class="label">地點：</span>阿蘇市草千里浜</p>
-                            <p>直徑約1公里的草原，中央有兩座圓形小湖，馬匹在草原上自由漫步，煙霧繚繞的中岳火口就在近前，充滿壓迫感的壯觀美景</p>
-                            <p class="tip">可在此乘馬體驗（現場詢問），約 ¥1,500–2,000/人。阿蘇中岳登山道開閉受火山活動影響，請現場查詢是否開放</p>
+                            <p class="hours">停留時間：約 1 小時</p>
+                            <a href="https://maps.google.com/?q=草千里ヶ浜" target="_blank" class="booking-btn">Google Maps</a>
+                            <p>阿蘇最具代表性的草原景觀，可欣賞廣闊草原、火山口湖與阿蘇山景。</p>
+                            <p class="tip">山區風勢較強，建議攜帶薄外套。</p>
                         </div>
                     </details>
                 </article>
+
+                <div class="drive-card">
+                    <div class="drive-icon">🚗</div>
+                    <div>
+                        <p style="font-weight:700">10:35–11:10｜草千里 → 上色見熊野座神社</p>
+                        <p class="drive-time">車程約 35 分鐘</p>
+                    </div>
+                </div>
 
                 <article class="activity-card">
                     <div class="card-summary">
@@ -992,33 +1296,46 @@
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p class="hours">開放時間：全年無休 · 參拜自由</p>
-                            <p><span class="label">門票：</span>免費</p>
-                            <p><span class="label">地址：</span>阿蘇郡高森町色見2619</p>
-                            <p>約100級苔蘚覆蓋的石燈籠參道，形成神秘的綠色隧道。電影《螢火蟲之墓》取景地之一，被譽為熊本最神秘的能量景點</p>
-                            <p class="tip">傍晚前往最為夢幻，陽光穿透杉林形成光柱。9月氣溫涼爽，適合徒步</p>
-                            <div style="background:#f0f7ee;border-left:3px solid #2d6a2d;padding:8px 10px;border-radius:0 4px 4px 0;margin-top:6px;">
-                                <p style="font-size:12px;color:#2d4a2d;">穿著建議：請穿防滑運動鞋，參道為濕滑石板</p>
-                            </div>
+                            <p class="hours">停留時間：約 1 小時</p>
+                            <a href="https://maps.google.com/?q=上色見熊野座神社" target="_blank" class="booking-btn">Google Maps</a>
+                            <p>阿蘇熱門秘境神社，長長石階、鳥居參道與森林氛圍非常有特色。</p>
+                            <p class="tip">石階較多，請穿著舒適好走的鞋子。</p>
                         </div>
                     </details>
                 </article>
 
+                <div class="drive-card">
+                    <div class="drive-icon">🚗</div>
+                    <div>
+                        <p style="font-weight:700">12:10–12:40｜上色見熊野座神社 → 阿蘇火車站</p>
+                        <p class="drive-time">車程約 30 分鐘</p>
+                    </div>
+                </div>
+
                 <article class="activity-card">
                     <div class="card-summary">
-                        <span class="time">12:40–14:00</span>
-                        <span class="name">阿蘇站周邊午餐</span>
-                        <span class="tag food">午餐</span>
+                        <span class="time">12:40–12:55</span>
+                        <span class="name">阿蘇火車站周邊</span>
+                        <span class="tag food">午餐準備</span>
                     </div>
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p>阿蘇站附近有多家定食・咖哩餐廳</p>
-                            <p class="tip">推薦：阿蘇牛咖哩飯、在地蔬菜定食。阿蘇牛品質極佳，可購買當地漢堡排便當</p>
-                            <p class="warning">週一部分店家可能公休，請提前確認</p>
+                            <p class="hours">停留時間：約 15 分鐘</p>
+                            <a href="https://maps.google.com/?q=阿蘇駅" target="_blank" class="booking-btn">Google Maps</a>
+                            <p>抵達阿蘇站周邊後，依當天排隊狀況決定午餐餐廳。</p>
+                            <p class="tip">若目標餐廳排隊過久，建議改吃備案，避免壓縮大觀峰時間。</p>
                         </div>
                     </details>
                 </article>
+
+                <div class="drive-card">
+                    <div class="drive-icon">🚗</div>
+                    <div>
+                        <p style="font-weight:700">14:00–14:30｜午餐 → 大觀峰</p>
+                        <p class="drive-time">車程約 30 分鐘</p>
+                    </div>
+                </div>
 
                 <article class="activity-card">
                     <div class="card-summary">
@@ -1029,44 +1346,152 @@
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p class="hours">全天開放 · 停車場免費</p>
-                            <p><span class="label">海拔：</span>936公尺</p>
-                            <p>阿蘇外輪山最北端的展望台，可360度俯瞰阿蘇五岳和外輪山全景。秋天偶爾可見雲海從山谷間升起，是九州最壯觀的展望地點之一</p>
-                            <p class="tip">傍晚前後光線最美，9月29日約18:00日落，建議把握時間</p>
+                            <p class="hours">停留時間：約 30 分鐘</p>
+                            <a href="https://maps.google.com/?q=大観峰" target="_blank" class="booking-btn">Google Maps</a>
+                            <p>阿蘇最著名展望台，可眺望阿蘇五岳、阿蘇谷與壯闊山景。</p>
+                            <p class="tip">此處風勢通常較強，注意帽子與隨身物品。</p>
                         </div>
                     </details>
                 </article>
 
                 <div class="drive-card">
-                    <div class="drive-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
-                    </div>
+                    <div class="drive-icon">🚗</div>
                     <div>
-                        <p style="font-weight:700">大觀峰 → 熊本城景觀舒適公寓飯店 約 90 分鐘</p>
-                        <p class="drive-time">返回住宿，隔天超早 06:15 出發（Day 4 換宿至福岡）</p>
+                        <p style="font-weight:700">15:00–16:30｜大觀峰 → 熊本住宿</p>
+                        <p class="drive-time">車程約 90 分鐘</p>
+
+                        <a href="https://maps.google.com/?q=Comfort+Apartment+Hotel+Kumamoto+Castle+View"
+                           target="_blank"
+                           class="booking-btn">
+                            熊本住宿 Google Maps
+                        </a>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">16:30 起</span>
+                        <span class="name">上通・下通商店街 + 晚餐</span>
+                        <span class="tag shop">自由活動</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">自由活動</p>
+                            <a href="https://maps.google.com/?q=Shimotori+Shopping+Street+Kumamoto" target="_blank" class="booking-btn">下通商店街 Google Maps</a>
+                            <a href="https://maps.google.com/?q=Kamitori+Shopping+Street+Kumamoto" target="_blank" class="booking-btn">上通商店街 Google Maps</a>
+                            <p>返回熊本市區後自由活動，可逛商店街、藥妝店或補給隔日用品。</p>
+                            <p class="tip">隔天 Day 4 需 06:15 出發，建議晚餐後早點休息。</p>
+                        </div>
+                    </details>
+                </article>
+
+            </div>
+
+            <div class="meal-block">
+                <h3>午餐推薦 — 阿蘇周邊</h3>
+
+                <div class="restaurant-item">
+                    <div class="r-name">いまきん食堂</div>
+                    <div class="r-meta">阿蘇 · 赤牛丼名店 · 每人約 ¥2,000–3,000</div>
+                    <a href="https://maps.google.com/?q=いまきん食堂" target="_blank" class="booking-btn">Google Maps</a>
+                    <div class="r-tips">阿蘇最知名赤牛丼名店，第一次來阿蘇很推薦。</div>
+                    <div class="r-note">人氣非常高，可能排隊 30～90 分鐘。若排隊過久，建議改吃備案。</div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="r-name">あそ路</div>
+                    <div class="r-meta">阿蘇 · 高菜飯 / 馬肉料理 / 烏龍麵 · 每人約 ¥1,000–2,000</div>
+                    <a href="https://maps.google.com/?q=あそ路" target="_blank" class="booking-btn">Google Maps</a>
+                    <div class="r-tips">可吃高菜飯、馬肉料理與肉汁烏龍麵，排隊通常比いまきん食堂少。</div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="r-name">道の駅 阿蘇 周邊餐廳</div>
+                    <div class="r-meta">阿蘇站周邊 · 停車方便 · 彈性高</div>
+                    <a href="https://maps.google.com/?q=道の駅阿蘇" target="_blank" class="booking-btn">Google Maps</a>
+                    <div class="r-tips">適合當天臨時調整用餐，停車方便，也可順便買伴手禮。</div>
+                </div>
+            </div>
+
+            <div class="meal-block">
+                <h3>晚餐推薦 — 熊本市區</h3>
+
+                <div class="restaurant-item">
+                    <div class="r-name">勝烈亭 新市街本店</div>
+                    <div class="r-meta">熊本新市街 · 炸豬排 · 每人約 ¥1,500–3,000</div>
+                    <a href="https://maps.google.com/?q=勝烈亭+新市街本店" target="_blank" class="booking-btn">Google Maps</a>
+                    <div class="r-tips">熊本人氣炸豬排名店，推薦特選里肌豬排與腰內豬排。</div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="r-name">桂花ラーメン 本店</div>
+                    <div class="r-meta">熊本市區 · 熊本拉麵 · 每人約 ¥1,000–1,500</div>
+                    <a href="https://maps.google.com/?q=桂花ラーメン+本店" target="_blank" class="booking-btn">Google Maps</a>
+                    <div class="r-tips">熊本代表性拉麵老店，推薦桂花拉麵與太肉麵。</div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="r-name">黒亭ラーメン</div>
+                    <div class="r-meta">熊本市區 · 濃厚蒜香豚骨拉麵 · 每人約 ¥1,000–1,500</div>
+                    <a href="https://maps.google.com/?q=黒亭ラーメン" target="_blank" class="booking-btn">Google Maps</a>
+                    <div class="r-tips">熊本拉麵代表之一，蒜香濃厚，推薦玉子入りラーメン。</div>
+                </div>
+            </div>
+            <div class="meal-block">
+                <h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" /></svg>
+                    Day 3 備註
+                </h3>
+                <div class="restaurant-item">
+                    <div class="r-name">今日重點</div>
+                    <div class="r-tips">
+                        今日以阿蘇地區自然景觀為主。米塚、草千里、上色見熊野座神社及大觀峰皆為阿蘇代表景點，
+                        建議以悠閒步調進行，不需趕行程。若天候良好，大觀峰將是今日最值得期待的景點之一。
+                    </div>
+                </div>
+                <div class="restaurant-item">
+                    <div class="r-name">隔日提醒</div>
+
+                    <div class="r-tips">
+                        Day 4 需 06:15 出發前往九州自然動物公園，
+                        明早需辦理退房並離開熊本住宿。
+                    </div>
+
+                    <div class="r-note">
+                        ✓ 確認所有行李已整理完成<br>
+                        ✓ 確認護照、錢包與重要證件<br>
+                        ✓ 行動電源、相機電池充電完成<br>
+                        ✓ 冰箱及浴室物品確認無遺漏<br>
+                        ✓ 車上垃圾順手整理<br>
+                        ✓ 補充隔日早餐與飲用水
+                    </div>
+
+                    <div class="r-tips">
+                        建議今晚 21:00 前回飯店休息，
+                        以免影響隔天長途移動與動物園行程。
                     </div>
                 </div>
             </div>
-        </section>
+        </section></div>
 
         <!-- ═══════════════════════════════ DAY 4 ═══════════════════════════════ -->
-        <section class="day-section">
+        <div class="day-tab-pane" id="day-tab-4"><section class="day-section">
             <div class="day-title">
                 <div class="day-num">04</div>
                 <div class="day-info">
-                    <h2>非洲野生 → 由布院 → 別府</h2>
-                    <div class="day-date">9月30日（三）· 精華長途日</div>
+                    <h2>由布院 + 別府</h2>
+                    <div class="day-date">9月30日（三）· 動物公園與由布院散策日</div>
                 </div>
             </div>
 
             <div class="activities-grid">
+
                 <div class="drive-card">
-                    <div class="drive-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
-                    </div>
+                    <div class="drive-icon">🚗</div>
                     <div>
-                        <p style="font-weight:700">06:15 出發 → 九州自然動物公園 約 2.5 小時</p>
-                        <p class="drive-time">大分縣宇佐市安心院町南畑 2-1755-1</p>
+                        <p style="font-weight:700">06:15–08:43｜熊本住宿 → 九州自然動物公園</p>
+                        <p class="drive-time">車程約 2.5 小時，今日需退房後長途移動</p>
                     </div>
                 </div>
 
@@ -1079,296 +1504,727 @@
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p class="hours">開放時間：09:00–17:00</p>
-                            <p><span class="label">門票：</span>高中生以上 ¥2,300（自駕入場）</p>
-                            <p><span class="label">地址：</span>大分県宇佐市安心院町南畑 2-1755-1</p>
-                            <p><span class="label">官網：</span><a href="http://www.africansafari.co.jp" target="_blank">africansafari.co.jp</a></p>
-                            <p>約115萬平方公尺的放養式動物園，可見獅子、老虎、長頸鹿、象、豹等70種1,400隻動物。開車穿越動物區，動物可能靠近車窗！</p>
-                            <p class="tip">「叢林巴士（ジャングルバス）」需提前預約（官網購票），可對動物投食，體驗極為特別</p>
-                            <p class="warning">禁止搖下車窗靠近食肉動物區。請確認車窗緊閉</p>
+                            <p class="hours">停留時間：約 2 小時</p>
+                            <p><span class="label">重點：</span>自駕入園 + 動物園參觀</p>
+                            <a href="https://maps.google.com/?q=九州自然動物公園+African+Safari" target="_blank" class="booking-btn">Google Maps</a>
+                            <p class="tip">園區內以自駕參觀為主，請遵守園區指示，車窗勿隨意開啟。</p>
                         </div>
                     </details>
                 </article>
 
                 <div class="drive-card">
-                    <div class="drive-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
-                    </div>
+                    <div class="drive-icon">🚗</div>
                     <div>
-                        <p style="font-weight:700">動物公園 → 由布院 約 30 分鐘</p>
-                        <p class="drive-time">走大分自動車道</p>
+                        <p style="font-weight:700">11:00–11:30｜九州自然動物公園 → 由布院</p>
+                        <p class="drive-time">車程約 30 分鐘</p>
                     </div>
                 </div>
 
                 <article class="activity-card">
                     <div class="card-summary">
                         <span class="time">11:30–14:00</span>
-                        <span class="name">由布院散步 + 金鱗湖 + 午餐</span>
-                        <span class="tag">觀光 / 午餐</span>
+                        <span class="name">由布院散策｜湯之坪街道 + 金鱗湖 + 午餐</span>
+                        <span class="tag food">觀光 / 午餐</span>
                     </div>
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p><span class="label">金鱗湖：</span>全天開放 · 免費 · 大分県由布市湯布院町川上</p>
-                            <p>由布院最著名的湖泊，清晨有霧氣飄渺的夢幻景色；秋天金黃落葉倒映水面，唯美至極</p>
-                            <p class="tip">由布院町步行街（湯の坪街道）充滿特色小店、布丁、甜品，建議預留1.5小時逛街購物</p>
+                            <p class="hours">停留時間：約 2.5 小時</p>
+
+                            <a href="https://maps.google.com/?q=湯の坪街道" target="_blank" class="booking-btn">湯之坪街道 Google Maps</a>
+                            <a href="https://maps.google.com/?q=金鱗湖" target="_blank" class="booking-btn">金鱗湖 Google Maps</a>
+
+                            <p><span class="label">湯之坪街道：</span>由布院主要散步商店街，可逛伴手禮、甜點、雜貨小店。</p>
+                            <p><span class="label">金鱗湖：</span>由布院代表景點，適合湖畔散步與拍照。</p>
+                            <p class="tip">本區共停留約 2.5 小時，午餐、散步與拍照都安排在這段時間內。</p>
                         </div>
                     </details>
                 </article>
+
             </div>
 
             <div class="meal-block">
                 <h3>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" /></svg>
-                    由布院午餐推薦
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                        <line x1="6" y1="1" x2="6" y2="4" />
+                        <line x1="10" y1="1" x2="10" y2="4" />
+                        <line x1="14" y1="1" x2="14" y2="4" />
+                    </svg>
+                    午餐推薦 — 由布院
                 </h3>
+
+                <div class="restaurant-item">
+                    <div class="r-name">由布まぶし 心</div>
+                    <div class="r-meta">由布院 · 釜飯 / 豐後牛料理 · 人氣店</div>
+                    <a href="https://maps.google.com/?q=由布まぶし心" target="_blank" class="booking-btn">Google Maps</a>
+                    <div class="r-tips">由布院人氣釜飯餐廳，可作為今日午餐第一選擇。</div>
+                    <div class="r-note">若排隊過久，建議改吃備案，避免壓縮後面行程。</div>
+                </div>
+
                 <div class="restaurant-item">
                     <div class="r-name">元祖豊後肉汁うどん</div>
-                    <div class="r-meta">由布院町 · 每人約 ¥1,200–1,800</div>
-                    <div class="r-tips">您行程表上的推薦，豊後牛肉汁烏龍麵，湯頭濃郁鮮甜</div>
-                    <div class="r-note">人氣高，建議提早前往，平日等候約15–30分鐘（Please verify before visiting）</div>
-                </div>
-                <div class="restaurant-item">
-                    <div class="r-name">雞湯定食（由布院在地食堂）</div>
-                    <div class="r-meta">町內各食堂 · 每人約 ¥1,000–1,500</div>
-                    <div class="r-tips">由布院著名的雞飯定食，搭配在地蔬菜，簡單鮮美</div>
+                    <div class="r-meta">由布院 · 肉汁烏龍麵 · 出餐相對快</div>
+                    <a href="https://maps.google.com/?q=元祖豊後肉汁うどん" target="_blank" class="booking-btn">Google Maps</a>
+                    <div class="r-tips">你行程表上的備案餐廳，適合想簡單快速用餐時選擇。</div>
                 </div>
             </div>
 
             <div class="activities-grid" style="margin-top:16px;">
+
                 <div class="drive-card">
-                    <div class="drive-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
-                    </div>
+                    <div class="drive-icon">🚗</div>
                     <div>
-                        <p style="font-weight:700">由布院 → 別府溫泉旅館 約 30–45 分鐘</p>
-                        <p class="drive-time">抵達後 Check In，泡湯放鬆</p>
+                        <p style="font-weight:700">14:00–14:30｜由布院 → 世界之塔</p>
+                        <p class="drive-time">車程約 30 分鐘</p>
                     </div>
                 </div>
 
                 <article class="activity-card">
                     <div class="card-summary">
-                        <span class="time">15:45 起</span>
-                        <span class="name">別府 Check In + 溫泉</span>
-                        <span class="tag hotel">住宿 / 溫泉</span>
+                        <span class="time">14:30–15:00</span>
+                        <span class="name">世界之塔</span>
+                        <span class="tag">拍照</span>
                     </div>
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p><span class="label">住宿（9/30–10/2）：</span>福岡旅路 博多住吉包棟民宿 2號館</p>
-                            <p class="tip">Day 4 晚抵達時先 Check In 此住宿，之後 Day 5、Day 6 皆以此為基地</p>
-                            <p>別府是日本最著名的溫泉鄉，若住宿提供溫泉可好好享用；或前往附近錢湯</p>
-                            <p class="tip">別府竹瓦溫泉（公共浴場）¥100，是別府最古老的溫泉浴場，若時間允許可前往體驗</p>
-                            <p class="warning">溫泉旅館通常有入浴時間限制，請確認住宿規定</p>
+                            <p class="hours">停留時間：約 30 分鐘</p>
+                            <a href="https://maps.google.com/?q=別府+グローバルタワー" target="_blank" class="booking-btn">Google Maps</a>
+                            <p>此點以拍照為主。</p>
+                            <p class="tip">如果想多待金鱗湖或由布院，這個點可以視情況跳過。</p>
                         </div>
                     </details>
                 </article>
+
+                <div class="drive-card">
+                    <div class="drive-icon">🚗</div>
+                    <div>
+                        <p style="font-weight:700">15:00–15:45｜世界之塔 → 別府灣服務區</p>
+                        <p class="drive-time">車程約 30 分鐘 + 休息約 15 分鐘，回福岡順路經過</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">15:30–15:45</span>
+                        <span class="name">別府灣服務區</span>
+                        <span class="tag food">休息</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">停留時間：約 15 分鐘</p>
+                            <a href="https://maps.google.com/?q=別府湾サービスエリア" target="_blank" class="booking-btn">Google Maps</a>
+                            <p>返回福岡途中順路經過，可上廁所、補充飲料、短暫休息。</p>
+                            <p class="tip">今日車程較長，建議在此讓駕駛稍微休息。</p>
+                        </div>
+                    </details>
+                </article>
+
+                <div class="drive-card">
+                    <div class="drive-icon">🚗</div>
+                    <div>
+                        <p style="font-weight:700">15:45–17:45｜別府灣服務區 → 福岡住宿</p>
+                        <p class="drive-time">車程約 2 小時，返回福岡市區</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">17:45 起</span>
+                        <span class="name">住宿 Check In + 自由活動</span>
+                        <span class="tag hotel">住宿</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">自由活動</p>
+                            <p><span class="label">住宿：</span>福岡旅路 博多住吉包棟民宿 2號館</p>
+                            <a href="https://maps.app.goo.gl/LsCPUtJQ6axFJJmaA" target="_blank" class="booking-btn">住宿 Google Maps</a>
+                            <p>抵達福岡住宿後辦理 Check In，整理行李並稍作休息。</p>
+                            <p class="tip">今日移動距離長，若大家體力足夠，晚上可前往中洲屋台自由活動。</p>
+                        </div>
+                    </details>
+                </article>
+
             </div>
-        </section>
+
+            <div class="meal-block">
+                <h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                        <line x1="6" y1="1" x2="6" y2="4" />
+                        <line x1="10" y1="1" x2="10" y2="4" />
+                        <line x1="14" y1="1" x2="14" y2="4" />
+                    </svg>
+                    晚餐推薦 — 福岡中洲
+                </h3>
+
+                <div class="restaurant-item">
+                    <div class="r-name">中洲屋台</div>
+                    <div class="r-meta">福岡中洲 · 屋台文化 · 拉麵 / 串燒 / 關東煮</div>
+                    <a href="https://maps.google.com/?q=中洲屋台" target="_blank" class="booking-btn">Google Maps</a>
+                    <div class="r-tips">福岡代表性的屋台文化，可吃拉麵、串燒、關東煮，適合晚上自由活動。</div>
+                    <div class="r-note">若大家太累，也可以在住宿附近或便利商店簡單解決。</div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="r-name">運河城周邊餐廳</div>
+                    <div class="r-meta">住宿周邊 · 選擇多 · 彈性高</div>
+                    <a href="https://maps.google.com/?q=Canal+City+Hakata" target="_blank" class="booking-btn">Google Maps</a>
+                    <div class="r-tips">如果不想走太遠，可在運河城周邊用餐，選擇較多也比較方便。</div>
+                </div>
+            </div>
+
+            <div class="meal-block">
+                <h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9" />
+                        <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                    </svg>
+                    Day 4 備註
+                </h3>
+
+                <div class="restaurant-item">
+                    <div class="r-name">今日重點</div>
+                    <div class="r-tips">
+                        今日為移動距離較長的一天。上午安排九州自然動物公園，中午至下午安排由布院散策與午餐，
+                        傍晚返回福岡住宿。若由布院停留時間不足，建議優先保留湯之坪街道與金鱗湖。
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="r-name">隔日提醒</div>
+                    <div class="r-tips">
+                        Day 5 早上 08:30 出發前往伊都菜彩採買食材，晚上預計自煮晚餐。
+                    </div>
+                    <div class="r-note">
+                        ✓ 確認住宿廚房與冰箱使用方式<br>
+                        ✓ 準備購物袋或保冷袋<br>
+                        ✓ 確認晚餐想煮的食材方向<br>
+                        ✓ 補充隔日飲用水與早餐
+                    </div>
+                </div>
+            </div>
+        </section></div>
 
         <!-- ═══════════════════════════════ DAY 5 ═══════════════════════════════ -->
-        <section class="day-section">
+        <div class="day-tab-pane" id="day-tab-5"><section class="day-section">
             <div class="day-title">
                 <div class="day-num">05</div>
                 <div class="day-info">
-                    <h2>大宰府天滿宮 + 二日市周邊</h2>
-                    <div class="day-date">10月1日（四）· 文化巡禮日</div>
+                    <h2>伊都菜彩 + 太宰府 + 竈門神社</h2>
+                    <div class="day-date">10月1日（四）· 福岡慢遊日</div>
                 </div>
             </div>
 
             <div class="activities-grid">
+
                 <div class="drive-card">
-                    <div class="drive-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
-                    </div>
+                    <div class="drive-icon">🚗</div>
                     <div>
-                        <p style="font-weight:700">08:30 別府出發 → 伊都彩杜 約 30 分鐘</p>
-                        <p class="drive-time">買食材後返回住宿放置</p>
+                        <p style="font-weight:700">08:30–09:00｜住宿 → 伊都菜彩</p>
+                        <p class="drive-time">車程約 30 分鐘</p>
                     </div>
                 </div>
 
                 <article class="activity-card">
                     <div class="card-summary">
-                        <span class="time">09:00–10:00</span>
-                        <span class="name">伊都彩杜採購食材</span>
-                        <span class="tag shop">採買</span>
+                        <span class="time">09:00–09:30</span>
+                        <span class="name">伊都菜彩</span>
+                        <span class="tag food">採買</span>
                     </div>
+
                     <details class="card-details">
                         <summary>查看詳情</summary>
+
                         <div class="details-body">
-                            <p>福岡・糸島地區的農產品直銷站，提供新鮮蔬菜、海鮮、在地加工品</p>
-                            <p class="tip">可購買糸島草莓、蔬菜等伴手禮，CP值很高</p>
-                            <p class="warning">請確認當日營業時間 (Please verify before visiting)</p>
+                            <p class="hours">停留時間：約 30 分鐘</p>
+
+                            <a href="https://maps.google.com/?q=伊都菜彩" target="_blank" class="booking-btn">
+                                Google Maps
+                            </a>
+
+                            <p>
+                                九州知名農產品直賣所，
+                                可購買新鮮蔬菜、水果、肉品與海鮮。
+                            </p>
+
+                            <p class="tip">
+                                今晚預計自煮晚餐，
+                                建議優先採買晚餐食材。
+                            </p>
                         </div>
                     </details>
                 </article>
 
                 <div class="drive-card">
-                    <div class="drive-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
-                    </div>
+                    <div class="drive-icon">🚗</div>
                     <div>
-                        <p style="font-weight:700">食材放回住宿 → 大宰府天滿宮 約 30 分鐘</p>
-                        <p class="drive-time">10:00 出發，10:30 抵達</p>
+                        <p style="font-weight:700">09:30–10:00｜伊都菜彩 → 住宿</p>
+                        <p class="drive-time">車程約 30 分鐘</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">09:30–10:00</span>
+                        <span class="name">返回住宿放食材</span>
+                        <span class="tag hotel">住宿</span>
+                    </div>
+
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+
+                        <div class="details-body">
+
+                            <a href="https://maps.google.com/?q=福岡旅路+博多住吉包棟民宿+2號館"
+                               target="_blank"
+                               class="booking-btn">
+                                住宿 Google Maps
+                            </a>
+
+                            <p>
+                                將採買完成的食材先放回住宿冰箱，
+                                避免影響後續太宰府行程。
+                            </p>
+
+                        </div>
+                    </details>
+                </article>
+
+                <div class="drive-card">
+                    <div class="drive-icon">🚗</div>
+                    <div>
+                        <p style="font-weight:700">10:00–10:30｜住宿 → 太宰府天滿宮</p>
+                        <p class="drive-time">車程約 30 分鐘</p>
                     </div>
                 </div>
 
                 <article class="activity-card">
                     <div class="card-summary">
                         <span class="time">10:30–14:00</span>
-                        <span class="name">大宰府天滿宮</span>
-                        <span class="tag">神社 / 祈願</span>
-                    </div>
-                    <details class="card-details">
-                        <summary>查看詳情</summary>
-                        <div class="details-body">
-                            <p class="hours">開放時間（9–11月）：06:30–19:00</p>
-                            <p><span class="label">門票：</span>免費參拜</p>
-                            <p><span class="label">地址：</span>福岡県太宰府市宰府4-7-1</p>
-                            <p><span class="label">電話：</span>+81-92-922-8225</p>
-                            <p>供奉學問之神菅原道真，全日本天滿宮總本社之一。境內有心字池、志賀社（室町時代古蹟）；一年四季梅花、楠木競相開放</p>
-                            <p class="tip">必買：梅ヶ枝餅（梅花年糕）是大宰府名物，入口即化，可在參道各店購買（約 ¥130/個）。別忘了買御守祈求考試順利！</p>
-                            <div style="background:#f0f7ee;border-left:3px solid #2d6a2d;padding:8px 10px;border-radius:0 4px 4px 0;margin-top:6px;">
-                                <p style="font-size:12px;font-weight:700;color:#1a2e1a;margin-bottom:4px;">參拜注意事項</p>
-                                <p style="font-size:12px;color:#2d4a2d;">・本殿正在翻修（仮殿参拝），預計2026年竣工前確認狀況<br>・御朱印受付時間請於現場確認<br>・參道沿途商店眾多，留意時間</p>
-                            </div>
-                        </div>
-                    </details>
-                </article>
-
-                <article class="activity-card">
-                    <div class="card-summary">
-                        <span class="time">14:15–15:00</span>
-                        <span class="name">宮地獄神社</span>
+                        <span class="name">太宰府天滿宮</span>
                         <span class="tag">神社</span>
                     </div>
+
                     <details class="card-details">
                         <summary>查看詳情</summary>
+
                         <div class="details-body">
-                            <p class="hours">開放時間：09:00–17:00</p>
-                            <p><span class="label">地址：</span>福岡県福津市宮司元町7-1</p>
-                            <p>以日本最大的注連縄（直徑3公尺、重量3噸）聞名。每年2月和10月落日時分，夕陽正好沿長長的參道射入，形成「光之道（光の道）」奇景</p>
-                            <p class="tip">10月初是宮地嶽神社秋季大祭期間，氣氛熱鬧。即使非「光之道」時節，夕陽時分的參道仍非常美麗</p>
+
+                            <p class="hours">停留時間：約 3.5 小時（含午餐）</p>
+
+                            <a href="https://maps.google.com/?q=太宰府天満宮"
+                               target="_blank"
+                               class="booking-btn">
+                                Google Maps
+                            </a>
+
+                            <p>
+                                九州最具代表性的神社之一，
+                                供奉學問之神菅原道真。
+                            </p>
+
+                            <p><span class="label">可安排：</span></p>
+
+                            <div class="r-note">
+                                ✓ 太宰府天滿宮參拜<br>
+                                ✓ 表參道散步<br>
+                                ✓ 星巴克太宰府店<br>
+                                ✓ 梅ヶ枝餅<br>
+                                ✓ 午餐
+                            </div>
+                            <p class="tip">
+                                今天午餐安排於太宰府周邊解決。
+                            </p>
+
                         </div>
                     </details>
                 </article>
 
-                <article class="activity-card">
-                    <div class="card-summary">
-                        <span class="time">15:40 起</span>
-                        <span class="name">海邊夕陽 + 自由活動</span>
-                        <span class="tag">放鬆</span>
-                    </div>
-                    <details class="card-details">
-                        <summary>查看詳情</summary>
-                        <div class="details-body">
-                            <p>宮地嶽神社近海，可前往附近海岸欣賞夕陽景色</p>
-                            <p>10月1日日落約17:50，把握最後的自然美景</p>
-                        </div>
-                    </details>
-                </article>
             </div>
-        </section>
 
-        <!-- ═══════════════════════════════ DAY 6 ═══════════════════════════════ -->
-        <section class="day-section">
-            <div class="day-title">
-                <div class="day-num">06</div>
-                <div class="day-info">
-                    <h2>博多 → 福岡機場 → 返台</h2>
-                    <div class="day-date">10月2日（五）· 最終日</div>
+            <div class="meal-block">
+                <h3>午餐推薦 — 太宰府周邊</h3>
+
+                <div class="restaurant-item">
+                    <div class="r-name">暖暮拉麵 太宰府站前店</div>
+                    <div class="r-meta">拉麵 · 太宰府站旁</div>
+
+                    <a href="https://maps.google.com/?q=暖暮ラーメン太宰府駅前店"
+                       target="_blank"
+                       class="booking-btn">
+                        Google Maps
+                    </a>
+
+                    <div class="r-tips">
+                        九州豚骨拉麵代表之一。
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="r-name">うぐいす茶屋</div>
+                    <div class="r-meta">定食 · 鰻魚飯</div>
+
+                    <a href="https://maps.google.com/?q=うぐいす茶屋+太宰府"
+                       target="_blank"
+                       class="booking-btn">
+                        Google Maps
+                    </a>
+
+                    <div class="r-tips">
+                        太宰府老店，適合悠閒用餐。
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="r-name">梅ヶ枝餅</div>
+                    <div class="r-meta">太宰府必吃小吃</div>
+
+                    <div class="r-tips">
+                        幾乎每家都好吃，來太宰府必吃。
+                    </div>
                 </div>
             </div>
 
             <div class="activities-grid">
+
+                <div class="drive-card">
+                    <div class="drive-icon">🚗</div>
+                    <div>
+                        <p style="font-weight:700">14:00–14:15｜太宰府天滿宮 → 竈門神社</p>
+                        <p class="drive-time">車程約 15 分鐘</p>
+                    </div>
+                </div>
+
                 <article class="activity-card">
                     <div class="card-summary">
-                        <span class="time">08:50–09:45</span>
-                        <span class="name">筥崎宮（博多神社）</span>
+                        <span class="time">14:15–15:00</span>
+                        <span class="name">竈門神社</span>
                         <span class="tag">神社</span>
                     </div>
+
                     <details class="card-details">
                         <summary>查看詳情</summary>
+
                         <div class="details-body">
-                            <p class="hours">開放時間：09:00–17:00</p>
-                            <p><span class="label">門票：</span>免費（寶物殿另計）</p>
-                            <p>日本三大八幡宮之一，以祈求勝利（勝運）聞名。境內有樹齡數百年的大樟樹，莊嚴靜謐</p>
-                            <p class="tip">可購買勝守（勝運御守），保佑事業、考試必勝！距離住宿約10分鐘車程，退房後順道參拜</p>
+
+                            <p class="hours">停留時間：約 45 分鐘</p>
+
+                            <a href="https://maps.google.com/?q=竈門神社"
+                               target="_blank"
+                               class="booking-btn">
+                                Google Maps
+                            </a>
+
+                            <p>
+                                位於寶滿山山麓，
+                                近年因鬼滅之刃而聲名大噪。
+                            </p>
+
+                            <p class="tip">
+                                適合拍照與短暫散步。
+                            </p>
+
                         </div>
                     </details>
                 </article>
 
                 <div class="drive-card">
-                    <div class="drive-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
-                    </div>
+                    <div class="drive-icon">🚗</div>
                     <div>
-                        <p style="font-weight:700">博多神社 → LaLaport 福岡 約 45 分鐘</p>
-                        <p class="drive-time">09:50 出發，10:35 抵達</p>
+                        <p style="font-weight:700">15:00–15:40｜竈門神社 → 住宿</p>
+                        <p class="drive-time">車程約 40 分鐘</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">15:40 起</span>
+                        <span class="name">自煮晚餐 + 自由活動</span>
+                        <span class="tag food">晚餐</span>
+                    </div>
+
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+
+                        <div class="details-body">
+
+                            <a href="https://maps.google.com/?q=福岡旅路+博多住吉包棟民宿+2號館"
+                               target="_blank"
+                               class="booking-btn">
+                                住宿 Google Maps
+                            </a>
+
+                            <a href="https://maps.google.com/?q=Canal+City+Hakata"
+                               target="_blank"
+                               class="booking-btn">
+                                運河城 Google Maps
+                            </a>
+
+                            <p>
+                                返回住宿後使用早上採買的食材自煮晚餐。
+                            </p>
+
+                            <p class="tip">
+                                晚餐後可前往運河城自由活動。
+                            </p>
+
+                        </div>
+                    </details>
+                </article>
+
+            </div>
+
+            <div class="meal-block">
+                <h3>晚餐推薦 — 今日特色</h3>
+
+                <div class="restaurant-item">
+                    <div class="r-name">伊都菜彩採買食材自煮</div>
+                    <div class="r-meta">住宿料理時間</div>
+
+                    <div class="r-tips">
+                        今日重點不是餐廳，
+                        而是享受九州當地新鮮食材。
+                    </div>
+
+                    <div class="r-note">
+                        可依採買內容安排火鍋、燒肉、海鮮或簡單家常料理。
+                    </div>
+                </div>
+            </div>
+
+            <div class="meal-block">
+                <h3>Day 5 備註</h3>
+
+                <div class="restaurant-item">
+                    <div class="r-name">今日重點</div>
+
+                    <div class="r-tips">
+                        今日行程較為輕鬆。
+                        上午採買食材，
+                        下午安排太宰府與竈門神社散策，
+                        晚上享受自煮晚餐。
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="r-name">隔日提醒</div>
+
+                    <div class="r-tips">
+                        明天為九州旅程最後一天，
+                        需辦理退房、還車並前往機場。
+                    </div>
+
+                    <div class="r-note">
+                        ✓ 行李整理完成<br>
+                        ✓ 護照確認<br>
+                        ✓ 伴手禮整理<br>
+                        ✓ 行動電源與充電器確認<br>
+                        ✓ 冰箱食材確認<br>
+                        ✓ 車上物品確認
+                    </div>
+                </div>
+            </div>
+
+        </section></div>
+
+        <!-- ═══════════════════════════════ DAY 6 ═══════════════════════════════ -->
+        <div class="day-tab-pane" id="day-tab-6"><section class="day-section">
+            <div class="day-title">
+                <div class="day-num">06</div>
+                <div class="day-info">
+                    <h2>博多 → 福岡機場 → 台灣</h2>
+                    <div class="day-date">10月2日（五）· 返程日</div>
+                </div>
+            </div>
+
+            <div class="activities-grid">
+
+                <div class="drive-card">
+                    <div class="drive-icon">🚗</div>
+                    <div>
+                        <p style="font-weight:700">08:50–09:00｜住宿 → 櫛田神社</p>
+                        <p class="drive-time">車程約 10 分鐘，最後一天退房後出發</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">09:00–09:45</span>
+                        <span class="name">櫛田神社</span>
+                        <span class="tag">神社</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">停留時間：約 45 分鐘</p>
+                            <a href="https://maps.google.com/?q=櫛田神社" target="_blank" class="booking-btn">Google Maps</a>
+                            <p>博多代表神社之一，也是博多祇園山笠的重要地點。</p>
+                            <p class="tip">最後一天可依體力決定是否照原計畫參拜，若想睡晚一點可彈性調整。</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">09:50–10:35</span>
+                        <span class="name">住吉神社</span>
+                        <span class="tag">神社</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">停留時間：約 45 分鐘</p>
+                            <a href="https://maps.google.com/?q=住吉神社+福岡" target="_blank" class="booking-btn">Google Maps</a>
+                            <p>福岡市區內歷史悠久的神社，距離博多、住吉一帶不遠。</p>
+                            <p class="tip">若早上時間不足，可視情況縮短停留或略過。</p>
+                        </div>
+                    </details>
+                </article>
+
+                <div class="drive-card">
+                    <div class="drive-icon">🚗</div>
+                    <div>
+                        <p style="font-weight:700">10:35–10:50｜中間停車場 → LaLaport 福岡</p>
+                        <p class="drive-time">車程約 15 分鐘</p>
                     </div>
                 </div>
 
                 <article class="activity-card">
                     <div class="card-summary">
                         <span class="time">10:50–16:00</span>
-                        <span class="name">LaLaport 福岡 最後補貨</span>
-                        <span class="tag shop">購物</span>
+                        <span class="name">LaLaport 福岡</span>
+                        <span class="tag shop">購物 / 午餐</span>
                     </div>
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p class="hours">營業時間：10:00–21:00（餐廳至22:00）</p>
-                            <p><span class="label">地址：</span>福岡市博多区那珂6丁目23-1</p>
-                            <p>2022年新開幕的大型購物中心，特色為園區內有鋼彈立像，也有各式餐廳、藥妝、服裝</p>
-                            <p class="tip">最後掃貨時機！藥妝品、零食、服飾、伴手禮一次購足。午餐可選購物中心內餐廳</p>
-                            <p class="warning">16:00 必須出發前往機場還車，時間請務必掌控</p>
+                            <p class="hours">停留時間：約 5～6 小時</p>
+                            <a href="https://maps.google.com/?q=LaLaport+福岡" target="_blank" class="booking-btn">Google Maps</a>
+                            <p>本次旅程最後的百貨公司與購物時間，可安排午餐、購物與最後補貨。</p>
+                            <p class="tip">這裡可以安排好吃的燒肉吃到飽，也可逛伴手禮、服飾與大型商場。</p>
+                            <p class="warning">16:00 前請準備離開，避免影響還車與機場報到時間。</p>
                         </div>
                     </details>
                 </article>
-            </div>
 
-            <div class="meal-block">
-                <h3>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" /></svg>
-                    LaLaport 午餐推薦 — 最後燒肉
-                </h3>
-                <div class="restaurant-item">
-                    <div class="r-name">LaLaport 福岡內燒肉店</div>
-                    <div class="r-meta">每人約 ¥2,500–4,500</div>
-                    <div class="r-tips">購物中心內有多家和牛燒肉餐廳，以福岡産牛肉與九州和牛為主，最後一頓值得犒賞自己</div>
-                    <div class="r-note">具體店家請於現場確認（Please verify before visiting）</div>
-                </div>
-            </div>
-
-            <div class="activities-grid" style="margin-top:16px;">
                 <div class="drive-card">
-                    <div class="drive-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
-                    </div>
+                    <div class="drive-icon">🚗</div>
                     <div>
-                        <p style="font-weight:700">16:00 LaLaport → 福岡空港還車 約 10 分鐘</p>
-                        <p class="drive-time">17:00 前完成出境手續，19:00 / 20:00 起飛返台</p>
+                        <p style="font-weight:700">16:00–16:10｜LaLaport 福岡 → ORIX 還車地點</p>
+                        <p class="drive-time">車程約 10 分鐘</p>
+                        <a href="https://maps.google.com/?q=ORIX+Rent+A+Car+Fukuoka+Airport+Terminal+East" target="_blank" class="booking-btn">ORIX Google Maps</a>
                     </div>
                 </div>
 
                 <article class="activity-card">
                     <div class="card-summary">
-                        <span class="time">16:10–19:00</span>
-                        <span class="name">福岡機場出境</span>
+                        <span class="time">16:10–16:20</span>
+                        <span class="name">ORIX 還車 → 福岡機場</span>
+                        <span class="tag drive">還車 / 機場</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">預留時間：約 10 分鐘以上</p>
+                            <p><span class="label">還車店鋪：</span>福岡機場航廈東店</p>
+                            <p><span class="label">電話：</span>092-692-4010</p>
+                            <p><span class="label">還車時間：</span>2026/10/02（五）16:00</p>
+                            <a href="https://maps.google.com/?q=Fukuoka+Airport" target="_blank" class="booking-btn">福岡機場 Google Maps</a>
+                            <p class="tip">還車後前往福岡機場，目標 17:00 前抵達機場，預留報到、行李托運與出境時間。</p>
+                            <p class="warning">還車前請確認油箱、ETC、車內物品、後車廂與垃圾。</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">19:00–22:25</span>
+                        <span class="name">福岡 → 桃園</span>
                         <span class="tag">返程</span>
                     </div>
                     <details class="card-details">
                         <summary>查看詳情</summary>
                         <div class="details-body">
-                            <p><span class="label">回程航班：</span>福岡 19:00 起飛（部分旅客 20:00，請確認各自航班）</p>
-                            <p><span class="label">目的地：</span>台北 / 高雄（依各人票務）</p>
-                            <p class="tip">機場出境後可在免稅區購物，福岡機場免稅品豐富。還車時請確認油箱加滿</p>
-                            <p class="warning">日本機場出境建議提前2小時到達，請確認各人航班資訊</p>
+                            <p><span class="label">搭乘成員：</span>雙胞胎兄弟、馥伃</p>
+                            <p class="tip">請依航空公司規定提前完成報到與行李托運。</p>
                         </div>
                     </details>
                 </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">20:00–22:10</span>
+                        <span class="name">福岡 → 高雄</span>
+                        <span class="tag">返程</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p><span class="label">搭乘成員：</span>文耀、欣儀</p>
+                            <p class="tip">福岡機場國際線出境人潮可能較多，建議提早完成安檢與出境。</p>
+                        </div>
+                    </details>
+                </article>
+
             </div>
-        </section>
+
+            <div class="meal-block">
+                <h3>午餐推薦 — LaLaport 福岡</h3>
+
+                <div class="restaurant-item">
+                    <div class="r-name">燒肉吃到飽</div>
+                    <div class="r-meta">LaLaport 福岡 · 午餐 / 最後一餐</div>
+                    <a href="https://maps.google.com/?q=LaLaport+福岡+焼肉" target="_blank" class="booking-btn">Google Maps</a>
+                    <div class="r-tips">你行程表中特別提到可吃好吃的燒肉吃到飽，適合作為旅程最後一餐。</div>
+                    <div class="r-note">建議現場確認排隊狀況，避免影響 16:00 離開時間。</div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="r-name">LaLaport 美食街</div>
+                    <div class="r-meta">選擇多 · 彈性高</div>
+                    <div class="r-tips">若燒肉排隊太久，可改吃美食街或商場內其他餐廳。</div>
+                </div>
+            </div>
+
+            <div class="meal-block">
+                <h3>Day 6 備註</h3>
+
+                <div class="restaurant-item">
+                    <div class="r-name">今日重點</div>
+                    <div class="r-tips">
+                        今日為旅程最後一天，以退房、神社短暫參訪、LaLaport 福岡購物、ORIX 還車與機場報到為主。
+                        若早上想睡晚一點，可彈性縮短神社行程，但 16:00 還車時間建議不要延後。
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="r-name">退房與還車檢查清單</div>
+                    <div class="r-note">
+                        ✓ 行李與伴手禮全部上車<br>
+                        ✓ 護照、錢包、機票資訊確認<br>
+                        ✓ 住宿冰箱、浴室、插座確認無遺漏<br>
+                        ✓ 租車油箱確認<br>
+                        ✓ ETC 卡與租車文件確認<br>
+                        ✓ 車內、置物箱、後車廂確認無遺漏<br>
+                        ✓ 17:00 前抵達福岡機場
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="r-name">航班提醒</div>
+                    <div class="r-tips">
+                        今日分成兩組返台：一組搭乘福岡 → 桃園 19:00–22:25，另一組搭乘福岡 → 高雄 20:00–22:10。
+                        請各自確認航班、托運行李與登機門資訊。
+                    </div>
+                </div>
+            </div>
+        </section></div>
 
         <!-- ═══════════════════════════════ CONCIERGE ═══════════════════════════════ -->
         <section class="concierge">
@@ -1467,5 +2323,17 @@
         })();
     </script>
 
+
+<script>
+document.querySelectorAll('.day-tab-btn').forEach(b=>{
+ b.onclick=()=>{
+  document.querySelectorAll('.day-tab-btn').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.day-tab-pane').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  document.getElementById('day-tab-'+b.dataset.day)?.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+ };
+});
+</script>
 </body>
 </html>
