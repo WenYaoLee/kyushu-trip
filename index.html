@@ -3470,8 +3470,8 @@
         const allowUsers = [
             "s0980642866@gmail.com",
             "monkey7118038@gmail.com",
-            // "friend2@gmail.com",
-            // "friend3@gmail.com",
+            "karen08110811@gmail.com",
+            "seered086@gmail.com",
             // "friend4@gmail.com"
         ];
 
@@ -3645,7 +3645,7 @@
             }
         }
 
-        async function deleteExpense(id) {
+        async function deleteExpense(id, createdBy) {
             const user = auth.currentUser;
 
             if (!user) {
@@ -3655,6 +3655,11 @@
 
             if (!isAllowedUser(user)) {
                 alert("這個 Google 帳號沒有刪除權限");
+                return;
+            }
+
+            if (createdBy !== user.email) {
+                alert("只能刪除自己新增的支出");
                 return;
             }
 
@@ -3740,7 +3745,8 @@
 
                                             <button type="button"
                                                     class="expense-delete-btn"
-                                                    data-id="${escapeHtml(exp.id)}">
+                                                    data-id="${escapeHtml(exp.id)}"
+                                                    data-created-by="${escapeHtml(exp.CreatedBy || "")}">
                                                 刪除
                                             </button>
                                         </div>
@@ -3752,7 +3758,9 @@
             }).join("");
 
             list.querySelectorAll(".expense-delete-btn").forEach(btn => {
-                btn.addEventListener("click", () => deleteExpense(btn.dataset.id));
+                btn.addEventListener("click", () => {
+                    deleteExpense(btn.dataset.id, btn.dataset.createdBy);
+                });
             });
 
             updateAuthUI(auth.currentUser);
