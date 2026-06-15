@@ -1076,6 +1076,147 @@
             font-size: 15px;
             flex: 0 0 auto;
         }
+
+        .expense-form {
+            display: grid;
+            gap: 12px;
+        }
+
+            .expense-form label {
+                display: grid;
+                gap: 4px;
+                font-size: 13px;
+                color: #2d4a2d;
+                font-weight: 700;
+            }
+
+            .expense-form input,
+            .expense-form select {
+                width: 100%;
+                border: 1px solid #c8d9c0;
+                border-radius: 6px;
+                padding: 8px 10px;
+                font-size: 14px;
+                background: #fff;
+                color: #1a2e1a;
+            }
+
+        .split-box {
+            background: #f8fbf6;
+            border: 1px solid #e1ecd9;
+            border-radius: 6px;
+            padding: 10px;
+            display: grid;
+            gap: 6px;
+        }
+
+        .split-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: #1a2e1a;
+        }
+
+        .expense-list {
+            display: grid;
+            gap: 8px;
+        }
+
+        .expense-empty {
+            color: #7a9a7a;
+            font-size: 13px;
+            background: #f8fbf6;
+            border: 1px dashed #c8d9c0;
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        /* ── Expense View Fix ── */
+        .expense-summary-number {
+            color: #d60000 !important;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .expense-form textarea {
+            width: 100%;
+            border: 1px solid #c8d9c0;
+            border-radius: 6px;
+            padding: 8px 10px;
+            font-size: 14px;
+            background: #fff;
+            color: #1a2e1a;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .expense-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .expense-item {
+            background: #f8fbf6;
+            border: 1px solid #e1ecd9;
+            border-radius: 6px;
+            padding: 12px;
+            display: grid;
+            gap: 7px;
+        }
+
+        .expense-item-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .expense-item-title {
+            font-weight: 800;
+            color: #1a2e1a;
+            font-size: 14px;
+        }
+
+        .expense-item-amount {
+            color: #d60000;
+            font-weight: 900;
+            font-family: 'Courier New', Consolas, monospace;
+            white-space: nowrap;
+        }
+
+        .expense-item-meta {
+            font-size: 12px;
+            color: #7a9a7a;
+            line-height: 1.5;
+        }
+
+        .expense-item-note {
+            font-size: 12px;
+            color: #5a4a2a;
+            background: #fffcf0;
+            border-left: 3px solid #d4a017;
+            padding: 5px 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .expense-delete-btn {
+            border: 1px solid #f3b2b2;
+            background: #fff5f5;
+            color: #b91c1c;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        .expense-status {
+            font-size: 12px;
+            color: #7a9a7a;
+            margin-top: 8px;
+        }
     </style>
 </head>
 <body>
@@ -1085,10 +1226,11 @@
         <div class="drawer-subtitle">選擇要查看的畫面</div>
         <div class="drawer-nav">
             <button class="drawer-link active" data-view="itinerary-view" type="button">📅 六天行程</button>
-            <button class="drawer-link" data-view="concierge-view" type="button">🧭 旅行顧問</button>
             <button class="drawer-link" data-view="checklist-view" type="button">🎒 行前檢查清單</button>
+            <button class="drawer-link" data-view="concierge-view" type="button">🧭 旅行顧問</button>
             <button class="drawer-link" data-view="rental-view" type="button">🚗 租車資訊</button>
             <button class="drawer-link" data-view="lodging-view" type="button">🏨 住宿資訊</button>
+            <button class="drawer-link" data-view="expense-view" type="button">💰 記帳幫手</button>
         </div>
     </aside>
     <!-- Page Header -->
@@ -2509,14 +2651,13 @@
                         </h3>
                         <ul>
                             <li>國際駕照 + 台灣駕照正本（租車必備）</li>
-                            <li>護照 + 日本簽證（台灣免簽但需確認）</li>
-                            <li>JCB / VISA 信用卡（高速公路 ETC 卡）</li>
-                            <li>行動電源 + 日本插頭轉接頭（A型）</li>
+                            <li>護照</li>
+                            <li>JCB / VISA 信用卡</li>
+                            <li>行動電源 + 插頭</li>
                             <li>輕型登山鞋或防滑運動鞋（石板路多）</li>
                             <li>薄外套或輕量夾克（9月下旬山區涼爽）</li>
                             <li>折疊傘（台風季尾聲，隨時備用）</li>
                             <li>旅遊保險確認單</li>
-                            <li>Google Maps 離線地圖下載</li>
                             <li>備用現金日幣（部分小店不收刷卡）</li>
                         </ul>
                     </div>
@@ -2560,12 +2701,12 @@
                             貨幣 &amp; 支付指南
                         </h3>
                         <ul>
-                            <li>日幣 (¥)：1 TWD ≈ 4.8–5 JPY（請出發前確認匯率）</li>
+                            <li>日幣 (¥)：1 TWD ≈ 5 JPY </li>
                             <li>建議備現金 ¥30,000–50,000/人（山區小店、神社現金較常用）</li>
                             <li>換匯：建議出發前在台灣銀行或兌換所換好，或使用日本7-11 ATM</li>
                             <li>信用卡：大型店、加油站、高速公路皆可刷卡；Visa/Mastercard 最通用</li>
                             <li>IC 卡（Suica/ICOCA）：便利商店、部分停車場可用</li>
-                            <li>退稅：購物 ¥5,000 以上可申請免稅，出示護照辦理</li>
+                            <li>退稅：購物 ¥5,000 or ¥5,500 以上可申請免稅，出示護照辦理</li>
                         </ul>
                     </div>
                 </div>
@@ -2658,19 +2799,437 @@
         <div class="page-view standalone-page" id="rental-view">
             <section class="concierge">
                 <h2>🚗 租車資訊</h2>
+
                 <div class="concierge-grid">
-                    <div class="concierge-card"><h3>尚未建立內容</h3><p>之後可以再補上。</p></div>
+
+                    <div class="concierge-card">
+                        <h3>🚗 ORIX 租車資訊</h3>
+
+                        <table>
+                            <tr>
+                                <td>預約號碼</td>
+                                <td style="color:#d60000;font-weight:800;">W7826431</td>
+                            </tr>
+                            <tr>
+                                <td>租車公司</td>
+                                <td>ORIX Rent a Car</td>
+                            </tr>
+                            <tr>
+                                <td>付款方式</td>
+                                <td>信用卡</td>
+                            </tr>
+                        </table>
+
+                        <a href="images/orix_booking.png"
+                           target="_blank"
+                           class="booking-btn">
+                            查看原始預約單
+                        </a>
+                    </div>
+
+                    <div class="concierge-card">
+                        <h3>📍 取車 / 還車資訊</h3>
+
+                        <table>
+                            <tr>
+                                <td>取車店鋪</td>
+                                <td>福岡機場航廈東店</td>
+                            </tr>
+                            <tr>
+                                <td>取車電話</td>
+                                <td><a href="tel:0926924010">092-692-4010</a></td>
+                            </tr>
+                            <tr>
+                                <td>取車時間</td>
+                                <td>2026/09/27（日）11:30</td>
+                            </tr>
+                            <tr>
+                                <td>還車店鋪</td>
+                                <td>福岡機場航廈東店</td>
+                            </tr>
+                            <tr>
+                                <td>還車電話</td>
+                                <td><a href="tel:0926924010">092-692-4010</a></td>
+                            </tr>
+                            <tr>
+                                <td>還車時間</td>
+                                <td>2026/10/02（五）16:00</td>
+                            </tr>
+                        </table>
+
+                        <a href="https://maps.google.com/?q=ORIX+Rent+A+Car+Fukuoka+Airport+Terminal+East"
+                           target="_blank"
+                           class="booking-btn">
+                            Google Maps
+                        </a>
+                    </div>
+
+                    <div class="concierge-card">
+                        <h3>🚐 車輛資訊</h3>
+
+                        <table>
+                            <tr>
+                                <td>等級</td>
+                                <td>WS CLASS</td>
+                            </tr>
+                            <tr>
+                                <td>車型</td>
+                                <td>大型廂型車</td>
+                            </tr>
+                            <tr>
+                                <td>車種</td>
+                                <td>Freed / Sienta 或同級</td>
+                            </tr>
+                            <tr>
+                                <td>乘坐人數</td>
+                                <td>6～7 人</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="concierge-card">
+                        <h3>💴 費用明細</h3>
+
+                        <table>
+                            <tr>
+                                <td>基本費用</td>
+                                <td>¥50,039</td>
+                            </tr>
+                            <tr>
+                                <td>ETC 電子收費卡</td>
+                                <td>¥550</td>
+                            </tr>
+                            <tr>
+                                <td>免責補償 CDW</td>
+                                <td>¥6,600</td>
+                            </tr>
+                            <tr>
+                                <td>租車安心專案 RAP</td>
+                                <td>¥3,960</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td>合計總額</td>
+                                <td style="color:#d60000;font-size:18px;">¥61,149</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="concierge-card">
+                        <h3>🚨 還車提醒</h3>
+
+                        <ul>
+                            <li>10/2 16:00 前完成還車</li>
+                            <li>還車前加滿油</li>
+                            <li>ETC 卡歸還</li>
+                            <li>檢查車內與後車廂</li>
+                            <li>確認手機充電線、伴手禮沒有遺留車上</li>
+                            <li>預留前往機場與報到時間</li>
+                        </ul>
+                    </div>
+
                 </div>
             </section>
         </div>
         <div class="page-view standalone-page" id="lodging-view">
+            <div class="concierge-grid">
+
+                <!-- 熊本住宿 -->
+
+                <div class="concierge-card">
+
+                    <h3>🏯 熊本住宿</h3>
+
+                    <table>
+                        <tr>
+                            <td>住宿名稱</td>
+                            <td>熊本城景觀舒適公寓飯店</td>
+                        </tr>
+
+                        <tr>
+                            <td>入住日期</td>
+                            <td>2026/09/27 ～ 2026/09/30</td>
+                        </tr>
+
+                        <tr>
+                            <td>住宿天數</td>
+                            <td>3 晚</td>
+                        </tr>
+
+                        <tr>
+                            <td>房型</td>
+                            <td>雙人房 × 2、單人房 × 1</td>
+                        </tr>
+                    </table>
+
+                    <hr>
+
+                    <table>
+                        <tr>
+                            <td>雙人房</td>
+                            <td>¥8,500 × 3晚 × 2房</td>
+                        </tr>
+
+                        <tr>
+                            <td>單人房</td>
+                            <td>¥7,600 × 3晚</td>
+                        </tr>
+
+                        <tr>
+                            <td>住宿稅</td>
+                            <td>¥200 / 人 / 晚</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>總價</strong></td>
+                            <td style="color:#d60000;font-size:18px;">
+                                <strong>¥76,800</strong>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <a href="https://maps.google.com/?q=熊本城景觀舒適公寓飯店"
+                       target="_blank"
+                       class="booking-btn">
+                        Google Maps
+                    </a>
+
+                </div>
+
+
+                <!-- 福岡住宿 -->
+
+                <div class="concierge-card">
+
+                    <h3>🏙️ 福岡住宿</h3>
+
+                    <table>
+                        <tr>
+                            <td>住宿名稱</td>
+                            <td>福岡旅路 博多住吉包棟民宿 2號館</td>
+                        </tr>
+
+                        <tr>
+                            <td>入住日期</td>
+                            <td>2026/09/30 ～ 2026/10/02</td>
+                        </tr>
+
+                        <tr>
+                            <td>住宿天數</td>
+                            <td>2 晚</td>
+                        </tr>
+
+                        <tr>
+                            <td>房型</td>
+                            <td>包棟</td>
+                        </tr>
+
+                        <tr>
+                            <td>入住人數</td>
+                            <td>5 人</td>
+                        </tr>
+                    </table>
+
+                    <hr>
+
+                    <table>
+                        <tr>
+                            <td>9/30</td>
+                            <td>¥42,000</td>
+                        </tr>
+
+                        <tr>
+                            <td>10/1</td>
+                            <td>¥47,250</td>
+                        </tr>
+
+                        <tr>
+                            <td>住宿稅</td>
+                            <td>¥2,000</td>
+                        </tr>
+
+                        <tr>
+                            <td>原價總計</td>
+                            <td>¥91,250</td>
+                        </tr>
+
+                        <tr>
+                            <td>折扣後總價</td>
+                            <td style="color:#d60000;">
+                                ¥89,250
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>已付訂金</td>
+                            <td>¥17,850</td>
+                        </tr>
+
+                        <tr>
+                            <td>入住付尾款</td>
+                            <td style="color:#d60000;font-size:18px;">
+                                <strong>¥71,400</strong>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <a href="https://maps.google.com/?q=福岡旅路 博多住吉包棟民宿 2號館"
+                       target="_blank"
+                       class="booking-btn">
+                        Google Maps
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="page-view standalone-page" id="expense-view">
             <section class="concierge">
-                <h2>🏨 住宿資訊</h2>
+                <h2>💰 記帳幫手</h2>
+
                 <div class="concierge-grid">
-                    <div class="concierge-card"><h3>尚未建立內容</h3><p>之後可以再補上。</p></div>
+
+                    <div class="concierge-card">
+                        <h3>📊 旅費總覽</h3>
+                        <table>
+                            <tr>
+                                <td>總支出</td>
+                                <td id="expenseTotal" class="expense-summary-number">¥0</td>
+                            </tr>
+                            <tr>
+                                <td>參加人數</td>
+                                <td id="expensePeopleCount">5 人</td>
+                            </tr>
+                            <tr>
+                                <td>每人平均</td>
+                                <td id="expenseAverage">¥0</td>
+                            </tr>
+                        </table>
+                        <div class="expense-status" id="expenseStatus">等待 Firebase 同步...</div>
+                    </div>
+
+                    <div class="concierge-card">
+                        <h3>👥 成員</h3>
+                        <div class="r-note">
+                            文耀<br>
+                            欣儀<br>
+                            建泓<br>
+                            建甫<br>
+                            馥伃
+                        </div>
+                    </div>
+
+                    <div class="concierge-card checklist-card">
+                        <h3>➕ 新增支出</h3>
+
+                        <form id="expenseForm" class="expense-form">
+
+                            <label>
+                                日期時間
+                                <input type="datetime-local" id="expenseTripDate">
+                            </label>
+
+                            <label>
+                                類別
+                                <select id="expenseCategory">
+                                    <option value="餐飲">餐飲</option>
+                                    <option value="交通">交通</option>
+                                    <option value="住宿">住宿</option>
+                                    <option value="門票">門票</option>
+                                    <option value="購物">購物</option>
+                                    <option value="加油">加油</option>
+                                    <option value="其他">其他</option>
+                                </select>
+                            </label>
+
+                            <label>
+                                項目名稱
+                                <input type="text" id="expenseTitle" placeholder="例：阿蘇午餐">
+                            </label>
+
+                            <label>
+                                金額（日圓）
+                                <input type="number" id="expenseAmount" placeholder="例：3500" min="0">
+                            </label>
+
+                            <label>
+                                付款人
+                                <select id="expensePayer">
+                                    <option value="文耀">文耀</option>
+                                    <option value="欣儀">欣儀</option>
+                                    <option value="建泓">建泓</option>
+                                    <option value="建甫">建甫</option>
+                                    <option value="馥伃">馥伃</option>
+                                </select>
+                            </label>
+
+                            <div class="split-box">
+                                <div class="split-title">分攤成員</div>
+
+                                <label><input class="expense-member" type="checkbox" value="文耀" checked> 文耀</label>
+                                <label><input class="expense-member" type="checkbox" value="欣儀" checked> 欣儀</label>
+                                <label><input class="expense-member" type="checkbox" value="建泓" checked> 建泓</label>
+                                <label><input class="expense-member" type="checkbox" value="建甫" checked> 建甫</label>
+                                <label><input class="expense-member" type="checkbox" value="馥伃" checked> 馥伃</label>
+                            </div>
+
+                            <label>
+                                備註
+                                <textarea id="expenseNote" rows="3" placeholder="例如：停車費、現金付款、代墊等"></textarea>
+                            </label>
+
+                            <button type="button" id="addExpenseBtn" class="booking-btn">
+                                新增支出
+                            </button>
+
+                        </form>
+                    </div>
+
+                    <div class="concierge-card checklist-card">
+                        <h3>📒 支出明細</h3>
+
+                        <div class="expense-list" id="expenseList">
+                            <div class="expense-empty">
+                                正在讀取 Firebase 資料...
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concierge-card checklist-card">
+                        <h3>💰 最終結算</h3>
+
+                        <div class="r-note">
+                            系統會依照付款人與分攤成員，自動計算誰需要付給誰。
+                        </div>
+
+                        <table id="memberSummaryTable">
+                            <tr>
+                                <td>文耀</td>
+                                <td>¥0</td>
+                            </tr>
+                            <tr>
+                                <td>欣儀</td>
+                                <td>¥0</td>
+                            </tr>
+                            <tr>
+                                <td>建泓</td>
+                                <td>¥0</td>
+                            </tr>
+                            <tr>
+                                <td>建甫</td>
+                                <td>¥0</td>
+                            </tr>
+                            <tr>
+                                <td>馥伃</td>
+                                <td>¥0</td>
+                            </tr>
+                        </table>
+                    </div>
+
                 </div>
             </section>
         </div>
+
     </main>
     <footer>
         九州自駕 6 天 · 2026.09.27–10.02 · Generated by Travel Assistant (TicNote Cloud)<br />
@@ -2765,5 +3324,310 @@
             });
         })();
     </script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+        import {
+            getFirestore,
+            collection,
+            addDoc,
+            deleteDoc,
+            doc,
+            onSnapshot,
+            query,
+            orderBy,
+            serverTimestamp
+        } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBViI_wSIWXOclTiZpPvuUkeNJXW9fzEgM",
+            authDomain: "expense-view-1d808.firebaseapp.com",
+            projectId: "expense-view-1d808",
+            storageBucket: "expense-view-1d808.firebasestorage.app",
+            messagingSenderId: "605571965092",
+            appId: "1:605571965092:web:b4e17d3c02a11512f80631",
+            measurementId: "G-ZM9P6J14SM"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const expenseRef = collection(db, "expenses");
+
+        const members = ["文耀", "欣儀", "建泓", "建甫", "馥伃"];
+
+        const $ = (id) => document.getElementById(id);
+        const yen = (num) => "¥" + Math.round(Number(num || 0)).toLocaleString("ja-JP");
+
+        function setStatus(message) {
+            const el = $("expenseStatus");
+            if (el) el.textContent = message;
+        }
+
+        function escapeHtml(str) {
+            return String(str ?? "")
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;")
+                .replaceAll("'", "&#039;");
+        }
+
+        function formatTripDate(value) {
+            if (!value) return "";
+            return String(value).replace("T", " ");
+        }
+
+        function formatTimestamp(ts) {
+            if (!ts || !ts.toDate) return "";
+            const d = ts.toDate();
+            const pad = (n) => String(n).padStart(2, "0");
+            return `${d.getFullYear()}/${pad(d.getMonth() + 1)}/${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+        }
+
+        function getCheckedMembers() {
+            return Array.from(document.querySelectorAll(".expense-member:checked"))
+                .map(x => x.value);
+        }
+
+        async function addExpense() {
+            const tripDate = $("expenseTripDate")?.value || "";
+            const category = $("expenseCategory")?.value || "";
+            const title = $("expenseTitle")?.value.trim() || "";
+            const amount = Number($("expenseAmount")?.value || 0);
+            const payer = $("expensePayer")?.value || "";
+            const splitMembers = getCheckedMembers();
+            const note = $("expenseNote")?.value.trim() || "";
+
+            if (!tripDate || !title || !amount || amount <= 0 || splitMembers.length === 0) {
+                alert("請確認日期、項目、金額與分攤成員都有填寫");
+                return;
+            }
+
+            const btn = $("addExpenseBtn");
+            if (btn) {
+                btn.disabled = true;
+                btn.textContent = "新增中...";
+            }
+
+            try {
+                await addDoc(expenseRef, {
+                    tripDate,
+                    category,
+                    title,
+                    amount,
+                    payer,
+                    members: splitMembers,
+                    note,
+                    createdAt: serverTimestamp(),
+                    updatedAt: serverTimestamp()
+                });
+
+                $("expenseTitle").value = "";
+                $("expenseAmount").value = "";
+                $("expenseNote").value = "";
+                setStatus("新增成功，已同步到 Firebase");
+            } catch (err) {
+                console.error(err);
+                alert("新增失敗：" + err.message);
+                setStatus("新增失敗，請檢查 Firebase 規則或網路連線");
+            } finally {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.textContent = "新增支出";
+                }
+            }
+        }
+
+        async function deleteExpense(id) {
+            if (!confirm("確定要刪除這筆支出嗎？")) return;
+
+            try {
+                await deleteDoc(doc(db, "expenses", id));
+                setStatus("已刪除一筆支出");
+            } catch (err) {
+                console.error(err);
+                alert("刪除失敗：" + err.message);
+            }
+        }
+
+        function renderExpenses(expenses) {
+            const list = $("expenseList");
+            if (!list) {
+                console.error("找不到 expenseList，請確認支出明細區塊 ID 是否正確");
+                return;
+            }
+
+            if (!expenses.length) {
+                list.innerHTML = `<div class="expense-empty">尚未新增支出</div>`;
+                return;
+            }
+
+            list.innerHTML = expenses.map(x => {
+                const memberText = Array.isArray(x.members) ? x.members.join("、") : "";
+                const createdText = formatTimestamp(x.createdAt);
+
+                return `
+                        <div class="expense-item">
+                            <div class="expense-item-head">
+                                <div>
+                                    <div class="expense-item-title">${escapeHtml(x.title)}</div>
+                                    <div class="expense-item-meta">
+                                        ${escapeHtml(formatTripDate(x.tripDate))} · ${escapeHtml(x.category)} · 付款人：${escapeHtml(x.payer)}
+                                    </div>
+                                </div>
+                                <div class="expense-item-amount">${yen(x.amount)}</div>
+                            </div>
+
+                            <div class="expense-item-meta">
+                                分攤：${escapeHtml(memberText)}
+                            </div>
+
+                            ${x.note ? `<div class="expense-item-note">${escapeHtml(x.note)}</div>` : ""}
+
+                            ${createdText ? `<div class="expense-item-meta">建立時間：${escapeHtml(createdText)}</div>` : ""}
+
+                            <button type="button"
+                                    class="expense-delete-btn"
+                                    data-id="${escapeHtml(x.id)}">
+                                刪除
+                            </button>
+                        </div>
+                    `;
+            }).join("");
+
+            list.querySelectorAll(".expense-delete-btn").forEach(btn => {
+                btn.addEventListener("click", () => deleteExpense(btn.dataset.id));
+            });
+        }
+
+        function renderSummary(expenses) {
+            const total = expenses.reduce((sum, x) => sum + Number(x.amount || 0), 0);
+            const average = members.length ? total / members.length : 0;
+
+            if ($("expenseTotal")) $("expenseTotal").textContent = yen(total);
+            if ($("expensePeopleCount")) $("expensePeopleCount").textContent = members.length + " 人";
+            if ($("expenseAverage")) $("expenseAverage").textContent = yen(average);
+
+            const paid = {};
+            const shouldPay = {};
+            members.forEach(m => {
+                paid[m] = 0;
+                shouldPay[m] = 0;
+            });
+
+            expenses.forEach(x => {
+                const amount = Number(x.amount || 0);
+                const payer = x.payer;
+                const split = Array.isArray(x.members) && x.members.length ? x.members : members;
+
+                if (paid[payer] === undefined) paid[payer] = 0;
+                paid[payer] += amount;
+
+                const each = amount / split.length;
+
+                split.forEach(m => {
+                    if (shouldPay[m] === undefined) shouldPay[m] = 0;
+                    shouldPay[m] += each;
+                });
+            });
+
+            const creditors = [];
+            const debtors = [];
+
+            members.forEach(m => {
+                const balance = paid[m] - shouldPay[m];
+
+                if (balance > 1) {
+                    creditors.push({ name: m, amount: balance });
+                } else if (balance < -1) {
+                    debtors.push({ name: m, amount: -balance });
+                }
+            });
+
+            creditors.sort((a, b) => b.amount - a.amount);
+            debtors.sort((a, b) => b.amount - a.amount);
+
+            const settlements = [];
+            let i = 0;
+            let j = 0;
+
+            while (i < debtors.length && j < creditors.length) {
+                const payAmount = Math.min(debtors[i].amount, creditors[j].amount);
+
+                if (payAmount > 1) {
+                    settlements.push({
+                        from: debtors[i].name,
+                        to: creditors[j].name,
+                        amount: payAmount
+                    });
+                }
+
+                debtors[i].amount -= payAmount;
+                creditors[j].amount -= payAmount;
+
+                if (debtors[i].amount <= 1) i++;
+                if (creditors[j].amount <= 1) j++;
+            }
+
+            const table = $("memberSummaryTable");
+
+            if (!table) return;
+
+            if (settlements.length === 0) {
+                table.innerHTML = `
+            <tr>
+                <td colspan="2" style="text-align:center;color:#7a9a7a;">
+                    目前沒有需要結算的金額
+                </td>
+            </tr>
+        `;
+                return;
+            }
+
+            table.innerHTML = settlements.map(x => `
+        <tr>
+            <td>${escapeHtml(x.from)} → ${escapeHtml(x.to)}</td>
+            <td style="color:#d60000;font-weight:800;">${yen(x.amount)}</td>
+        </tr>
+    `).join("");
+        }
+
+        function startExpenseSync() {
+            const q = query(expenseRef, orderBy("createdAt", "desc"));
+
+            onSnapshot(q, snapshot => {
+                const expenses = snapshot.docs.map(d => ({
+                    id: d.id,
+                    ...d.data()
+                }));
+
+                renderExpenses(expenses);
+                renderSummary(expenses);
+                setStatus(`Firebase 已同步，共 ${expenses.length} 筆支出`);
+            }, err => {
+                console.error(err);
+                setStatus("Firebase 同步失敗：" + err.message);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const dateInput = $("expenseTripDate");
+            if (dateInput && !dateInput.value) {
+                const now = new Date();
+                now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+                dateInput.value = now.toISOString().slice(0, 16);
+            }
+
+            const addBtn = $("addExpenseBtn");
+            if (!addBtn) {
+                console.error("找不到 addExpenseBtn，新增支出按鈕沒有綁定成功");
+                return;
+            }
+
+            addBtn.addEventListener("click", addExpense);
+            startExpenseSync();
+        });
+    </script>
+
 </body>
 </html>
