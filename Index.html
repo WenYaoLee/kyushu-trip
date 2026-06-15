@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>九州自駕 6 天 — 熊本・高千穗・阿蘇・由布院・別府・福岡</title>
+    <style>
+        /* ── TicNote Topbar ── */
+        :root {
+            --ticnote-brand: #26B2BF;
+            --ticnote-badge: #79F2F2;
+            --ticnote-line: #e5e7eb;
+            --ticnote-muted: #64748b;
+            --ticnote-text: #0f172a;
+        }
+
+        .meta-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 16px 32px;
+            border-bottom: 1px solid var(--ticnote-line);
+            background: #ffffff !important;
+            color: var(--ticnote-text) !important;
+            box-sizing: border-box;
+        }
+
+        .meta-brand, .meta-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .meta-logo {
+            height: 28px;
+            width: 28px;
+            display: block;
+            object-fit: contain;
+            flex: 0 0 auto;
+        }
+
+        .meta-divider {
+            width: 1px;
+            height: 18px;
+            background: var(--ticnote-line);
+            flex: 0 0 auto;
+        }
+
+        .meta-tagline {
+            font-size: 11px;
+            font-weight: 650;
+            line-height: 1.2;
+            color: var(--ticnote-muted);
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .meta-tag {
+            display: inline-flex;
+            align-items: center;
+            min-height: 22px;
+            padding: 3px 9px;
+            border-radius: 999px;
+            background: rgba(121,242,242,0.28);
+            color: #057985;
+            border: 1px solid rgba(38,178,191,0.28);
+            font-size: 10px;
+            font-weight: 800;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+        }
+
+        .meta-date {
+            color: var(--ticnote-muted);
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 600px) {
+            .meta-bar {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 14px 16px;
+            }
+
+            .meta-right {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .meta-tagline {
+                display: none;
+            }
+
+            .meta-date {
+                display: none;
+            }
+        }
+
+        /* ── Wild Earth Style ── */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #f4f7f2;
+            color: #2d4a2d;
+            font-family: system-ui, 'Segoe UI', sans-serif;
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        a {
+            color: #2d6a2d;
+        }
+
+            a:hover {
+                color: #8b5e3c;
+            }
+
+        /* ── Page Header ── */
+        .page-header {
+            background: #2d6a2d;
+            color: #fff;
+            padding: 40px 32px 32px;
+        }
+
+            .page-header h1 {
+                font-family: Georgia, serif;
+                font-size: clamp(22px, 4vw, 36px);
+                font-weight: 700;
+                line-height: 1.3;
+                margin-bottom: 10px;
+            }
+
+            .page-header .subtitle {
+                font-size: 14px;
+                opacity: 0.85;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+                .page-header .subtitle span {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                }
+
+        .header-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .header-badge {
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.35);
+            border-radius: 4px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* ── Main Layout ── */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 32px 16px;
+        }
+
+        /* ── Day Section ── */
+        .day-section {
+            margin-bottom: 48px;
+        }
+
+        .day-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #c8d9c0;
+            padding-bottom: 10px;
+        }
+
+        .day-num {
+            font-family: Georgia, serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #8b5e3c;
+            line-height: 1;
+            min-width: 60px;
+        }
+
+        .day-info {
+            flex: 1;
+        }
+
+            .day-info h2 {
+                font-size: 18px;
+                font-weight: 700;
+                color: #1a2e1a;
+            }
+
+            .day-info .day-date {
+                font-size: 13px;
+                color: #7a9a7a;
+                font-family: 'Courier New', Consolas, monospace;
+            }
+
+        /* ── Activities Grid ── */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            align-items: start;
+        }
+
+        @media (min-width: 640px) {
+            .activities-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+        }
+
+        /* ── Activity Card ── */
+        .activity-card {
+            background: #ffffff;
+            border: 1px solid #c8d9c0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .card-summary {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 14px;
+            flex-wrap: wrap;
+        }
+
+        .time {
+            font-family: 'Courier New', Consolas, monospace;
+            font-size: 12px;
+            color: #7a9a7a;
+            white-space: nowrap;
+            min-width: 90px;
+        }
+
+        .name {
+            font-weight: 700;
+            font-size: 14px;
+            color: #1a2e1a;
+            flex: 1;
+        }
+
+        .tag {
+            background: #e8f2e8;
+            color: #2d6a2d;
+            border-radius: 3px;
+            padding: 2px 8px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+            .tag.food {
+                background: #fef3e2;
+                color: #8b5e3c;
+            }
+
+            .tag.drive {
+                background: #e8f0f8;
+                color: #2d4a7a;
+            }
+
+            .tag.hotel {
+                background: #f0e8f8;
+                color: #5a2d8b;
+            }
+
+            .tag.shop {
+                background: #fce8f0;
+                color: #8b2d5a;
+            }
+
+        details.card-details {
+            border-top: 1px solid #e8f0e8;
+        }
+
+            details.card-details summary {
+                padding: 8px 14px;
+                font-size: 12px;
+                color: #2d6a2d;
+                cursor: pointer;
+                font-weight: 600;
+                list-style: none;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+
+                details.card-details summary::-webkit-details-marker {
+                    display: none;
+                }
+
+                details.card-details summary::before {
+                    content: '';
+                    display: inline-block;
+                    width: 0;
+                    height: 0;
+                    border-left: 5px solid #2d6a2d;
+                    border-top: 4px solid transparent;
+                    border-bottom: 4px solid transparent;
+                    transition: transform 0.2s;
+                }
+
+            details.card-details[open] summary::before {
+                transform: rotate(90deg);
+            }
+
+        .details-body {
+            padding: 10px 14px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+            .details-body p {
+                font-size: 13px;
+                line-height: 1.65;
+                color: #2d4a2d;
+            }
+
+            .details-body .label {
+                font-weight: 700;
+                color: #1a2e1a;
+            }
+
+            .details-body .hours, .details-body .price {
+                font-family: 'Courier New', Consolas, monospace;
+                font-size: 12px;
+                color: #7a9a7a;
+            }
+
+            .details-body .tip {
+                background: #f0f7ee;
+                border-left: 3px solid #2d6a2d;
+                padding: 6px 10px;
+                border-radius: 0 4px 4px 0;
+                font-size: 12px;
+                color: #2d4a2d;
+            }
+
+            .details-body .warning {
+                background: #fef8e8;
+                border-left: 3px solid #d4a017;
+                padding: 6px 10px;
+                border-radius: 0 4px 4px 0;
+                font-size: 12px;
+                color: #6b4c00;
+            }
+
+        .booking-btn {
+            display: inline-block;
+            background: #2d6a2d;
+            color: #fff;
+            border-radius: 4px;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 4px;
+            width: fit-content;
+        }
+
+            .booking-btn:hover {
+                background: #1a4a1a;
+                color: #fff;
+            }
+
+        /* ── Drive Card ── */
+        .drive-card {
+            background: #e8f0f8;
+            border: 1px solid #b8ccdc;
+            border-radius: 6px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .drive-card .drive-icon {
+                flex-shrink: 0;
+            }
+
+            .drive-card p {
+                font-size: 13px;
+                color: #2d4a7a;
+            }
+
+            .drive-card .drive-time {
+                font-family: 'Courier New', Consolas, monospace;
+                font-size: 12px;
+                color: #5a6a8a;
+            }
+
+        /* ── Restaurant Block ── */
+        .meal-block {
+            background: #fffcf0;
+            border: 1px solid #e8ddb0;
+            border-radius: 6px;
+            padding: 14px;
+            margin-top: 16px;
+        }
+
+            .meal-block h3 {
+                font-size: 14px;
+                font-weight: 700;
+                color: #8b5e3c;
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+        .restaurant-item {
+            border-top: 1px solid #e8ddb0;
+            padding: 10px 0;
+        }
+
+            .restaurant-item:first-of-type {
+                border-top: none;
+                padding-top: 0;
+            }
+
+            .restaurant-item .r-name {
+                font-weight: 700;
+                font-size: 14px;
+                color: #5a3a1a;
+            }
+
+            .restaurant-item .r-meta {
+                font-size: 12px;
+                color: #8b6a3a;
+                font-family: 'Courier New', Consolas, monospace;
+            }
+
+            .restaurant-item .r-tips {
+                font-size: 13px;
+                color: #5a4a2a;
+                margin-top: 4px;
+            }
+
+            .restaurant-item .r-note {
+                font-size: 12px;
+                color: #a07030;
+                font-style: italic;
+                margin-top: 4px;
+            }
+
+        /* ── Section Divider ── */
+        .section-divider {
+            border: none;
+            border-top: 2px solid #c8d9c0;
+            margin: 40px 0 32px;
+        }
+
+        /* ── Concierge ── */
+        .concierge {
+            margin-top: 48px;
+            border-top: 2px solid #c8d9c0;
+            padding-top: 32px;
+        }
+
+            .concierge h2 {
+                font-family: Georgia, serif;
+                font-size: 22px;
+                color: #1a2e1a;
+                margin-bottom: 20px;
+            }
+
+        .concierge-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .concierge-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .concierge-card {
+            background: #ffffff;
+            border: 1px solid #c8d9c0;
+            border-radius: 6px;
+            padding: 18px;
+        }
+
+            .concierge-card h3 {
+                font-size: 15px;
+                font-weight: 700;
+                color: #2d6a2d;
+                margin-bottom: 12px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .concierge-card ul {
+                padding-left: 16px;
+                font-size: 13px;
+                color: #2d4a2d;
+                line-height: 1.85;
+            }
+
+            .concierge-card table {
+                width: 100%;
+                font-size: 13px;
+                border-collapse: collapse;
+            }
+
+                .concierge-card table td {
+                    padding: 5px 0;
+                    vertical-align: top;
+                }
+
+                    .concierge-card table td:first-child {
+                        color: #2d4a2d;
+                        width: 55%;
+                    }
+
+                    .concierge-card table td:last-child {
+                        font-family: 'Courier New', Consolas, monospace;
+                        color: #7a9a7a;
+                        text-align: right;
+                    }
+
+                .concierge-card table tr {
+                    border-bottom: 1px solid #e8f0e8;
+                }
+
+                    .concierge-card table tr:last-child {
+                        border-bottom: none;
+                    }
+
+        .total-row td {
+            font-weight: 700 !important;
+            color: #1a2e1a !important;
+            padding-top: 8px !important;
+            border-top: 2px solid #c8d9c0 !important;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 28px 16px;
+            font-size: 12px;
+            color: #7a9a7a;
+            border-top: 1px solid #c8d9c0;
+            margin-top: 48px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>九州自駕 6 天深度之旅</h1>
+        <div class="subtitle">
+            <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
+                2026年 9月27日（日）— 10月2日（五）
+            </span>
+            <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3" /><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z" /></svg>
+                福岡 → 熊本 → 高千穗 → 阿蘇 → 由布院 → 別府 → 大宰府 → 福岡
+            </span>
+            <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+                自駕 · 租車出遊
+            </span>
+        </div>
+        <div class="header-meta">
+            <span class="header-badge">IT 240 · 桃園 → 福岡 06:15</span>
+            <span class="header-badge">福岡 → 高雄 20:00回程</span>
+            <span class="header-badge">Wild Earth 風格</span>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- ═══════════════════════════════ DAY 1 ═══════════════════════════════ -->
+        <section class="day-section">
+            <div class="day-title">
+                <div class="day-num">01</div>
+                <div class="day-info">
+                    <h2>台灣 → 福岡 → 熊本</h2>
+                    <div class="day-date">9月27日（日）· 抵達首日 / 取車移動日</div>
+                </div>
+            </div>
+
+            <div class="activities-grid">
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">04:00 集合</span>
+                        <span class="name">桃園機場集合・出發準備</span>
+                        <span class="tag">交通</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p><span class="label">地點：</span>桃園國際機場</p>
+                            <p><span class="label">提醒：</span>虎航為早班機，建議務必預留報到、託運、安檢與出境時間。</p>
+                            <p class="tip">出門前確認護照、機票、國際駕照、台灣駕照正本、信用卡、eSIM / WiFi、行動電源。</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">06:15–09:35</span>
+                        <span class="name">台灣虎航 IT240 桃園 → 福岡</span>
+                        <span class="tag">航班</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p><span class="label">航班：</span>IT 240</p>
+                            <p><span class="label">航空公司：</span>台灣虎航（Tigerair Taiwan）</p>
+                            <p><span class="label">起飛：</span>06:15 桃園國際機場</p>
+                            <p><span class="label">抵達：</span>09:35 福岡機場</p>
+                            <p class="tip">飛行時間約 2.5 小時。抵達後先入境、領行李，再前往租車店鋪。</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">09:35–11:30</span>
+                        <span class="name">福岡機場入境・前往 ORIX 取車</span>
+                        <span class="tag drive">自駕</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p><span class="label">流程：</span>入境審查 → 領行李 → 海關申報 → 前往 ORIX 租車店鋪辦理取車。</p>
+                            <p><span class="label">租車公司：</span>ORIX Rent a Car</p>
+                            <p><span class="label">取車店鋪：</span>福岡機場航廈東店</p>
+                            <p><span class="label">電話：</span><a href="tel:0926924010">092-692-4010</a></p>
+                            <p><span class="label">預約取車時間：</span>2026/09/27（日）11:30</p>
+                            <p><span class="label">預約還車時間：</span>2026/10/02（五）16:00</p>
+                            <a class="booking-btn" href="https://www.google.com/maps/search/?api=1&query=ORIX%20Rent%20a%20Car%20福岡機場航廈東店" target="_blank">Google Maps</a>
+                            <p class="tip">取車時確認 ETC 卡、保險內容、車身刮傷、油量、導航設定與還車方式。</p>
+                            <p class="warning">日本為右駕，剛出發時先慢慢適應。請確認已備好國際駕照 + 台灣駕照正本。</p>
+                        </div>
+                    </details>
+                </article>
+
+                <div class="drive-card">
+                    <div class="drive-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                    </div>
+                    <div>
+                        <p style="font-weight:700">11:30 出發 福岡 → 廣川 SA → 熊本 約 2 小時</p>
+                        <p class="drive-time">走九州自動車道，中途於廣川 SA（下り）休息午餐，抵達熊本後先處理入住或停車。</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">12:30–13:15</span>
+                        <span class="name">廣川 SA（下り）休息站午餐</span>
+                        <span class="tag food">午餐 / 休息</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p><span class="label">位置：</span>九州自動車道 廣川 SA（下り）· 福岡県八女郡広川町</p>
+                            <p>高速公路服務區，適合第一天剛開始自駕時休息、用餐、補水與上廁所。</p>
+                            <p><span class="label">餐點候選：</span>拉麵、烏龍麵、定食、咖哩飯、炸雞、便利商店輕食。</p>
+                            <p class="tip">第一天以適應日本右駕為主，不建議把行程排太緊。</p>
+                            <a class="booking-btn" href="https://www.google.com/maps/search/?api=1&query=広川サービスエリア%20下り" target="_blank">Google Maps</a>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">14:00 前後</span>
+                        <span class="name">熊本城景觀舒適公寓飯店 Check In 嘗試</span>
+                        <span class="tag hotel">住宿</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p><span class="label">住宿：</span>熊本城景觀舒適公寓飯店</p>
+                            <p><span class="label">住宿期間：</span>9/27、9/28、9/29，共 3 晚</p>
+                            <p>抵達熊本後先嘗試 Check In 或確認寄放行李方式。</p>
+                            <p class="tip">若可提早入住，先放行李再前往熊本城；若尚未開放入住，可先寄放行李或暫放車內。</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">14:30–16:30</span>
+                        <span class="name">熊本城 + 迎賓武將隊</span>
+                        <span class="tag">景點</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">開放時間：09:00–17:00（最終入場 16:00）</p>
+                            <p><span class="label">門票：</span>成人 ¥800／中學生 ¥300／小學生 ¥200</p>
+                            <p><span class="label">地址：</span>熊本市中央区本丸1-1</p>
+                            <p><span class="label">官網：</span><a href="https://kumamoto-castle.jp" target="_blank">kumamoto-castle.jp</a></p>
+                            <p>日本三大名城之一。2016 年熊本地震後持續修復中，目前天守閣已重新開放。</p>
+                            <p><span class="label">參觀重點：</span>天守閣、本丸御殿周邊、熊本城修復展示、加藤神社、城郭景觀。</p>
+                            <p class="tip"><span class="label">迎賓武將隊：</span>若當日有熊本城おもてなし武将隊，可安排觀看、互動與合照。詳情：<a href="https://kumamoto-omotenashi.com/schedule/" target="_blank">kumamoto-omotenashi.com/schedule</a></p>
+                            <p class="warning">16:00 為最終入場，若取車或路程延誤，熊本城行程需優先確認入場時間。</p>
+                            <a class="booking-btn" href="https://www.google.com/maps/search/?api=1&query=熊本城" target="_blank">Google Maps</a>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">16:30–17:30</span>
+                        <span class="name">城彩苑散步・伴手禮補給</span>
+                        <span class="tag shop">購物</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p>城彩苑位於熊本城旁，是結合餐飲、土產與歷史文化體驗的觀光設施。</p>
+                            <p><span class="label">推薦：</span>熊本熊周邊商品、熊本限定伴手禮、馬肉相關商品、地方特色點心。</p>
+                            <p class="tip">適合第一天先買少量伴手禮，也可以邊走邊休息。</p>
+                            <a class="booking-btn" href="https://www.google.com/maps/search/?api=1&query=桜の馬場%20城彩苑" target="_blank">Google Maps</a>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">17:30–20:00</span>
+                        <span class="name">上通・下通商店街 + 晚餐</span>
+                        <span class="tag shop">購物 / 餐飲</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p>熊本最熱鬧的拱廊商店街，全長超過 1 公里，適合晚餐、藥妝、便利商店補給與自由購物。</p>
+                            <p><span class="label">可安排：</span>上通、下通、藥妝店、唐吉訶德、甜點店巡禮。</p>
+                            <p class="tip">隔天 Day 2 需要 06:30 出發前往高千穗，建議不要太晚回飯店。</p>
+                            <a class="booking-btn" href="https://www.google.com/maps/search/?api=1&query=熊本%20下通商店街" target="_blank">Google Maps</a>
+                        </div>
+                    </details>
+                </article>
+            </div>
+
+            <div class="meal-block">
+                <h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" /></svg>
+                    晚餐推薦 — 熊本必吃
+                </h3>
+                <div class="restaurant-item">
+                    <div class="r-name">濃厚鶏白湯 いわお</div>
+                    <div class="r-meta">熊本 下通周邊 · 雞白湯拉麵 · 每人約 ¥1,000–1,500</div>
+                    <div class="r-tips">以濃郁雞骨熬製的白湯拉麵為招牌，湯底乳白香醇、雞香四溢，口感比豬骨拉麵更加溫潤。推薦：特製鶏白湯ラーメン、半熟煮玉子追加。</div>
+                    <div class="r-note">此為您指定的店家，詳細營業時間請出發前至 Google Maps 確認。</div>
+                    <a class="booking-btn" href="https://www.google.com/maps/search/?api=1&query=濃厚鶏白湯%20いわお%20熊本" target="_blank">Google Maps</a>
+                </div>
+                <div class="restaurant-item">
+                    <div class="r-name">新時代 熊本下通り 2号店</div>
+                    <div class="r-meta">熊本 下通商店街 · 串燒居酒屋 · 每人約 ¥2,000–3,500</div>
+                    <div class="r-tips">「新時代」是人氣平價串燒居酒屋，適合逛完商店街後輕鬆吃飯喝一杯。推薦：伝串、雞皮串、つくね、ねぎま、生啤酒。</div>
+                    <div class="r-note">居酒屋通常從傍晚開始營業，詳細資訊請至官網或 Google Maps 確認。</div>
+                    <a class="booking-btn" href="https://www.google.com/maps/search/?api=1&query=新時代%20熊本下通り%202号店" target="_blank">Google Maps</a>
+                </div>
+            </div>
+
+            <div class="meal-block">
+                <h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" /></svg>
+                    Day 1 備註
+                </h3>
+                <div class="restaurant-item">
+                    <div class="r-name">今日重點</div>
+                    <div class="r-tips">第一天重點是順利抵達、完成 ORIX 取車、適應右駕並安全移動到熊本。熊本城若因入境或取車延誤導致時間不足，建議優先確保 Check In 與晚餐休息。</div>
+                </div>
+                <div class="restaurant-item">
+                    <div class="r-name">隔日提醒</div>
+                    <div class="r-tips">Day 2 需 06:30 出發前往高千穗，今晚建議 20:00 後回飯店整理行李、充電、準備飲用水，早點休息。</div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════════════════ DAY 2 ═══════════════════════════════ -->
+        <section class="day-section">
+            <div class="day-title">
+                <div class="day-num">02</div>
+                <div class="day-info">
+                    <h2>神話之鄉 高千穗</h2>
+                    <div class="day-date">9月28日（日）· 超早出發日</div>
+                </div>
+            </div>
+
+            <div class="activities-grid">
+                <div class="drive-card">
+                    <div class="drive-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                    </div>
+                    <div>
+                        <p style="font-weight:700">06:30 出發 熊本 → 高千穗 約 2 小時</p>
+                        <p class="drive-time">走宮崎自動車道方向，約 90km</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">08:30–10:00</span>
+                        <span class="name">高千穗神社</span>
+                        <span class="tag">神社</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">開放時間：全年無休 · 參拜自由</p>
+                            <p><span class="label">門票：</span>免費（夜神樂表演 ¥1,000）</p>
+                            <p>建立約1,900年前的古社，高千穗八十八社總社。境內有樹齢800年的「秩父杉」和帶來良緣的「夫婦杉」。每晚神樂殿都有高千穗神樂表演</p>
+                            <p class="tip">「夫婦杉」據說兩人牽手繞樹一圈可祈求良緣，別忘了繞！</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">10:00–12:00</span>
+                        <span class="name">天岩戸神社 + 天安河原</span>
+                        <span class="tag">能量聖地</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">開放時間：08:30–17:30 · 全年無休</p>
+                            <p><span class="label">門票：</span>免費</p>
+                            <p><span class="label">地址：</span>宮崎県西臼杵郡高千穗町岩戸1073-1</p>
+                            <p><span class="label">電話：</span>0982-74-8239</p>
+                            <p><span class="label">官網：</span><a href="http://amanoiwato-jinja.jp" target="_blank">amanoiwato-jinja.jp</a></p>
+                            <p>供奉天照大神的古社，分西本宮與東本宮。西本宮的洞窟為天照大神藏身之處（御神體）。附近的天安河原是八百萬神明聚集商議的大洞窟</p>
+                            <p class="tip">在天安河原堆積石塔許願是傳統習俗，充滿神秘氣息；9月底有秋祭，可能碰上「天岩戸神樂」表演</p>
+                            <div class="venue-notice" style="background:#f0f7ee;border-left:3px solid #2d6a2d;padding:8px 10px;border-radius:0 4px 4px 0;margin-top:6px;">
+                                <p style="font-size:12px;font-weight:700;color:#1a2e1a;margin-bottom:4px;">參拜注意事項</p>
+                                <p style="font-size:12px;color:#2d4a2d;">・洞窟內禁止拍照<br>・請保持肅靜，勿大聲喧嘩<br>・天安河原步行約10分鐘，請穿防滑鞋</p>
+                            </div>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">12:00–13:45</span>
+                        <span class="name">高千穗峽 + 午餐</span>
+                        <span class="tag food">午餐 / 景點</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p>高千穗峽可乘小船欣賞真名井瀑布，是九州著名峽谷景觀</p>
+                            <p class="tip">若時間允許建議划船遊覽（約30分鐘，請提前排隊租船）</p>
+                            <p>峽谷附近有多家食堂，可品嘗在地定食料理</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">13:45–14:35</span>
+                        <span class="name">白川水源</span>
+                        <span class="tag">自然景觀</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">開放時間：約 08:30–17:00</p>
+                            <p><span class="label">地點：</span>阿蘇郡南阿蘇村白川</p>
+                            <p>每分鐘湧出60噸以上的清澈湧泉，是日本名水百選之一。泉水清澈見底，藍色砂石隨水波搖曳，絕景！</p>
+                            <p class="tip">可購買白川水源的礦泉水（附近販賣）帶回品嘗，也可用容器現場取水</p>
+                            <p class="warning">停留約45分鐘，注意返回行程時間</p>
+                        </div>
+                    </details>
+                </article>
+
+                <div class="drive-card">
+                    <div class="drive-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                    </div>
+                    <div>
+                        <p style="font-weight:700">白川水源 → 熊本城景觀舒適公寓飯店 約 70 分鐘</p>
+                        <p class="drive-time">返回住宿，隔天 08:00 出發</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="meal-block">
+                <h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" /></svg>
+                    晚餐推薦 — 商店街美食
+                </h3>
+                <div class="restaurant-item">
+                    <div class="r-name">熊本牛 / 阿蘇高原牛焼肉</div>
+                    <div class="r-meta">上通商店街周邊 · 每人約 ¥3,000–5,000</div>
+                    <div class="r-tips">推薦：熊本産和牛，配阿蘇大蒜醬，CP值高</div>
+                    <div class="r-note">請於出發前確認營業狀態 (Please verify before visiting)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════ DAY 3 ═══════════════════════════════ -->
+        <section class="day-section">
+            <div class="day-title">
+                <div class="day-num">03</div>
+                <div class="day-info">
+                    <h2>火山大地 阿蘇</h2>
+                    <div class="day-date">9月29日（一）· 火山巡禮日</div>
+                </div>
+            </div>
+
+            <div class="activities-grid">
+                <div class="drive-card">
+                    <div class="drive-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                    </div>
+                    <div>
+                        <p style="font-weight:700">08:00 出發 → 米塚 約 70 分鐘</p>
+                        <p class="drive-time">沿阿蘇パノラマライン北行</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">09:10–09:20</span>
+                        <span class="name">米塚</span>
+                        <span class="tag">打卡</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p>圓錐形的休火山，形如一堆白米，傳說為建磐龍命供奉神明的米堆化成。路邊停車眺望拍照即可</p>
+                            <p class="tip">9月底草原轉黃，景色特別迷人，是少見的壯觀地形</p>
+                            <p class="warning">禁止入內攀登</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">09:35–10:35</span>
+                        <span class="name">草千里ヶ浜</span>
+                        <span class="tag">自然景觀</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">全天開放 · 停車場收費</p>
+                            <p><span class="label">地點：</span>阿蘇市草千里浜</p>
+                            <p>直徑約1公里的草原，中央有兩座圓形小湖，馬匹在草原上自由漫步，煙霧繚繞的中岳火口就在近前，充滿壓迫感的壯觀美景</p>
+                            <p class="tip">可在此乘馬體驗（現場詢問），約 ¥1,500–2,000/人。阿蘇中岳登山道開閉受火山活動影響，請現場查詢是否開放</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">11:10–12:10</span>
+                        <span class="name">上色見熊野座神社</span>
+                        <span class="tag">秘境神社</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">開放時間：全年無休 · 參拜自由</p>
+                            <p><span class="label">門票：</span>免費</p>
+                            <p><span class="label">地址：</span>阿蘇郡高森町色見2619</p>
+                            <p>約100級苔蘚覆蓋的石燈籠參道，形成神秘的綠色隧道。電影《螢火蟲之墓》取景地之一，被譽為熊本最神秘的能量景點</p>
+                            <p class="tip">傍晚前往最為夢幻，陽光穿透杉林形成光柱。9月氣溫涼爽，適合徒步</p>
+                            <div style="background:#f0f7ee;border-left:3px solid #2d6a2d;padding:8px 10px;border-radius:0 4px 4px 0;margin-top:6px;">
+                                <p style="font-size:12px;color:#2d4a2d;">穿著建議：請穿防滑運動鞋，參道為濕滑石板</p>
+                            </div>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">12:40–14:00</span>
+                        <span class="name">阿蘇站周邊午餐</span>
+                        <span class="tag food">午餐</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p>阿蘇站附近有多家定食・咖哩餐廳</p>
+                            <p class="tip">推薦：阿蘇牛咖哩飯、在地蔬菜定食。阿蘇牛品質極佳，可購買當地漢堡排便當</p>
+                            <p class="warning">週一部分店家可能公休，請提前確認</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">14:30–15:00</span>
+                        <span class="name">大觀峰</span>
+                        <span class="tag">展望台</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">全天開放 · 停車場免費</p>
+                            <p><span class="label">海拔：</span>936公尺</p>
+                            <p>阿蘇外輪山最北端的展望台，可360度俯瞰阿蘇五岳和外輪山全景。秋天偶爾可見雲海從山谷間升起，是九州最壯觀的展望地點之一</p>
+                            <p class="tip">傍晚前後光線最美，9月29日約18:00日落，建議把握時間</p>
+                        </div>
+                    </details>
+                </article>
+
+                <div class="drive-card">
+                    <div class="drive-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                    </div>
+                    <div>
+                        <p style="font-weight:700">大觀峰 → 熊本城景觀舒適公寓飯店 約 90 分鐘</p>
+                        <p class="drive-time">返回住宿，隔天超早 06:15 出發（Day 4 換宿至福岡）</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════ DAY 4 ═══════════════════════════════ -->
+        <section class="day-section">
+            <div class="day-title">
+                <div class="day-num">04</div>
+                <div class="day-info">
+                    <h2>非洲野生 → 由布院 → 別府</h2>
+                    <div class="day-date">9月30日（三）· 精華長途日</div>
+                </div>
+            </div>
+
+            <div class="activities-grid">
+                <div class="drive-card">
+                    <div class="drive-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                    </div>
+                    <div>
+                        <p style="font-weight:700">06:15 出發 → 九州自然動物公園 約 2.5 小時</p>
+                        <p class="drive-time">大分縣宇佐市安心院町南畑 2-1755-1</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">09:00–11:00</span>
+                        <span class="name">九州自然動物公園 African Safari</span>
+                        <span class="tag">動物園</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">開放時間：09:00–17:00</p>
+                            <p><span class="label">門票：</span>高中生以上 ¥2,300（自駕入場）</p>
+                            <p><span class="label">地址：</span>大分県宇佐市安心院町南畑 2-1755-1</p>
+                            <p><span class="label">官網：</span><a href="http://www.africansafari.co.jp" target="_blank">africansafari.co.jp</a></p>
+                            <p>約115萬平方公尺的放養式動物園，可見獅子、老虎、長頸鹿、象、豹等70種1,400隻動物。開車穿越動物區，動物可能靠近車窗！</p>
+                            <p class="tip">「叢林巴士（ジャングルバス）」需提前預約（官網購票），可對動物投食，體驗極為特別</p>
+                            <p class="warning">禁止搖下車窗靠近食肉動物區。請確認車窗緊閉</p>
+                        </div>
+                    </details>
+                </article>
+
+                <div class="drive-card">
+                    <div class="drive-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                    </div>
+                    <div>
+                        <p style="font-weight:700">動物公園 → 由布院 約 30 分鐘</p>
+                        <p class="drive-time">走大分自動車道</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">11:30–14:00</span>
+                        <span class="name">由布院散步 + 金鱗湖 + 午餐</span>
+                        <span class="tag">觀光 / 午餐</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p><span class="label">金鱗湖：</span>全天開放 · 免費 · 大分県由布市湯布院町川上</p>
+                            <p>由布院最著名的湖泊，清晨有霧氣飄渺的夢幻景色；秋天金黃落葉倒映水面，唯美至極</p>
+                            <p class="tip">由布院町步行街（湯の坪街道）充滿特色小店、布丁、甜品，建議預留1.5小時逛街購物</p>
+                        </div>
+                    </details>
+                </article>
+            </div>
+
+            <div class="meal-block">
+                <h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" /></svg>
+                    由布院午餐推薦
+                </h3>
+                <div class="restaurant-item">
+                    <div class="r-name">元祖豊後肉汁うどん</div>
+                    <div class="r-meta">由布院町 · 每人約 ¥1,200–1,800</div>
+                    <div class="r-tips">您行程表上的推薦，豊後牛肉汁烏龍麵，湯頭濃郁鮮甜</div>
+                    <div class="r-note">人氣高，建議提早前往，平日等候約15–30分鐘（Please verify before visiting）</div>
+                </div>
+                <div class="restaurant-item">
+                    <div class="r-name">雞湯定食（由布院在地食堂）</div>
+                    <div class="r-meta">町內各食堂 · 每人約 ¥1,000–1,500</div>
+                    <div class="r-tips">由布院著名的雞飯定食，搭配在地蔬菜，簡單鮮美</div>
+                </div>
+            </div>
+
+            <div class="activities-grid" style="margin-top:16px;">
+                <div class="drive-card">
+                    <div class="drive-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                    </div>
+                    <div>
+                        <p style="font-weight:700">由布院 → 別府溫泉旅館 約 30–45 分鐘</p>
+                        <p class="drive-time">抵達後 Check In，泡湯放鬆</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">15:45 起</span>
+                        <span class="name">別府 Check In + 溫泉</span>
+                        <span class="tag hotel">住宿 / 溫泉</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p><span class="label">住宿（9/30–10/2）：</span>福岡旅路 博多住吉包棟民宿 2號館</p>
+                            <p class="tip">Day 4 晚抵達時先 Check In 此住宿，之後 Day 5、Day 6 皆以此為基地</p>
+                            <p>別府是日本最著名的溫泉鄉，若住宿提供溫泉可好好享用；或前往附近錢湯</p>
+                            <p class="tip">別府竹瓦溫泉（公共浴場）¥100，是別府最古老的溫泉浴場，若時間允許可前往體驗</p>
+                            <p class="warning">溫泉旅館通常有入浴時間限制，請確認住宿規定</p>
+                        </div>
+                    </details>
+                </article>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════ DAY 5 ═══════════════════════════════ -->
+        <section class="day-section">
+            <div class="day-title">
+                <div class="day-num">05</div>
+                <div class="day-info">
+                    <h2>大宰府天滿宮 + 二日市周邊</h2>
+                    <div class="day-date">10月1日（四）· 文化巡禮日</div>
+                </div>
+            </div>
+
+            <div class="activities-grid">
+                <div class="drive-card">
+                    <div class="drive-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                    </div>
+                    <div>
+                        <p style="font-weight:700">08:30 別府出發 → 伊都彩杜 約 30 分鐘</p>
+                        <p class="drive-time">買食材後返回住宿放置</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">09:00–10:00</span>
+                        <span class="name">伊都彩杜採購食材</span>
+                        <span class="tag shop">採買</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p>福岡・糸島地區的農產品直銷站，提供新鮮蔬菜、海鮮、在地加工品</p>
+                            <p class="tip">可購買糸島草莓、蔬菜等伴手禮，CP值很高</p>
+                            <p class="warning">請確認當日營業時間 (Please verify before visiting)</p>
+                        </div>
+                    </details>
+                </article>
+
+                <div class="drive-card">
+                    <div class="drive-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                    </div>
+                    <div>
+                        <p style="font-weight:700">食材放回住宿 → 大宰府天滿宮 約 30 分鐘</p>
+                        <p class="drive-time">10:00 出發，10:30 抵達</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">10:30–14:00</span>
+                        <span class="name">大宰府天滿宮</span>
+                        <span class="tag">神社 / 祈願</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">開放時間（9–11月）：06:30–19:00</p>
+                            <p><span class="label">門票：</span>免費參拜</p>
+                            <p><span class="label">地址：</span>福岡県太宰府市宰府4-7-1</p>
+                            <p><span class="label">電話：</span>+81-92-922-8225</p>
+                            <p>供奉學問之神菅原道真，全日本天滿宮總本社之一。境內有心字池、志賀社（室町時代古蹟）；一年四季梅花、楠木競相開放</p>
+                            <p class="tip">必買：梅ヶ枝餅（梅花年糕）是大宰府名物，入口即化，可在參道各店購買（約 ¥130/個）。別忘了買御守祈求考試順利！</p>
+                            <div style="background:#f0f7ee;border-left:3px solid #2d6a2d;padding:8px 10px;border-radius:0 4px 4px 0;margin-top:6px;">
+                                <p style="font-size:12px;font-weight:700;color:#1a2e1a;margin-bottom:4px;">參拜注意事項</p>
+                                <p style="font-size:12px;color:#2d4a2d;">・本殿正在翻修（仮殿参拝），預計2026年竣工前確認狀況<br>・御朱印受付時間請於現場確認<br>・參道沿途商店眾多，留意時間</p>
+                            </div>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">14:15–15:00</span>
+                        <span class="name">宮地獄神社</span>
+                        <span class="tag">神社</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">開放時間：09:00–17:00</p>
+                            <p><span class="label">地址：</span>福岡県福津市宮司元町7-1</p>
+                            <p>以日本最大的注連縄（直徑3公尺、重量3噸）聞名。每年2月和10月落日時分，夕陽正好沿長長的參道射入，形成「光之道（光の道）」奇景</p>
+                            <p class="tip">10月初是宮地嶽神社秋季大祭期間，氣氛熱鬧。即使非「光之道」時節，夕陽時分的參道仍非常美麗</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">15:40 起</span>
+                        <span class="name">海邊夕陽 + 自由活動</span>
+                        <span class="tag">放鬆</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p>宮地嶽神社近海，可前往附近海岸欣賞夕陽景色</p>
+                            <p>10月1日日落約17:50，把握最後的自然美景</p>
+                        </div>
+                    </details>
+                </article>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════ DAY 6 ═══════════════════════════════ -->
+        <section class="day-section">
+            <div class="day-title">
+                <div class="day-num">06</div>
+                <div class="day-info">
+                    <h2>博多 → 福岡機場 → 返台</h2>
+                    <div class="day-date">10月2日（五）· 最終日</div>
+                </div>
+            </div>
+
+            <div class="activities-grid">
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">08:50–09:45</span>
+                        <span class="name">筥崎宮（博多神社）</span>
+                        <span class="tag">神社</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">開放時間：09:00–17:00</p>
+                            <p><span class="label">門票：</span>免費（寶物殿另計）</p>
+                            <p>日本三大八幡宮之一，以祈求勝利（勝運）聞名。境內有樹齡數百年的大樟樹，莊嚴靜謐</p>
+                            <p class="tip">可購買勝守（勝運御守），保佑事業、考試必勝！距離住宿約10分鐘車程，退房後順道參拜</p>
+                        </div>
+                    </details>
+                </article>
+
+                <div class="drive-card">
+                    <div class="drive-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                    </div>
+                    <div>
+                        <p style="font-weight:700">博多神社 → LaLaport 福岡 約 45 分鐘</p>
+                        <p class="drive-time">09:50 出發，10:35 抵達</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">10:50–16:00</span>
+                        <span class="name">LaLaport 福岡 最後補貨</span>
+                        <span class="tag shop">購物</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p class="hours">營業時間：10:00–21:00（餐廳至22:00）</p>
+                            <p><span class="label">地址：</span>福岡市博多区那珂6丁目23-1</p>
+                            <p>2022年新開幕的大型購物中心，特色為園區內有鋼彈立像，也有各式餐廳、藥妝、服裝</p>
+                            <p class="tip">最後掃貨時機！藥妝品、零食、服飾、伴手禮一次購足。午餐可選購物中心內餐廳</p>
+                            <p class="warning">16:00 必須出發前往機場還車，時間請務必掌控</p>
+                        </div>
+                    </details>
+                </article>
+            </div>
+
+            <div class="meal-block">
+                <h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" /></svg>
+                    LaLaport 午餐推薦 — 最後燒肉
+                </h3>
+                <div class="restaurant-item">
+                    <div class="r-name">LaLaport 福岡內燒肉店</div>
+                    <div class="r-meta">每人約 ¥2,500–4,500</div>
+                    <div class="r-tips">購物中心內有多家和牛燒肉餐廳，以福岡産牛肉與九州和牛為主，最後一頓值得犒賞自己</div>
+                    <div class="r-note">具體店家請於現場確認（Please verify before visiting）</div>
+                </div>
+            </div>
+
+            <div class="activities-grid" style="margin-top:16px;">
+                <div class="drive-card">
+                    <div class="drive-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d4a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                    </div>
+                    <div>
+                        <p style="font-weight:700">16:00 LaLaport → 福岡空港還車 約 10 分鐘</p>
+                        <p class="drive-time">17:00 前完成出境手續，19:00 / 20:00 起飛返台</p>
+                    </div>
+                </div>
+
+                <article class="activity-card">
+                    <div class="card-summary">
+                        <span class="time">16:10–19:00</span>
+                        <span class="name">福岡機場出境</span>
+                        <span class="tag">返程</span>
+                    </div>
+                    <details class="card-details">
+                        <summary>查看詳情</summary>
+                        <div class="details-body">
+                            <p><span class="label">回程航班：</span>福岡 19:00 起飛（部分旅客 20:00，請確認各自航班）</p>
+                            <p><span class="label">目的地：</span>台北 / 高雄（依各人票務）</p>
+                            <p class="tip">機場出境後可在免稅區購物，福岡機場免稅品豐富。還車時請確認油箱加滿</p>
+                            <p class="warning">日本機場出境建議提前2小時到達，請確認各人航班資訊</p>
+                        </div>
+                    </details>
+                </article>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════ CONCIERGE ═══════════════════════════════ -->
+        <section class="concierge">
+            <h2>旅行顧問</h2>
+            <div class="concierge-grid">
+
+                <div class="concierge-card">
+                    <h3>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2d6a2d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg>
+                        行李 &amp; 準備清單
+                    </h3>
+                    <ul>
+                        <li>國際駕照 + 台灣駕照正本（租車必備）</li>
+                        <li>護照 + 日本簽證（台灣免簽但需確認）</li>
+                        <li>JCB / VISA 信用卡（高速公路 ETC 卡）</li>
+                        <li>行動電源 + 日本插頭轉接頭（A型）</li>
+                        <li>輕型登山鞋或防滑運動鞋（石板路多）</li>
+                        <li>薄外套或輕量夾克（9月下旬山區涼爽）</li>
+                        <li>折疊傘（台風季尾聲，隨時備用）</li>
+                        <li>旅遊保險確認單</li>
+                        <li>Google Maps 離線地圖下載</li>
+                        <li>備用現金日幣（部分小店不收刷卡）</li>
+                    </ul>
+                </div>
+
+                <div class="concierge-card">
+                    <h3>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2d6a2d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+                        預估費用 (TWD / 人)
+                    </h3>
+                    <table>
+                        <tr><td>機票（來回）</td><td>~NT$8,000–15,000</td></tr>
+                        <tr><td>租車6天（含ETC/保險）</td><td>~NT$12,000–18,000 ÷人數</td></tr>
+                        <tr><td>油費（約 600km 行駛）</td><td>~NT$1,500–2,500 ÷人數</td></tr>
+                        <tr><td>高速公路費</td><td>~NT$2,000–3,500 ÷人數</td></tr>
+                        <tr><td>住宿6晚</td><td>~NT$3,000–8,000/晚</td></tr>
+                        <tr><td>餐費</td><td>~NT$3,000–5,000/人</td></tr>
+                        <tr><td>景點門票</td><td>~NT$1,500–2,500/人</td></tr>
+                        <tr><td>購物/伴手禮</td><td>視個人消費</td></tr>
+                        <tr class="total-row"><td>估計總計（2人）</td><td>~NT$50,000–80,000</td></tr>
+                    </table>
+                    <p style="font-size:11px;color:#7a9a7a;margin-top:8px;">※ 以上為粗估，實際費用依匯率及選擇浮動</p>
+                </div>
+
+                <div class="concierge-card">
+                    <h3>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2d6a2d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" /></svg>
+                        在地禮儀 &amp; 注意事項
+                    </h3>
+                    <ul>
+                        <li>神社內請保持肅靜，正殿前脫帽，不得大聲喧嘩</li>
+                        <li>天岩戸神社洞窟內嚴禁拍照</li>
+                        <li>溫泉旅館需脫鞋，請遵守入浴規定（刺青者通常禁止進入公共浴池）</li>
+                        <li>日本馬路為靠左行駛，駕駛需適應</li>
+                        <li>高速公路出口需取票，ETC車道無需停車</li>
+                        <li>不可在車內亂丟垃圾，垃圾請帶回服務區或便利商店</li>
+                        <li>自動車道禁止超速，測速照相密集</li>
+                        <li>用餐後不主動給小費（日本習慣不收小費）</li>
+                    </ul>
+                </div>
+
+                <div class="concierge-card">
+                    <h3>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2d6a2d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>
+                        貨幣 &amp; 支付指南
+                    </h3>
+                    <ul>
+                        <li>日幣 (¥)：1 TWD ≈ 4.8–5 JPY（請出發前確認匯率）</li>
+                        <li>建議備現金 ¥30,000–50,000/人（山區小店、神社現金較常用）</li>
+                        <li>換匯：建議出發前在台灣銀行或兌換所換好，或使用日本7-11 ATM</li>
+                        <li>信用卡：大型店、加油站、高速公路皆可刷卡；Visa/Mastercard 最通用</li>
+                        <li>IC 卡（Suica/ICOCA）：便利商店、部分停車場可用</li>
+                        <li>退稅：購物 ¥5,000 以上可申請免稅，出示護照辦理</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        九州自駕 6 天 · 2026.09.27–10.02 · Generated by Travel Assistant (TicNote Cloud)<br>
+        標記「Please verify before visiting」的資訊請於出發前自行確認最新狀態
+    </footer>
+
+    <script>
+        (function renderTicNoteMetaDate() {
+            var dateEl = document.getElementById('r-date');
+            if (!dateEl) return;
+            dateEl.textContent = new Date().toLocaleDateString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+            });
+        })();
+    </script>
+
+</body>
+</html>
