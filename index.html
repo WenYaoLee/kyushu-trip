@@ -6,9 +6,106 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>九州自駕 6 天 — 熊本・高千穗・阿蘇・由布院・別府・福岡</title>
     <style>
-        /* ─────────────────────────────
-           Base
-        ───────────────────────────── */
+        /* ── TicNote Topbar ── */
+        :root {
+            --ticnote-brand: #26B2BF;
+            --ticnote-badge: #79F2F2;
+            --ticnote-line: #e5e7eb;
+            --ticnote-muted: #64748b;
+            --ticnote-text: #0f172a;
+        }
+
+        .meta-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 16px 32px;
+            border-bottom: 1px solid var(--ticnote-line);
+            background: #ffffff !important;
+            color: var(--ticnote-text) !important;
+            box-sizing: border-box;
+        }
+
+        .meta-brand, .meta-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .meta-logo {
+            height: 28px;
+            width: 28px;
+            display: block;
+            object-fit: contain;
+            flex: 0 0 auto;
+        }
+
+        .meta-divider {
+            width: 1px;
+            height: 18px;
+            background: var(--ticnote-line);
+            flex: 0 0 auto;
+        }
+
+        .meta-tagline {
+            font-size: 11px;
+            font-weight: 650;
+            line-height: 1.2;
+            color: var(--ticnote-muted);
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .meta-tag {
+            display: inline-flex;
+            align-items: center;
+            min-height: 22px;
+            padding: 3px 9px;
+            border-radius: 999px;
+            background: rgba(121,242,242,0.28);
+            color: #057985;
+            border: 1px solid rgba(38,178,191,0.28);
+            font-size: 10px;
+            font-weight: 800;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+        }
+
+        .meta-date {
+            color: var(--ticnote-muted);
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 600px) {
+            .meta-bar {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 14px 16px;
+            }
+
+            .meta-right {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .meta-tagline {
+                display: none;
+            }
+
+            .meta-date {
+                display: none;
+            }
+        }
+
+        /* ── Wild Earth Style ── */
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
@@ -31,30 +128,719 @@
                 color: #8b5e3c;
             }
 
+        /* ── Page Header ── */
+        .page-header {
+            background: #2d6a2d;
+            color: #fff;
+            padding: 40px 32px 32px;
+        }
+
+            .page-header h1 {
+                font-family: Georgia, serif;
+                font-size: clamp(22px, 4vw, 36px);
+                font-weight: 700;
+                line-height: 1.3;
+                margin-bottom: 10px;
+            }
+
+            .page-header .subtitle {
+                font-size: 14px;
+                opacity: 0.85;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+                .page-header .subtitle span {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                }
+
+        .header-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .header-badge {
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.35);
+            border-radius: 4px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* ── Main Layout ── */
         main {
             max-width: 1100px;
             margin: 0 auto;
             padding: 32px 16px;
         }
 
-        /* ─────────────────────────────
-           Fixed Header / Menu
-        ───────────────────────────── */
-        .page-header {
-            position: sticky;
-            top: 0;
-            z-index: 900;
-            background: rgba(45, 106, 45, 0.96);
-            color: #fff;
-            backdrop-filter: blur(8px);
-            padding: 12px 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.18);
-            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
+        /* ── Day Section ── */
+        .day-section {
+            margin-bottom: 48px;
         }
 
-        .header-row {
+        .day-title {
             display: flex;
             align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #c8d9c0;
+            padding-bottom: 10px;
+        }
+
+        .day-num {
+            font-family: Georgia, serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #8b5e3c;
+            line-height: 1;
+            min-width: 60px;
+        }
+
+        .day-info {
+            flex: 1;
+        }
+
+            .day-info h2 {
+                font-size: 18px;
+                font-weight: 700;
+                color: #1a2e1a;
+            }
+
+            .day-info .day-date {
+                font-size: 13px;
+                color: #7a9a7a;
+                font-family: 'Courier New', Consolas, monospace;
+            }
+
+        /* ── Activities Grid ── */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            align-items: start;
+        }
+
+        @media (min-width: 640px) {
+            .activities-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+        }
+
+        /* ── Activity Card ── */
+        .activity-card {
+            background: #ffffff;
+            border: 1px solid #c8d9c0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .card-summary {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 14px;
+            flex-wrap: wrap;
+        }
+
+        .time {
+            font-family: 'Courier New', Consolas, monospace;
+            font-size: 12px;
+            color: #7a9a7a;
+            white-space: nowrap;
+            min-width: 90px;
+        }
+
+        .name {
+            font-weight: 700;
+            font-size: 14px;
+            color: #1a2e1a;
+            flex: 1;
+        }
+
+        .tag {
+            background: #e8f2e8;
+            color: #2d6a2d;
+            border-radius: 3px;
+            padding: 2px 8px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+            .tag.food {
+                background: #fef3e2;
+                color: #8b5e3c;
+            }
+
+            .tag.drive {
+                background: #e8f0f8;
+                color: #2d4a7a;
+            }
+
+            .tag.hotel {
+                background: #f0e8f8;
+                color: #5a2d8b;
+            }
+
+            .tag.shop {
+                background: #fce8f0;
+                color: #8b2d5a;
+            }
+
+        details.card-details {
+            border-top: 1px solid #e8f0e8;
+        }
+
+            details.card-details summary {
+                padding: 8px 14px;
+                font-size: 12px;
+                color: #2d6a2d;
+                cursor: pointer;
+                font-weight: 600;
+                list-style: none;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+
+                details.card-details summary::-webkit-details-marker {
+                    display: none;
+                }
+
+                details.card-details summary::before {
+                    content: '';
+                    display: inline-block;
+                    width: 0;
+                    height: 0;
+                    border-left: 5px solid #2d6a2d;
+                    border-top: 4px solid transparent;
+                    border-bottom: 4px solid transparent;
+                    transition: transform 0.2s;
+                }
+
+            details.card-details[open] summary::before {
+                transform: rotate(90deg);
+            }
+
+        .details-body {
+            padding: 10px 14px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+            .details-body p {
+                font-size: 13px;
+                line-height: 1.65;
+                color: #2d4a2d;
+            }
+
+            .details-body .label {
+                font-weight: 700;
+                color: #1a2e1a;
+            }
+
+            .details-body .hours, .details-body .price {
+                font-family: 'Courier New', Consolas, monospace;
+                font-size: 12px;
+                color: #7a9a7a;
+            }
+
+            .details-body .tip {
+                background: #f0f7ee;
+                border-left: 3px solid #2d6a2d;
+                padding: 6px 10px;
+                border-radius: 0 4px 4px 0;
+                font-size: 12px;
+                color: #2d4a2d;
+            }
+
+            .details-body .info {
+                background: #eef5ff;
+                border-left: 3px solid #3b82f6;
+                padding: 6px 10px;
+                border-radius: 0 4px 4px 0;
+                font-size: 12px;
+                color: #1e3a5f;
+            }
+
+            .details-body .warning {
+                background: #fef8e8;
+                border-left: 3px solid #d4a017;
+                padding: 6px 10px;
+                border-radius: 0 4px 4px 0;
+                font-size: 12px;
+                color: #6b4c00;
+            }
+
+        .booking-btn {
+            display: inline-block;
+            background: #2d6a2d;
+            color: #fff;
+            border-radius: 4px;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 4px;
+            width: fit-content;
+        }
+
+            .booking-btn:hover {
+                background: #1a4a1a;
+                color: #fff;
+            }
+
+        /* ── Drive Card ── */
+        .drive-card {
+            background: #e8f0f8;
+            border: 1px solid #b8ccdc;
+            border-radius: 6px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .drive-card .drive-icon {
+                flex-shrink: 0;
+            }
+
+            .drive-card p {
+                font-size: 13px;
+                color: #2d4a7a;
+            }
+
+            .drive-card .drive-time {
+                font-family: 'Courier New', Consolas, monospace;
+                font-size: 12px;
+                color: #5a6a8a;
+            }
+
+        /* ── Restaurant Block ── */
+        .meal-block {
+            background: #fffcf0;
+            border: 1px solid #e8ddb0;
+            border-radius: 6px;
+            padding: 14px;
+            margin-top: 16px;
+            margin-bottom: 24px;
+        }
+
+            .meal-block h3 {
+                font-size: 14px;
+                font-weight: 700;
+                color: #8b5e3c;
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+        .restaurant-item {
+            border-top: 1px solid #e8ddb0;
+            padding: 10px 0;
+        }
+
+            .restaurant-item:first-of-type {
+                border-top: none;
+                padding-top: 0;
+            }
+
+            .restaurant-item .r-name {
+                font-weight: 700;
+                font-size: 14px;
+                color: #5a3a1a;
+            }
+
+            .restaurant-item .r-meta {
+                font-size: 12px;
+                color: #8b6a3a;
+                font-family: 'Courier New', Consolas, monospace;
+            }
+
+            .restaurant-item .r-tips {
+                font-size: 13px;
+                color: #5a4a2a;
+                margin-top: 4px;
+            }
+
+            .restaurant-item .r-note {
+                font-size: 12px;
+                color: #a07030;
+                font-style: italic;
+                margin-top: 4px;
+            }
+
+        /* ── Section Divider ── */
+        .section-divider {
+            border: none;
+            border-top: 2px solid #c8d9c0;
+            margin: 40px 0 32px;
+        }
+
+        /* ── Concierge ── */
+        .concierge {
+            margin-top: 48px;
+            border-top: 2px solid #c8d9c0;
+            padding-top: 32px;
+        }
+
+            .concierge h2 {
+                font-family: Georgia, serif;
+                font-size: 22px;
+                color: #1a2e1a;
+                margin-bottom: 20px;
+            }
+
+        .concierge-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .concierge-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .concierge-card {
+            background: #ffffff;
+            border: 1px solid #c8d9c0;
+            border-radius: 6px;
+            padding: 18px;
+        }
+
+            .concierge-card h3 {
+                font-size: 15px;
+                font-weight: 700;
+                color: #2d6a2d;
+                margin-bottom: 12px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .concierge-card ul {
+                padding-left: 16px;
+                font-size: 13px;
+                color: #2d4a2d;
+                line-height: 1.85;
+            }
+
+            .concierge-card table {
+                width: 100%;
+                font-size: 13px;
+                border-collapse: collapse;
+            }
+
+                .concierge-card table td {
+                    padding: 5px 0;
+                    vertical-align: top;
+                }
+
+                    .concierge-card table td:first-child {
+                        color: #2d4a2d;
+                        width: 55%;
+                    }
+
+                    .concierge-card table td:last-child {
+                        font-family: 'Courier New', Consolas, monospace;
+                        color: #7a9a7a;
+                        text-align: right;
+                    }
+
+                .concierge-card table tr {
+                    border-bottom: 1px solid #e8f0e8;
+                }
+
+                    .concierge-card table tr:last-child {
+                        border-bottom: none;
+                    }
+
+        .total-row td {
+            font-weight: 700 !important;
+            color: #1a2e1a !important;
+            padding-top: 8px !important;
+            border-top: 2px solid #c8d9c0 !important;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 28px 16px;
+            font-size: 12px;
+            color: #7a9a7a;
+            border-top: 1px solid #c8d9c0;
+            margin-top: 48px;
+        }
+
+        /* ── Day Tabs 3x2 ── */
+        .day-tab-wrapper {
+            margin: 0 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(244,247,242,.96);
+            padding: 10px 0 12px
+        }
+
+        .day-tab-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 8px
+        }
+
+        .day-tab-btn {
+            border: 1px solid #c8d9c0;
+            background: #fff;
+            color: #2d6a2d;
+            border-radius: 6px;
+            padding: 10px 8px;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer
+        }
+
+            .day-tab-btn span {
+                display: block;
+                font-size: 11px;
+                margin-top: 2px
+            }
+
+            .day-tab-btn.active {
+                background: #2d6a2d;
+                color: #fff
+            }
+
+        .day-tab-pane {
+            display: none
+        }
+
+            .day-tab-pane.active {
+                display: block
+            }
+
+
+        /* ── Packing Checklist ── */
+        .checklist-card {
+            grid-column: 1 / -1;
+        }
+
+        .checklist-groups {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        @media (min-width: 720px) {
+            .checklist-groups {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .checklist-group {
+            background: #f8fbf6;
+            border: 1px solid #e1ecd9;
+            border-radius: 6px;
+            padding: 12px;
+        }
+
+            .checklist-group h4 {
+                font-size: 13px;
+                color: #1a2e1a;
+                margin-bottom: 8px;
+            }
+
+        .checklist-items {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 6px 10px;
+        }
+
+        @media (min-width: 900px) {
+            .checklist-items {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: #2d4a2d;
+            cursor: pointer;
+            line-height: 1.35;
+        }
+
+            .check-item input {
+                accent-color: #2d6a2d;
+                width: 15px;
+                height: 15px;
+                flex: 0 0 auto;
+            }
+
+                .check-item input:checked + span {
+                    text-decoration: line-through;
+                    color: #7a9a7a;
+                }
+
+        .checklist-note {
+            margin-top: 12px;
+            font-size: 12px;
+            color: #7a9a7a;
+        }
+
+        /* ── Slide Menu / Separate Views ── */
+        .menu-toggle {
+            position: fixed;
+            top: 14px;
+            left: 14px;
+            z-index: 1001;
+            width: 42px;
+            height: 42px;
+            border: none;
+            border-radius: 10px;
+            background: #ffffff;
+            color: #2d6a2d;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .menu-toggle span,
+            .menu-toggle span::before,
+            .menu-toggle span::after {
+                content: "";
+                display: block;
+                width: 20px;
+                height: 2px;
+                background: #2d6a2d;
+                border-radius: 999px;
+                position: relative;
+            }
+
+                .menu-toggle span::before {
+                    position: absolute;
+                    top: -7px;
+                }
+
+                .menu-toggle span::after {
+                    position: absolute;
+                    top: 7px;
+                }
+
+        .side-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.38);
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .25s ease;
+        }
+
+            .side-overlay.open {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+        .side-drawer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: min(300px, 82vw);
+            height: 100vh;
+            background: #ffffff;
+            z-index: 1000;
+            transform: translateX(-105%);
+            transition: transform .28s ease;
+            box-shadow: 8px 0 24px rgba(15, 23, 42, 0.2);
+            padding: 72px 18px 18px;
+            border-right: 1px solid #c8d9c0;
+        }
+
+            .side-drawer.open {
+                transform: translateX(0);
+            }
+
+        .drawer-title {
+            font-family: Georgia, serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a2e1a;
+            margin-bottom: 14px;
+        }
+
+        .drawer-subtitle {
+            font-size: 12px;
+            color: #7a9a7a;
+            margin-bottom: 18px;
+        }
+
+        .drawer-nav {
+            display: grid;
+            gap: 10px;
+        }
+
+            .drawer-nav button {
+                border: 1px solid #c8d9c0;
+                background: #f8fbf6;
+                color: #2d6a2d;
+                border-radius: 8px;
+                padding: 12px 14px;
+                font-size: 14px;
+                font-weight: 800;
+                cursor: pointer;
+                text-align: left;
+            }
+
+                .drawer-nav button.active {
+                    background: #2d6a2d;
+                    color: #ffffff;
+                    border-color: #2d6a2d;
+                }
+
+        .page-view {
+            display: none;
+        }
+
+            .page-view.active {
+                display: block;
+            }
+
+        .concierge-view {
+            margin-top: 0;
+        }
+
+            .concierge-view .concierge {
+                margin-top: 0;
+                border-top: none;
+                padding-top: 0;
+            }
+
+        @media (max-width: 600px) {
+            .page-header {
+                padding-top: 62px;
+            }
+        }
+
+
+        /* ── App Header Menu Button ── */
+        .header-row {
+            display: flex;
+            align-items: flex-start;
             gap: 16px;
         }
 
@@ -63,29 +849,8 @@
             min-width: 0;
         }
 
-        .page-header h1 {
-            font-family: Georgia, serif;
-            font-size: clamp(18px, 3vw, 26px);
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 4px;
-        }
-
-        .page-header .subtitle {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            font-size: 12px;
-            opacity: 0.85;
-        }
-
-            .page-header .subtitle span {
-                display: flex;
-                align-items: center;
-                gap: 6px;
-            }
-
         .menu-toggle {
+            position: static;
             width: 42px;
             height: 42px;
             border: none;
@@ -98,6 +863,7 @@
             align-items: center;
             justify-content: center;
             flex: 0 0 auto;
+            margin-top: 2px;
         }
 
             .menu-toggle span,
@@ -193,9 +959,6 @@
                     border-color: #2d6a2d;
                 }
 
-        /* ─────────────────────────────
-           Page Views / Day Tabs
-        ───────────────────────────── */
         .page-view {
             display: none;
         }
@@ -221,194 +984,83 @@
                 margin-bottom: 24px;
             }
 
-        .day-tab-wrapper {
-            margin: 0 0 24px;
+
+        /* ── Fixed App Header Refinement ── */
+        .page-header {
             position: sticky;
             top: 0;
-            z-index: 20;
-            background: rgba(244,247,242,.96);
-            padding: 10px 0 12px;
+            z-index: 900;
+            background: rgba(45, 106, 45, 0.96);
+            backdrop-filter: blur(8px);
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.18);
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
         }
 
-        .day-tab-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-        }
-
-        .day-tab-btn {
-            border: 1px solid #c8d9c0;
-            background: #fff;
-            color: #2d6a2d;
-            border-radius: 6px;
-            padding: 10px 8px;
-            font-size: 13px;
-            font-weight: 800;
-            cursor: pointer;
-        }
-
-            .day-tab-btn span {
-                display: block;
-                font-size: 11px;
-                margin-top: 2px;
+            .page-header h1 {
+                margin-bottom: 4px;
+                font-size: clamp(18px, 3vw, 26px);
             }
 
-            .day-tab-btn.active {
-                background: #2d6a2d;
-                color: #fff;
-            }
-
-        .day-tab-pane {
-            display: none;
-        }
-
-            .day-tab-pane.active {
-                display: block;
-            }
-
-        /* ─────────────────────────────
-           Itinerary
-        ───────────────────────────── */
-        .day-section {
-            margin-bottom: 48px;
-        }
-
-        .day-title {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #c8d9c0;
-            padding-bottom: 10px;
-        }
-
-        .day-num {
-            font-family: Georgia, serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: #8b5e3c;
-            line-height: 1;
-            min-width: 60px;
-        }
-
-        .day-info {
-            flex: 1;
-        }
-
-            .day-info h2 {
-                font-size: 18px;
-                font-weight: 700;
-                color: #1a2e1a;
-            }
-
-            .day-info .day-date {
-                font-size: 13px;
-                color: #7a9a7a;
-                font-family: 'Courier New', Consolas, monospace;
-            }
-
-        .activities-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            align-items: start;
-        }
-
-        .activity-card {
-            background: #ffffff;
-            border: 1px solid #c8d9c0;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .card-summary {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 14px;
-            flex-wrap: wrap;
-        }
-
-        .time {
-            font-family: 'Courier New', Consolas, monospace;
-            font-size: 12px;
-            color: #7a9a7a;
-            white-space: nowrap;
-            min-width: 90px;
-        }
-
-        .name {
-            font-weight: 700;
-            font-size: 14px;
-            color: #1a2e1a;
-            flex: 1;
-        }
-
-        .tag {
-            background: #e8f2e8;
-            color: #2d6a2d;
-            border-radius: 3px;
-            padding: 2px 8px;
-            font-size: 11px;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-            .tag.food {
-                background: #fef3e2;
-                color: #8b5e3c;
-            }
-
-            .tag.drive {
-                background: #e8f0f8;
-                color: #2d4a7a;
-            }
-
-            .tag.hotel {
-                background: #f0e8f8;
-                color: #5a2d8b;
-            }
-
-            .tag.shop {
-                background: #fce8f0;
-                color: #8b2d5a;
-            }
-
-        details.card-details {
-            border-top: 1px solid #e8f0e8;
-        }
-
-            details.card-details summary {
-                padding: 8px 14px;
+            .page-header .subtitle {
                 font-size: 12px;
-                color: #2d6a2d;
-                cursor: pointer;
-                font-weight: 600;
-                list-style: none;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 6px;
+                gap: 10px;
             }
 
-                details.card-details summary::-webkit-details-marker {
+        .header-row {
+            align-items: center;
+        }
+
+        .menu-toggle {
+            margin-top: 0;
+        }
+
+        .side-drawer {
+            padding-top: 34px;
+        }
+
+            .side-drawer.open + .menu-toggle {
+                display: none;
+            }
+
+        @media (max-width: 600px) {
+            .page-header {
+                padding: 10px 14px;
+            }
+
+                .page-header .subtitle span:nth-child(n+2) {
                     display: none;
                 }
+        }
 
-                details.card-details summary::before {
-                    content: '';
-                    display: inline-block;
-                    width: 0;
-                    height: 0;
-                    border-left: 5px solid #2d6a2d;
-                    border-top: 4px solid transparent;
-                    border-bottom: 4px solid transparent;
-                    transition: transform 0.2s;
-                    margin-right: 6px;
-                }
+        details.card-details summary {
+            justify-content: space-between;
+        }
 
-            details.card-details[open] summary::before {
-                transform: rotate(90deg);
+            details.card-details summary::before {
+                margin-right: 6px;
+            }
+
+        .detail-icon {
+            margin-left: auto;
+            width: 26px;
+            height: 26px;
+            border-radius: 999px;
+            background: #f0f7ee;
+            border: 1px solid #c8d9c0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+        }
+
+        /* ── Detail Summary Icon ── */
+        details.card-details summary {
+            justify-content: space-between;
+        }
+
+            details.card-details summary::before {
+                margin-right: 6px;
             }
 
         .detail-icon {
@@ -425,303 +1077,6 @@
             flex: 0 0 auto;
         }
 
-        .details-body {
-            padding: 10px 14px 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-            .details-body p {
-                font-size: 13px;
-                line-height: 1.65;
-                color: #2d4a2d;
-            }
-
-            .details-body .label {
-                font-weight: 700;
-                color: #1a2e1a;
-            }
-
-            .details-body .hours,
-            .details-body .price {
-                font-family: 'Courier New', Consolas, monospace;
-                font-size: 12px;
-                color: #7a9a7a;
-            }
-
-            .details-body .tip,
-            .details-body .info,
-            .details-body .warning {
-                padding: 6px 10px;
-                border-radius: 0 4px 4px 0;
-                font-size: 12px;
-            }
-
-            .details-body .tip {
-                background: #f0f7ee;
-                border-left: 3px solid #2d6a2d;
-                color: #2d4a2d;
-            }
-
-            .details-body .info {
-                background: #eef5ff;
-                border-left: 3px solid #3b82f6;
-                color: #1e3a5f;
-            }
-
-            .details-body .warning {
-                background: #fef8e8;
-                border-left: 3px solid #d4a017;
-                color: #6b4c00;
-            }
-
-        .booking-btn {
-            display: inline-block;
-            background: #2d6a2d;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            padding: 6px 14px;
-            font-size: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            margin-top: 4px;
-            width: fit-content;
-            cursor: pointer;
-        }
-
-            .booking-btn:hover {
-                background: #1a4a1a;
-                color: #fff;
-            }
-
-        .drive-card {
-            background: #e8f0f8;
-            border: 1px solid #b8ccdc;
-            border-radius: 6px;
-            padding: 10px 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-            .drive-card .drive-icon {
-                flex-shrink: 0;
-            }
-
-            .drive-card p {
-                font-size: 13px;
-                color: #2d4a7a;
-            }
-
-            .drive-card .drive-time {
-                font-family: 'Courier New', Consolas, monospace;
-                font-size: 12px;
-                color: #5a6a8a;
-            }
-
-        .meal-block {
-            background: #fffcf0;
-            border: 1px solid #e8ddb0;
-            border-radius: 6px;
-            padding: 14px;
-            margin-top: 16px;
-            margin-bottom: 24px;
-        }
-
-            .meal-block h3 {
-                font-size: 14px;
-                font-weight: 700;
-                color: #8b5e3c;
-                margin-bottom: 10px;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-            }
-
-        .restaurant-item {
-            border-top: 1px solid #e8ddb0;
-            padding: 10px 0;
-        }
-
-            .restaurant-item:first-of-type {
-                border-top: none;
-                padding-top: 0;
-            }
-
-            .restaurant-item .r-name {
-                font-weight: 700;
-                font-size: 14px;
-                color: #5a3a1a;
-            }
-
-            .restaurant-item .r-meta {
-                font-size: 12px;
-                color: #8b6a3a;
-                font-family: 'Courier New', Consolas, monospace;
-            }
-
-            .restaurant-item .r-tips {
-                font-size: 13px;
-                color: #5a4a2a;
-                margin-top: 4px;
-            }
-
-            .restaurant-item .r-note,
-            .r-note {
-                font-size: 12px;
-                color: #a07030;
-                font-style: italic;
-                margin-top: 4px;
-            }
-
-        /* ─────────────────────────────
-           Concierge / Common Cards
-        ───────────────────────────── */
-        .concierge {
-            margin-top: 48px;
-            border-top: 2px solid #c8d9c0;
-            padding-top: 32px;
-        }
-
-            .concierge h2 {
-                font-family: Georgia, serif;
-                font-size: 22px;
-                color: #1a2e1a;
-                margin-bottom: 20px;
-            }
-
-        .concierge-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 16px;
-        }
-
-        .concierge-card {
-            background: #ffffff;
-            border: 1px solid #c8d9c0;
-            border-radius: 6px;
-            padding: 18px;
-        }
-
-            .concierge-card h3 {
-                font-size: 15px;
-                font-weight: 700;
-                color: #2d6a2d;
-                margin-bottom: 12px;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-            }
-
-            .concierge-card ul {
-                padding-left: 16px;
-                font-size: 13px;
-                color: #2d4a2d;
-                line-height: 1.85;
-            }
-
-            .concierge-card table {
-                width: 100%;
-                font-size: 13px;
-                border-collapse: collapse;
-            }
-
-                .concierge-card table tr {
-                    border-bottom: 1px solid #e8f0e8;
-                }
-
-                    .concierge-card table tr:last-child {
-                        border-bottom: none;
-                    }
-
-                .concierge-card table td {
-                    padding: 5px 0;
-                    vertical-align: top;
-                }
-
-                    .concierge-card table td:first-child {
-                        color: #2d4a2d;
-                        width: 55%;
-                    }
-
-                    .concierge-card table td:last-child {
-                        font-family: 'Courier New', Consolas, monospace;
-                        color: #7a9a7a;
-                        text-align: right;
-                    }
-
-        .total-row td {
-            font-weight: 700 !important;
-            color: #1a2e1a !important;
-            padding-top: 8px !important;
-            border-top: 2px solid #c8d9c0 !important;
-        }
-
-        /* ─────────────────────────────
-           Packing Checklist
-        ───────────────────────────── */
-        .checklist-card {
-            grid-column: 1 / -1;
-        }
-
-        .checklist-groups {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 14px;
-        }
-
-        .checklist-group {
-            background: #f8fbf6;
-            border: 1px solid #e1ecd9;
-            border-radius: 6px;
-            padding: 12px;
-        }
-
-            .checklist-group h4 {
-                font-size: 13px;
-                color: #1a2e1a;
-                margin-bottom: 8px;
-            }
-
-        .checklist-items {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 6px 10px;
-        }
-
-        .check-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            color: #2d4a2d;
-            cursor: pointer;
-            line-height: 1.35;
-        }
-
-            .check-item input {
-                accent-color: #2d6a2d;
-                width: 15px;
-                height: 15px;
-                flex: 0 0 auto;
-            }
-
-                .check-item input:checked + span {
-                    text-decoration: line-through;
-                    color: #7a9a7a;
-                }
-
-        .checklist-note {
-            margin-top: 12px;
-            font-size: 12px;
-            color: #7a9a7a;
-        }
-
-        /* ─────────────────────────────
-           Expense Helper
-        ───────────────────────────── */
         .expense-form {
             display: grid;
             gap: 12px;
@@ -736,8 +1091,7 @@
             }
 
             .expense-form input,
-            .expense-form select,
-            .expense-form textarea {
+            .expense-form select {
                 width: 100%;
                 border: 1px solid #c8d9c0;
                 border-radius: 6px;
@@ -745,12 +1099,6 @@
                 font-size: 14px;
                 background: #fff;
                 color: #1a2e1a;
-                font-family: inherit;
-            }
-
-            .expense-form textarea {
-                resize: vertical;
-                min-height: 80px;
             }
 
         .split-box {
@@ -768,33 +1116,39 @@
             color: #1a2e1a;
         }
 
-        .split-box label {
-            display: flex !important;
-            align-items: center;
+        .expense-list {
+            display: grid;
             gap: 8px;
+        }
+
+        .expense-empty {
+            color: #7a9a7a;
             font-size: 13px;
-            font-weight: 600;
-            line-height: 1.4;
+            background: #f8fbf6;
+            border: 1px dashed #c8d9c0;
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
         }
 
-        .split-box input[type="checkbox"] {
-            width: 16px !important;
-            height: 16px !important;
-            flex: 0 0 auto;
-            margin: 0;
-            accent-color: #2d6a2d;
-        }
-
+        /* ── Expense View Final ── */
         .expense-summary-number {
             color: #d60000 !important;
             font-size: 18px;
             font-weight: 800;
         }
 
-        .expense-status {
-            font-size: 12px;
-            color: #7a9a7a;
-            margin-top: 8px;
+        .expense-form textarea {
+            width: 100%;
+            border: 1px solid #c8d9c0;
+            border-radius: 6px;
+            padding: 8px 10px;
+            font-size: 14px;
+            background: #fff;
+            color: #1a2e1a;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 80px;
         }
 
         .expense-list {
@@ -920,48 +1274,57 @@
             width: fit-content;
         }
 
-        /* ─────────────────────────────
-           Footer / Responsive
-        ───────────────────────────── */
-        footer {
-            text-align: center;
-            padding: 28px 16px;
+        .expense-status {
             font-size: 12px;
             color: #7a9a7a;
-            border-top: 1px solid #c8d9c0;
-            margin-top: 48px;
+            margin-top: 8px;
         }
 
-        @media (min-width: 640px) {
-            .activities-grid {
-                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            }
-
-            .concierge-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+        .split-box label {
+            display: flex !important;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.4;
         }
 
-        @media (min-width: 720px) {
-            .checklist-groups {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .split-box input[type="checkbox"] {
+            width: 16px !important;
+            height: 16px !important;
+            flex: 0 0 auto;
+            margin: 0;
+            accent-color: #2d6a2d;
         }
 
-        @media (min-width: 900px) {
-            .checklist-items {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
+        /* ── Google Login / Expense Auth ── */
+        .auth-panel {
+            background: #f8fbf6;
+            border: 1px solid #e1ecd9;
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
         }
 
-        @media (max-width: 600px) {
-            .page-header {
-                padding: 10px 14px;
-            }
+        .auth-user {
+            font-size: 13px;
+            color: #2d4a2d;
+            font-weight: 700;
+        }
 
-                .page-header .subtitle span:nth-child(n+2) {
-                    display: none;
-                }
+        .auth-hint {
+            width: 100%;
+            font-size: 12px;
+            color: #7a9a7a;
+        }
+
+        .auth-denied {
+            color: #b91c1c;
+            font-weight: 800;
         }
     </style>
 </head>
@@ -2833,6 +3196,13 @@
             <section class="concierge">
                 <h2>💰 記帳幫手</h2>
 
+                <div class="auth-panel">
+                    <button id="googleLoginBtn" class="booking-btn" type="button">Google 登入</button>
+                    <button id="googleLogoutBtn" class="booking-btn" type="button" style="display:none;">登出</button>
+                    <div id="loginUser" class="auth-user">尚未登入</div>
+                    <div id="authHint" class="auth-hint">登入 Google 後才能新增或刪除支出。</div>
+                </div>
+
                 <div class="concierge-grid">
 
                     <div class="concierge-card">
@@ -2963,8 +3333,8 @@
 
     </main>
     <footer>
-        九州自駕 6 天深度之旅<br>
-        Fire & Friends Travel Planner © 2026
+        九州自駕 6 天 · 2026.09.27–10.02 · Generated by Travel Assistant (TicNote Cloud)<br />
+        標記「Please verify before visiting」的資訊請於出發前自行確認最新狀態
     </footer>
     <script>
         (function renderTicNoteMetaDate() {
@@ -3056,6 +3426,7 @@
         })();
     </script>
 
+
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
         import {
@@ -3067,9 +3438,15 @@
             onSnapshot,
             query,
             orderBy,
-            where,
             serverTimestamp
         } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+        import {
+            getAuth,
+            GoogleAuthProvider,
+            signInWithPopup,
+            signOut,
+            onAuthStateChanged
+        } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBViI_wSIWXOclTiZpPvuUkeNJXW9fzEgM",
@@ -3083,9 +3460,20 @@
 
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
         const expenseRef = collection(db, "expenses");
 
         const members = ["文耀", "欣儀", "建泓", "建甫", "馥伃"];
+
+        // 這裡請改成你允許記帳的 Google Email
+        const allowUsers = [
+            "s0980642866@gmail.com"
+            // "friend1@gmail.com",
+            // "friend2@gmail.com",
+            // "friend3@gmail.com",
+            // "friend4@gmail.com"
+        ];
 
         const $ = (id) => document.getElementById(id);
         const yen = (num) => "¥" + Math.round(Number(num || 0)).toLocaleString("ja-JP");
@@ -3102,6 +3490,10 @@
                 .replaceAll(">", "&gt;")
                 .replaceAll('"', "&quot;")
                 .replaceAll("'", "&#039;");
+        }
+
+        function isAllowedUser(user) {
+            return !!user && allowUsers.includes(user.email);
         }
 
         function formatTripDate(value) {
@@ -3126,7 +3518,81 @@
                 .map(x => x.value);
         }
 
+        async function googleLogin() {
+            try {
+                await signInWithPopup(auth, provider);
+            } catch (err) {
+                console.error(err);
+                alert("Google 登入失敗：" + err.message);
+            }
+        }
+
+        async function googleLogout() {
+            try {
+                await signOut(auth);
+            } catch (err) {
+                console.error(err);
+                alert("登出失敗：" + err.message);
+            }
+        }
+
+        function updateAuthUI(user) {
+            const loginBtn = $("googleLoginBtn");
+            const logoutBtn = $("googleLogoutBtn");
+            const loginUser = $("loginUser");
+            const authHint = $("authHint");
+            const addBtn = $("addExpenseBtn");
+            const deleteBtns = document.querySelectorAll(".expense-delete-btn");
+
+            if (!user) {
+                if (loginBtn) loginBtn.style.display = "inline-block";
+                if (logoutBtn) logoutBtn.style.display = "none";
+                if (loginUser) loginUser.textContent = "尚未登入";
+                if (authHint) {
+                    authHint.textContent = "登入 Google 後才能新增或刪除支出。";
+                    authHint.classList.remove("auth-denied");
+                }
+                if (addBtn) addBtn.disabled = true;
+                deleteBtns.forEach(btn => btn.disabled = true);
+                return;
+            }
+
+            const allowed = isAllowedUser(user);
+
+            if (loginBtn) loginBtn.style.display = "none";
+            if (logoutBtn) logoutBtn.style.display = "inline-block";
+            if (loginUser) loginUser.textContent = `👤 ${user.displayName || user.email}`;
+
+            if (allowed) {
+                if (authHint) {
+                    authHint.textContent = `已登入：${user.email}，可以新增與刪除支出。`;
+                    authHint.classList.remove("auth-denied");
+                }
+                if (addBtn) addBtn.disabled = false;
+                deleteBtns.forEach(btn => btn.disabled = false);
+            } else {
+                if (authHint) {
+                    authHint.textContent = `此帳號未授權記帳：${user.email}`;
+                    authHint.classList.add("auth-denied");
+                }
+                if (addBtn) addBtn.disabled = true;
+                deleteBtns.forEach(btn => btn.disabled = true);
+            }
+        }
+
         async function addExpense() {
+            const user = auth.currentUser;
+
+            if (!user) {
+                alert("請先登入 Google");
+                return;
+            }
+
+            if (!isAllowedUser(user)) {
+                alert("這個 Google 帳號沒有記帳權限");
+                return;
+            }
+
             const tripDate = $("expenseTripDate")?.value || "";
             const category = $("expenseCategory")?.value || "";
             const title = $("expenseTitle")?.value.trim() || "";
@@ -3157,6 +3623,8 @@
                     note,
                     Status: "Y",
                     deletedAt: null,
+                    CreatedBy: user.email,
+                    CreatedName: user.displayName || "",
                     createdAt: serverTimestamp(),
                     updatedAt: serverTimestamp()
                 });
@@ -3171,19 +3639,33 @@
                 setStatus("新增失敗，請檢查 Firebase 規則或網路連線");
             } finally {
                 if (btn) {
-                    btn.disabled = false;
+                    btn.disabled = !isAllowedUser(auth.currentUser);
                     btn.textContent = "新增支出";
                 }
             }
         }
 
         async function deleteExpense(id) {
+            const user = auth.currentUser;
+
+            if (!user) {
+                alert("請先登入 Google");
+                return;
+            }
+
+            if (!isAllowedUser(user)) {
+                alert("這個 Google 帳號沒有刪除權限");
+                return;
+            }
+
             if (!confirm("確定要刪除這筆支出嗎？")) return;
 
             try {
                 await updateDoc(doc(db, "expenses", id), {
                     Status: "N",
                     deletedAt: serverTimestamp(),
+                    DeletedBy: user.email,
+                    DeletedName: user.displayName || "",
                     updatedAt: serverTimestamp()
                 });
 
@@ -3220,56 +3702,60 @@
                 const total = items.reduce((sum, x) => sum + Number(x.amount || 0), 0);
 
                 return `
-                            <details class="expense-day-card">
-                                <summary>
-                                    <div class="expense-day-header">
-                                        <div>
-                                            <div class="expense-day-title">📅 ${escapeHtml(date)}</div>
-                                            <div class="expense-day-count">共 ${items.length} 筆</div>
-                                        </div>
-                                        <div class="expense-day-total">${yen(total)}</div>
+                        <details class="expense-day-card">
+                            <summary>
+                                <div class="expense-day-header">
+                                    <div>
+                                        <div class="expense-day-title">📅 ${escapeHtml(date)}</div>
+                                        <div class="expense-day-count">共 ${items.length} 筆</div>
                                     </div>
-                                </summary>
+                                    <div class="expense-day-total">${yen(total)}</div>
+                                </div>
+                            </summary>
 
-                                <div class="expense-day-body">
-                                    ${items.map(exp => {
+                            <div class="expense-day-body">
+                                ${items.map(exp => {
                     const memberText = Array.isArray(exp.members) ? exp.members.join("、") : "";
                     const createdText = formatTimestamp(exp.createdAt);
+                    const createdBy = exp.CreatedName || exp.CreatedBy || "";
 
                     return `
-                                            <div class="expense-item">
-                                                <div class="expense-item-head">
-                                                    <div>
-                                                        <div class="expense-item-title">${escapeHtml(exp.title)}</div>
-                                                        <div class="expense-item-meta">
-                                                            ${escapeHtml(formatTripDate(exp.tripDate))} · ${escapeHtml(exp.category)}
-                                                        </div>
+                                        <div class="expense-item">
+                                            <div class="expense-item-head">
+                                                <div>
+                                                    <div class="expense-item-title">${escapeHtml(exp.title)}</div>
+                                                    <div class="expense-item-meta">
+                                                        ${escapeHtml(formatTripDate(exp.tripDate))} · ${escapeHtml(exp.category)}
                                                     </div>
-                                                    <div class="expense-item-amount">${yen(exp.amount)}</div>
                                                 </div>
-
-                                                <div class="expense-item-meta">付款人：${escapeHtml(exp.payer)}</div>
-                                                <div class="expense-item-meta">分攤：${escapeHtml(memberText)}</div>
-
-                                                ${exp.note ? `<div class="expense-item-note">${escapeHtml(exp.note)}</div>` : ""}
-                                                ${createdText ? `<div class="expense-item-meta">建立時間：${escapeHtml(createdText)}</div>` : ""}
-
-                                                <button type="button"
-                                                        class="expense-delete-btn"
-                                                        data-id="${escapeHtml(exp.id)}">
-                                                    刪除
-                                                </button>
+                                                <div class="expense-item-amount">${yen(exp.amount)}</div>
                                             </div>
-                                        `;
+
+                                            <div class="expense-item-meta">付款人：${escapeHtml(exp.payer)}</div>
+                                            <div class="expense-item-meta">分攤：${escapeHtml(memberText)}</div>
+
+                                            ${exp.note ? `<div class="expense-item-note">${escapeHtml(exp.note)}</div>` : ""}
+                                            ${createdText ? `<div class="expense-item-meta">建立時間：${escapeHtml(createdText)}</div>` : ""}
+                                            ${createdBy ? `<div class="expense-item-meta">建立者：${escapeHtml(createdBy)}</div>` : ""}
+
+                                            <button type="button"
+                                                    class="expense-delete-btn"
+                                                    data-id="${escapeHtml(exp.id)}">
+                                                刪除
+                                            </button>
+                                        </div>
+                                    `;
                 }).join("")}
-                                </div>
-                            </details>
-                        `;
+                            </div>
+                        </details>
+                    `;
             }).join("");
 
             list.querySelectorAll(".expense-delete-btn").forEach(btn => {
                 btn.addEventListener("click", () => deleteExpense(btn.dataset.id));
             });
+
+            updateAuthUI(auth.currentUser);
         }
 
         function renderSummary(expenses) {
@@ -3347,31 +3833,33 @@
 
             if (settlements.length === 0) {
                 table.innerHTML = `
-                            <tr>
-                                <td colspan="2" style="text-align:center;color:#7a9a7a;">
-                                    目前沒有需要結算的金額
-                                </td>
-                            </tr>
-                        `;
+                        <tr>
+                            <td colspan="2" style="text-align:center;color:#7a9a7a;">
+                                目前沒有需要結算的金額
+                            </td>
+                        </tr>
+                    `;
                 return;
             }
 
             table.innerHTML = settlements.map(x => `
-                        <tr>
-                            <td>${escapeHtml(x.from)} → ${escapeHtml(x.to)}</td>
-                            <td style="color:#d60000;font-weight:800;">${yen(x.amount)}</td>
-                        </tr>
-                    `).join("");
+                    <tr>
+                        <td>${escapeHtml(x.from)} → ${escapeHtml(x.to)}</td>
+                        <td style="color:#d60000;font-weight:800;">${yen(x.amount)}</td>
+                    </tr>
+                `).join("");
         }
 
         function startExpenseSync() {
-            const q = query(expenseRef, where("Status", "==", "Y"), orderBy("tripDate", "asc"));
+            const q = query(expenseRef, orderBy("tripDate", "asc"));
 
             onSnapshot(q, snapshot => {
-                const expenses = snapshot.docs.map(d => ({
-                    id: d.id,
-                    ...d.data()
-                }));
+                const expenses = snapshot.docs
+                    .map(d => ({
+                        id: d.id,
+                        ...d.data()
+                    }))
+                    .filter(x => x.Status !== "N");
 
                 renderExpenses(expenses);
                 renderSummary(expenses);
@@ -3390,13 +3878,24 @@
                 dateInput.value = now.toISOString().slice(0, 16);
             }
 
+            const loginBtn = $("googleLoginBtn");
+            const logoutBtn = $("googleLogoutBtn");
             const addBtn = $("addExpenseBtn");
+
+            if (loginBtn) loginBtn.addEventListener("click", googleLogin);
+            if (logoutBtn) logoutBtn.addEventListener("click", googleLogout);
+
             if (!addBtn) {
                 console.error("找不到 addExpenseBtn，新增支出按鈕沒有綁定成功");
-                return;
+            } else {
+                addBtn.disabled = true;
+                addBtn.addEventListener("click", addExpense);
             }
 
-            addBtn.addEventListener("click", addExpense);
+            onAuthStateChanged(auth, user => {
+                updateAuthUI(user);
+            });
+
             startExpenseSync();
         });
     </script>
