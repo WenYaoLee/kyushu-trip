@@ -1,0 +1,116 @@
+<div class="page-view standalone-page" id="expense-view">
+<section class="concierge">
+<h2>💰 記帳幫手</h2>
+<div class="auth-panel">
+<button class="booking-btn" id="googleLoginBtn" type="button">Google 登入</button>
+<button class="booking-btn" id="googleLogoutBtn" style="display:none;" type="button">登出</button>
+<div class="auth-user" id="loginUser">尚未登入</div>
+<div class="auth-hint" id="authHint">登入 Google 後才能新增或刪除支出。</div>
+</div>
+<div class="concierge-grid">
+<div class="concierge-card">
+<h3>📊 旅費總覽</h3>
+<table>
+<tr>
+<td>總支出</td>
+<td class="expense-summary-number" id="expenseTotal">¥0</td>
+</tr>
+<tr>
+<td>參加人數</td>
+<td id="expensePeopleCount">5 人</td>
+</tr>
+<tr>
+<td>每人平均</td>
+<td id="expenseAverage">¥0</td>
+</tr>
+</table>
+<div class="expense-status" id="expenseStatus">等待 Firebase 同步...</div>
+</div>
+<div class="concierge-card">
+<h3>👥 成員</h3>
+<div class="r-note">
+                            文耀<br/>
+                            欣儀<br/>
+                            建泓<br/>
+                            建甫<br/>
+                            馥伃
+                        </div>
+</div>
+<div class="concierge-card checklist-card">
+<h3>➕ 新增支出</h3>
+<form class="expense-form" id="expenseForm">
+<label>
+                                日期時間
+                                <input id="expenseTripDate" type="datetime-local"/>
+</label>
+<label>
+                                類別
+                                <select id="expenseCategory">
+<option value="餐飲">餐飲</option>
+<option value="交通">交通</option>
+<option value="住宿">住宿</option>
+<option value="門票">門票</option>
+<option value="購物">購物</option>
+<option value="加油">加油</option>
+<option value="其他">其他</option>
+</select>
+</label>
+<label>
+                                項目名稱
+                                <input id="expenseTitle" placeholder="例：阿蘇午餐" type="text"/>
+</label>
+<label>
+                                金額（日圓）
+                                <input id="expenseAmount" min="0" placeholder="例：3500" type="number"/>
+</label>
+<label>
+                                付款人
+                                <select id="expensePayer">
+<option value="文耀">文耀</option>
+<option value="欣儀">欣儀</option>
+<option value="建泓">建泓</option>
+<option value="建甫">建甫</option>
+<option value="馥伃">馥伃</option>
+</select>
+</label>
+<div class="split-box">
+<div class="split-title">分攤成員</div>
+<label><input checked="" class="expense-member" type="checkbox" value="文耀"/> 文耀</label>
+<label><input checked="" class="expense-member" type="checkbox" value="欣儀"/> 欣儀</label>
+<label><input checked="" class="expense-member" type="checkbox" value="建泓"/> 建泓</label>
+<label><input checked="" class="expense-member" type="checkbox" value="建甫"/> 建甫</label>
+<label><input checked="" class="expense-member" type="checkbox" value="馥伃"/> 馥伃</label>
+</div>
+<label>
+                                備註
+                                <textarea id="expenseNote" placeholder="例如：停車費、現金付款、代墊等" rows="3"></textarea>
+</label>
+<button class="booking-btn" id="addExpenseBtn" type="button">
+                                新增支出
+                            </button>
+</form>
+</div>
+<div class="concierge-card checklist-card">
+<h3>📒 支出明細</h3>
+<div class="expense-list" id="expenseList">
+<div class="expense-empty">
+                                正在讀取 Firebase 資料...
+                            </div>
+</div>
+</div>
+<div class="concierge-card checklist-card">
+<h3>💰 最終結算</h3>
+<div class="r-note">
+                            系統會依照付款人與分攤成員，自動計算誰需要付給誰。
+                        </div>
+<table id="memberSummaryTable">
+<tr>
+<td colspan="2" style="text-align:center;color:#7a9a7a;">
+                                    等待 Firebase 同步...
+                                </td>
+</tr>
+</table>
+</div>
+</div>
+</section>
+</div>
