@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>李家堂九州六日行</title>
+
+<link href="assets/css/style.css" rel="stylesheet"/></head>
+<body>
+<div class="side-overlay" id="sideOverlay"></div>
+<aside class="side-drawer" id="sideDrawer">
+<div class="drawer-title">九州自駕選單</div>
+<div class="drawer-subtitle">選擇要查看的畫面</div>
+<div class="drawer-nav">
+<button class="drawer-link active" data-view="home-view" type="button">🏠 旅行首頁</button>
+<button class="drawer-link" data-view="itinerary-view" type="button">📅 六天行程</button>
+<button class="drawer-link" data-view="checklist-view" type="button">🎒 行前檢查清單</button>
+<button class="drawer-link" data-view="concierge-view" type="button">🧭 旅行顧問</button>
+<button class="drawer-link" data-view="rental-view" type="button">🚗 租車資訊</button>
+<button class="drawer-link" data-view="lodging-view" type="button">🏨 住宿資訊</button>
+<button class="drawer-link" data-view="necessary-cost-view" type="button">💴 必要花費</button>
+<button class="drawer-link" data-view="expense-view" type="button">💰 記帳幫手</button>
+<button class="drawer-link" data-view="map-view" type="button">🗺️ 每日地圖</button>
+<button class="drawer-link" data-view="tools-view" type="button">☀️ 旅行工具</button>
+</div>
+</aside>
+<!-- Page Header -->
+<div class="page-header">
+<div class="header-row">
+<button aria-label="開啟選單" class="menu-toggle" id="menuToggle" type="button">
+<span></span>
+</button>
+<div class="header-content">
+<h1>九州六日行</h1>
+<div class="subtitle">
+<span>
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+                        2026年 9月27日（日）— 10月2日（五）
+                    </span>
+<span>
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><circle cx="12" cy="10" r="3"></circle><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"></path></svg>
+                        福岡 → 熊本 → 高千穗 → 阿蘇 → 由布院 → 別府 → 大宰府 → 福岡
+                    </span>
+<span>
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        自駕 · 租車出遊
+                    </span>
+</div>
+</div>
+</div>
+</div>
+<main><div id="viewsRoot"></div></main>
+
+<nav class="bottom-nav" aria-label="快速導覽">
+  <button type="button" class="bottom-nav-btn" data-nav-action="prev">‹ 上一頁</button>
+  <button type="button" class="bottom-nav-btn primary" data-view-link="home-view">🏠 首頁</button>
+  <button type="button" class="bottom-nav-btn" data-nav-action="next">下一頁 ›</button>
+</nav>
+<footer>
+        九州自駕 6 天深度之旅<br/>
+        Fire &amp; Friends Travel Planner © 2026
+    </footer>
+
+
+
+
+
+<script src="assets/js/app.js" type="module"></script></body>
+</html>
