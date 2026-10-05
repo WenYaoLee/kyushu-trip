@@ -196,15 +196,23 @@ function initTripCountdown() {
   const minutesEl = box.querySelector('[data-countdown-minutes]');
   const secondsEl = box.querySelector('[data-countdown-seconds]');
 
+  let timer = null;
+
   function pad(n) {
     return String(Math.max(0, Math.floor(n))).padStart(2, '0');
   }
 
   function update() {
     const diff = target - Date.now();
+
     if (diff <= 0) {
       box.remove();
-      clearInterval(timer);
+
+      if (timer !== null) {
+        clearInterval(timer);
+        timer = null;
+      }
+
       return;
     }
 
@@ -221,7 +229,11 @@ function initTripCountdown() {
   }
 
   update();
-  const timer = setInterval(update, 1000);
+
+  // update() 有可能已經把倒數區塊移除了
+  if (document.body.contains(box)) {
+    timer = setInterval(update, 1000);
+  }
 }
 
 function initTravelTools() {
