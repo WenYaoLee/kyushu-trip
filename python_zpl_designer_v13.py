@@ -662,3 +662,14 @@ class Designer(tk.Tk):
 
 if __name__=='__main__':
     Designer().mainloop()
+修正精準對齊的功能，如果可以用滑鼠框起來，選到的都會可以被選擇那就更好
+新增額外功能
+ini檔的產生要如提供的檔案做產生
+需注意的事情
+Format file Path=lenovoNBox.fmt
+Text   file Path=lenovoNBox.txt
+就是儲存時候的檔名
+Field Delimiter這個是分段符號，如果可以設計在上面直接讓使用者填寫的話那就更好(下拉選單也可以)，目前遇到的就是","或是";"
+然後item的屬性如果可以在畫面上直接設定的話，那就更好了
+還有item的流水號產生，也需要修正一下邏輯，目前把有item的刪除後，再新增他的流水號會錯亂
+左側的控制面板(新增物件、物件清單、屬性等)，如果太長塞不下，那就用滾輪的方式
