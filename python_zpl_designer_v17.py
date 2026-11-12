@@ -889,3 +889,7 @@ class Designer(tk.Tk):
 
 if __name__=='__main__':
     Designer().mainloop()
+TXT檔案幫我生成
+ITEM0001;ITEM0002;ITEM000;ITEM0004.....以此類推
+;或是,或是:
+就一朝INI設定那邊的欄位分隔符做決定
